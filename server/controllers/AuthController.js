@@ -41,5 +41,10 @@ module.exports = {
         .status(200)
         .send({ message: "Logged in", user: req.session.user });
     }
+  },
+
+  logout: (req, res) => {
+    req.session.destroy();
+    res.status(200).send({ message: "Logged out" });
   }
 };

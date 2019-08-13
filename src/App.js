@@ -8,7 +8,8 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.location.pathname === "/" || "/registration" ? null : (
+        {this.props.location.pathname === "/" ||
+        this.props.location.pathname === "/registration" ? null : (
           <Nav />
         )}
         {routes}

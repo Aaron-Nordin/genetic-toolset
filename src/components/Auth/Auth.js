@@ -34,7 +34,6 @@ class Auth extends Component {
     return (
       <div>
         <hr />
-        Login:
         <form onSubmit={e => e.preventDefault()}>
           <input
             type="text"
@@ -48,11 +47,11 @@ class Auth extends Component {
             placeholder="Password"
             onChange={e => this.handleChange(e)}
           />
-          <button onClick={this.login}>Go!</button>
+          <button onClick={this.login}>Login</button>
         </form>
-        <div>-or-</div>
+        <div>- or -</div>
         <Link to="/registration">
-          <button>Register!</button>
+          <button>Register</button>
         </Link>
         <hr />
       </div>
