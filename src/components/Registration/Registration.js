@@ -1,18 +1,34 @@
 import React, { Component } from "react";
+import axios from "axios";
+import { setUser } from "../../ducks/reducer";
+import { connect } from "react-redux";
 
-export default class Registration extends Component {
+class Registration extends Component {
   state = {
-      username: "",
-      password: "",
-      email: "",
-      profilePic: ""
-  }
-  
-    handleChange(e) {
+    username: "",
+    password: "",
+    email: "",
+    userImage: ""
+  };
+
+  handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
+
+  register = () => {
+    const { username, password, email, userImage } = this.state;
+    axios
+      .post("/auth/register", { username, password, email, userImage })
+      .then(res => {
+        this.props.setUser({ username, email, userImage });
+        this.props.history.push("/dashboard");
+      })
+      .catch(() => {
+        alert("Email is already in use");
+      });
+  };
 
   render() {
     return (
@@ -41,19 +57,24 @@ export default class Registration extends Component {
           />
           <input
             type="url"
-            name="profilePic"
+            name="userImage"
             placeholder="Profile Pic URL"
             onChange={e => this.handleChange(e)}
           />
           <input
             type="file"
-            name="profilePic"
+            name="userImage"
             accept="image/*"
             onChange={e => this.handleChange(e)}
           />
-          <input type="submit" />
+          <input type="submit" onClick={this.register} />
         </form>
       </div>
     );
   }
 }
+
+export default connect(
+  null,
+  { setUser }
+)(Registration);

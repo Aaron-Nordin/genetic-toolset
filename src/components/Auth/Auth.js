@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { setUser } from "../../ducks/reducer";
+import { connect } from "react-redux";
 
-export default class Auth extends Component {
+class Auth extends Component {
   state = {
     username: "",
     password: ""
@@ -12,6 +15,20 @@ export default class Auth extends Component {
       [e.target.name]: e.target.value
     });
   }
+
+  login = () => {
+    const { username, password } = this.state;
+    axios
+      .post("/auth/login", { username, password })
+      .then(res => {
+        const { username, email, user_image: userImage } = res.data.user;
+        this.props.setUser({ username, email, userImage });
+        this.props.history.push("/dashboard");
+      })
+      .catch(() => {
+        alert("Try again");
+      });
+  };
 
   render() {
     return (
@@ -31,7 +48,7 @@ export default class Auth extends Component {
             placeholder="Password"
             onChange={e => this.handleChange(e)}
           />
-          <button>Go!</button>
+          <button onClick={this.login}>Go!</button>
         </form>
         <div>-or-</div>
         <Link to="/registration">
@@ -42,3 +59,8 @@ export default class Auth extends Component {
     );
   }
 }
+
+export default connect(
+  null,
+  { setUser }
+)(Auth);
