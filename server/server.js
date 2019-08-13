@@ -3,7 +3,8 @@ const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
-const authCtrl = require("./controllers/AuthController")
+const authCtrl = require("./controllers/authController");
+const metaCtrl = require("./controllers/metaDataController");
 
 const app = express();
 
@@ -27,3 +28,5 @@ massive(CONNECTION_STRING).then(db => {
 app.post("/auth/register", authCtrl.register)
 app.post("/auth/login", authCtrl.login)
 app.delete("/auth/logout", authCtrl.logout)
+
+app.get("/api/metadata/genes/:userId", metaCtrl.getGenes)

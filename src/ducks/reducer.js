@@ -1,7 +1,7 @@
 //---------------------------INTITIAL STATE-------------------------------
 
 const initialState = {
-  // id: null,
+  userId: null,
   username: "",
   email: "",
   userImage: ""
@@ -33,8 +33,8 @@ export default (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case SET_USER:
-      const { username, email, userImage } = payload;
-      return { ...state, username, email, userImage };
+      const { userId, username, email, userImage } = payload;
+      return { ...state, userId, username, email, userImage };
     case LOGOUT_USER:
       return initialState;
     default:

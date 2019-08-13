@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 
 module.exports = {
+  //axios.post in Registration.js register()
   register: async (req, res) => {
     const db = req.app.get("db");
     const { username, email, userImage, password } = req.body;
@@ -25,6 +26,7 @@ module.exports = {
       });
   },
 
+  //axios.post in Auth.js register()
   login: async (req, res) => {
     const db = req.app.get("db");
     const { username, password } = req.body;
@@ -43,6 +45,7 @@ module.exports = {
     }
   },
 
+  //axios.delet in Nav.js logout()
   logout: (req, res) => {
     req.session.destroy();
     res.status(200).send({ message: "Logged out" });

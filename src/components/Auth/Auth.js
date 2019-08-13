@@ -21,8 +21,13 @@ class Auth extends Component {
     axios
       .post("/auth/login", { username, password })
       .then(res => {
-        const { username, email, user_image: userImage } = res.data.user;
-        this.props.setUser({ username, email, userImage });
+        const {
+          username,
+          email,
+          user_image: userImage,
+          user_id: userId
+        } = res.data.user;
+        this.props.setUser({ userId, username, email, userImage });
         this.props.history.push("/dashboard");
       })
       .catch(() => {
