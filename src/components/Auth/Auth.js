@@ -1,14 +1,22 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+// import { Link } from "react-router-dom";
 import { setUser } from "../../ducks/reducer";
 import { connect } from "react-redux";
+// import Scroll from "react-scroll";
+import { Element, scroller } from "react-scroll";
+
+import Registration from "../Registration/Registration";
+import GeneLib from "../GeneLib/GeneLib";
+import Nav from "../Nav/Nav";
 import "./Auth.css";
 
 class Auth extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    register: false,
+    loggedIn: false
   };
 
   handleChange(e) {
@@ -17,9 +25,10 @@ class Auth extends Component {
     });
   }
 
-  login = () => {
+  login = async () => {
     const { username, password } = this.state;
-    axios
+    this.setState({ loggedIn: true });
+    await axios
       .post("/auth/login", { username, password })
       .then(res => {
         const {
@@ -29,11 +38,27 @@ class Auth extends Component {
           user_id: userId
         } = res.data.user;
         this.props.setUser({ userId, username, email, userImage });
-        this.props.history.push("/dashboard");
       })
       .catch(() => {
         alert("Try again");
       });
+
+    scroller.scrollTo("Gene-Lib-Ele", {
+      duration: 1500,
+      delay: 150,
+      smooth: true,
+      offset: -25
+    });
+  };
+
+  handleRegButton = () => {
+    this.setState({ register: true });
+    scroller.scrollTo("Registration-Ele", {
+      duration: 1500,
+      delay: 150,
+      smooth: true
+      // offset: 10
+    });
   };
 
   // onMouseMoveBackground = () => {
@@ -49,37 +74,57 @@ class Auth extends Component {
 
   render() {
     return (
-      <div
-        style={{
-          maxWidth: "100vw",
-          height: "100vh",
-          width: "100%",
-          backgroundColor: "black",
-          overflowY: "hidden"
-        }}
-      >
-        <video autoPlay muted loop id="DNA-vid">
-          <source src="http://localhost:5555/static/DNA.mp4" type="video/mp4" />
-        </video>
-        <div className="auth-homepage" id="auth-homepage-pop-in">
-          <form onSubmit={e => e.preventDefault()}>
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              onChange={e => this.handleChange(e)}
+      <div className="auth-component">
+        <div
+          style={{
+            maxWidth: "100vw",
+            height: "100vh",
+            width: "100%",
+            backgroundColor: "black",
+            overflowY: "hidden"
+          }}
+        >
+          <video autoPlay muted loop id="DNA-vid">
+            <source
+              src="http://localhost:5555/static/DNA.mp4"
+              type="video/mp4"
             />
-            <input
-              type="text"
-              name="password"
-              placeholder="Password"
-              onChange={e => this.handleChange(e)}
-            />
-            <button onClick={this.login}>Login</button>
-            <Link to="/registration" className="hidden-a-tag">
-              <button>Register</button>
-            </Link>
-          </form>
+          </video>
+          <div className="auth-homepage" id="auth-homepage-pop-in">
+            <form onSubmit={e => e.preventDefault()}>
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                onChange={e => this.handleChange(e)}
+              />
+              <input
+                type="text"
+                name="password"
+                placeholder="Password"
+                onChange={e => this.handleChange(e)}
+              />
+              <button onClick={this.login}>Login</button>
+              <button onClick={this.handleRegButton}>Register</button>
+            </form>
+          </div>
+        </div>
+        <div className="registration-component">
+          {this.state.register ? (
+            <Element name="Registration-Ele">
+              <Registration />
+            </Element>
+          ) : null}
+        </div>
+        <div className="nav-component">
+          {this.state.loggedIn ? <Nav /> : null}
+        </div>
+        <div className="gene-lib-component">
+          {this.state.loggedIn ? (
+            <Element name="Gene-Lib-Ele">
+              <GeneLib />
+            </Element>
+          ) : null}
         </div>
       </div>
     );
