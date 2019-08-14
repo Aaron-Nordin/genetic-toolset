@@ -18,6 +18,8 @@ app.use(
   })
 );
 
+app.use("/static", express.static("./media"))
+
 massive(CONNECTION_STRING).then(db => {
   app.set("db", db);
   app.listen(SERVER_PORT, () => console.log(`Server ${SERVER_PORT} is aware`));

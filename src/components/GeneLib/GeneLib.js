@@ -14,12 +14,25 @@ class GeneLib extends Component {
     this.getGenes();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps !== this.props) {
+      this.getGenes();
+    }
+  }
+
   getGenes = () => {
-    axios.get(`/api/metadata/genes/${this.props.userId}`).then(res => {
-      this.setState({
-        genes: res.data
-      });
-    });
+    if (this.props.userId !== null) {
+      axios
+        .get(`/api/metadata/genes/${this.props.userId}`)
+        .then(res => {
+          this.setState({
+            genes: res.data
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   };
 
   render() {

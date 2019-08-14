@@ -10,7 +10,6 @@ import { setUser } from "./ducks/reducer";
 export class App extends Component {
   componentDidMount() {
     axios.get("/auth/currentuser").then(res => {
-      console.log(res);
       const {
         user_id: userId,
         user_image: userImage,

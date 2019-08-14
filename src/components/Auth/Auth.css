@@ -1,0 +1,31 @@
+#DNA-vid {
+  width: 100%;
+}
+
+.auth-homepage {
+  transition: 1s;
+}
+
+/* .hide {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+} */
+
+.auth-homepage > form {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+}
+
+.hidden-a-tag > a {
+    display: none;
+    visibility: hidden;
+}

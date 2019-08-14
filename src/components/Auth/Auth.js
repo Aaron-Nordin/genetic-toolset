@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { setUser } from "../../ducks/reducer";
 import { connect } from "react-redux";
+import "./Auth.css";
 
 class Auth extends Component {
   state = {
@@ -35,30 +36,51 @@ class Auth extends Component {
       });
   };
 
+  // onMouseMoveBackground = () => {
+  //   const loginRegister = document.getElementById("auth-homepage-pop-in");
+  //   if (loginRegister.classList.contains("hide")) {
+  //     loginRegister.classList.remove("hide");
+  //   } else {
+  //     loginRegister.classList.add("hide");
+  //   }
+  // };
+  // onMouseMove={this.onMouseMoveBackground}
+  // hide
+
   render() {
     return (
-      <div>
-        <hr />
-        <form onSubmit={e => e.preventDefault()}>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            onChange={e => this.handleChange(e)}
-          />
-          <input
-            type="text"
-            name="password"
-            placeholder="Password"
-            onChange={e => this.handleChange(e)}
-          />
-          <button onClick={this.login}>Login</button>
-        </form>
-        <div>- or -</div>
-        <Link to="/registration">
-          <button>Register</button>
-        </Link>
-        <hr />
+      <div
+        style={{
+          maxWidth: "100vw",
+          height: "100vh",
+          width: "100%",
+          backgroundColor: "black",
+          overflowY: "hidden"
+        }}
+      >
+        <video autoPlay muted loop id="DNA-vid">
+          <source src="http://localhost:5555/static/DNA.mp4" type="video/mp4" />
+        </video>
+        <div className="auth-homepage" id="auth-homepage-pop-in">
+          <form onSubmit={e => e.preventDefault()}>
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              onChange={e => this.handleChange(e)}
+            />
+            <input
+              type="text"
+              name="password"
+              placeholder="Password"
+              onChange={e => this.handleChange(e)}
+            />
+            <button onClick={this.login}>Login</button>
+            <Link to="/registration" className="hidden-a-tag">
+              <button>Register</button>
+            </Link>
+          </form>
+        </div>
       </div>
     );
   }
