@@ -1,4 +1,5 @@
-select distinct g.user_id, g.gene_name, g.gene_desc, d.dna_seq, r.rna_seq, a.amino_acid_seq
+select distinct g.user_id, g.gene_id, g.gene_name, g.gene_desc, 
+d.dna_seq, r.rna_seq, a.amino_acid_seq
 from gene g
 join users u  on g.user_id = u.user_id
 join dna d on g.dna_id = d.dna_id

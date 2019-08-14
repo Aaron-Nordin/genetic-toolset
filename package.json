@@ -4,6 +4,12 @@
   "private": true,
   "main": "server/server.js",
   "proxy": "http://localhost:5555",
+  "nodemonConfig": {
+    "ignore": [
+      "src/*",
+      "public/*"
+    ]
+  },
   "dependencies": {
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",

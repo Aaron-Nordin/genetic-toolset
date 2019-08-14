@@ -15,8 +15,10 @@ class GeneLib extends Component {
   }
 
   getGenes = () => {
-    axios.get(`/api/metadata/genes/:${this.props.userId}`).then(res => {
-      this.setState({ genes: res.data });
+    axios.get(`/api/metadata/genes/${this.props.userId}`).then(res => {
+      this.setState({
+        genes: res.data
+      });
     });
   };
 
@@ -26,22 +28,18 @@ class GeneLib extends Component {
         <hr />
         GeneLib
         <hr />
-        {this.state.genes ? (
-          this.state.genes.map(g => (
-            <div key={g.id}>
-              <div className="gene-info">
-                <hr />
-                <h2>{g.geneName}</h2>
-                <h5>{g.geneDesc}</h5>
-                <h6>{g.dnaSeq}</h6>
-                <h6>{g.rnaSeq}</h6>
-                <h6>{g.aaSeq}</h6>
-              </div>
+        {this.state.genes.map(g => (
+          <div key={g.geneId}>
+            <div className="gene-info">
+              <hr />
+              <h2>{g.geneName}</h2>
+              <h5>{g.geneDesc}</h5>
+              <h6>{g.dnaSeq}</h6>
+              <h6>{g.rnaSeq}</h6>
+              <h6>{g.aaSeq}</h6>
             </div>
-          ))
-        ) : (
-          <h3>Click here to add genes to your library</h3>
-        )}
+          </div>
+        ))}
       </div>
     );
   }

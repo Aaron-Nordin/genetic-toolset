@@ -3,8 +3,24 @@ import Nav from "./components/Nav/Nav";
 import routes from "./routes";
 import { withRouter } from "react-router-dom";
 import React, { Component } from "react";
+import axios from "axios";
+import { connect } from "react-redux";
+import { setUser } from "./ducks/reducer";
 
 export class App extends Component {
+  componentDidMount() {
+    axios.get("/auth/currentuser").then(res => {
+      console.log(res);
+      const {
+        user_id: userId,
+        user_image: userImage,
+        username,
+        email
+      } = res.data;
+      this.props.setUser({ userId, userImage, username, email });
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -18,4 +34,7 @@ export class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default connect(
+  null,
+  { setUser }
+)(withRouter(App));
