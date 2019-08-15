@@ -70,10 +70,10 @@ class Auth extends Component {
   // hide
 
   render() {
-    console.log(this.props)
     return (
       <div className="auth-component">
         <div
+          className="homepage"
           style={{
             maxWidth: "100vw",
             height: "100vh",
@@ -132,8 +132,8 @@ class Auth extends Component {
 }
 
 function mapStateToProps(reduxState) {
-  const {userId} = reduxState
-  return {userId}
+  const { userId } = reduxState;
+  return { userId };
 }
 
 export default connect(

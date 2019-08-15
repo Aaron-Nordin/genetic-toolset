@@ -1,6 +1,26 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
+import TestArea from "../TestArea/TestArea";
+import TestList from "../TestList.js/TestList";
+import styled from "styled-components";
+
+const Body = styled.div`
+  display: block;
+`;
+const BodyWrap = styled.div`
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5em;
+  color: #333333;
+  display: flex;
+  position: relative;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+`;
+
 
 class GeneLib extends Component {
   constructor() {
@@ -37,23 +57,31 @@ class GeneLib extends Component {
 
   render() {
     return (
-      <div>
-        <hr />
-        GeneLib
-        <hr />
-        {this.state.genes.map(g => (
-          <div key={g.geneId}>
-            <div className="gene-info">
-              <hr />
-              <h2>{g.geneName}</h2>
-              <h5>{g.geneDesc}</h5>
-              <h6>{g.dnaSeq}</h6>
-              <h6>{g.rnaSeq}</h6>
-              <h6>{g.aaSeq}</h6>
-            </div>
+      <Body>
+        <BodyWrap>
+          <div className="Test-List">
+            <TestList />
           </div>
-        ))}
-      </div>
+          <div className="Test-Area">
+            <TestArea />
+          </div>
+          <div className="Gene-Lib">
+            GeneLib
+            {this.state.genes.map(g => (
+              <div key={g.geneId}>
+                <div className="gene-info">
+                  <hr />
+                  <h2>{g.geneName}</h2>
+                  <h5>{g.geneDesc}</h5>
+                  <h6>{g.dnaSeq}</h6>
+                  <h6>{g.rnaSeq}</h6>
+                  <h6>{g.aaSeq}</h6>
+                </div>
+              </div>
+            ))}
+          </div>
+        </BodyWrap>
+      </Body>
     );
   }
 }

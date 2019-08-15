@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 
-export default class DNAManip extends Component {
+export default class TestArea extends Component {
     render() {
         return (
             <div>
-                <hr/>
-                DNAManip
-                <hr/>
+                Test Area
             </div>
         )
     }

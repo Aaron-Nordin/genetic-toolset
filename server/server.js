@@ -33,3 +33,4 @@ app.delete("/auth/logout", authCtrl.logout)
 app.get("/auth/currentuser", authCtrl.currentUser)
 
 app.get("/api/metadata/genes/:userId", metaCtrl.getGenes)
+
