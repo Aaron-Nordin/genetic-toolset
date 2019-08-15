@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import axios from "axios";
 import { logoutUser } from "../../ducks/reducer";
 import { withRouter } from "react-router-dom";
-// import styled from "styled-components";
+import styled from "styled-components";
 
 //---------------------------STYLE-----------------------------
 // const NavContainer = styled.div`
@@ -46,6 +46,11 @@ import { withRouter } from "react-router-dom";
 // }
 // window.addEventListener("scroll", handleScroll);
 
+const ProfilePic = styled.img`
+    max-height: 160px;
+    max-width: 160px;
+`
+
 class Nav extends Component {
   logout = () => {
     axios.delete("/auth/logout").then(() => {
@@ -58,8 +63,9 @@ class Nav extends Component {
     return (
         <div>
           <h3>{this.props.username}</h3>
-          <img src={this.props.userImage} alt="profile pic" />
+          <ProfilePic src={this.props.userImage} alt="profile pic" />
           <button onClick={this.logout}>Logout</button>
+          <hr/>
         </div>
     );
   }

@@ -70,7 +70,6 @@ class GeneLib extends Component {
             {this.state.genes.map(g => (
               <div key={g.geneId}>
                 <div className="gene-info">
-                  <hr />
                   <h2>{g.geneName}</h2>
                   <h5>{g.geneDesc}</h5>
                   <h6>{g.dnaSeq}</h6>
