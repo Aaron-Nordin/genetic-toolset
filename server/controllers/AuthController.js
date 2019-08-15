@@ -61,7 +61,9 @@ module.exports = {
     res.status(200).send({ message: "Logged out" });
   },
 
+  //axios.get in App.js componentDidMount()
   currentUser: (req, res) => {
+    console.log(req)
     if (req.session.user) {
       res.status(200).send(req.session.user);
     }

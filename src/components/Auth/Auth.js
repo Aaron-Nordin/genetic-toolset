@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import { Link } from "react-router-dom";
 import { setUser } from "../../ducks/reducer";
 import { connect } from "react-redux";
-// import Scroll from "react-scroll";
 import { Element, scroller } from "react-scroll";
-
 import Registration from "../Registration/Registration";
 import GeneLib from "../GeneLib/GeneLib";
 import Nav from "../Nav/Nav";
@@ -73,6 +70,7 @@ class Auth extends Component {
   // hide
 
   render() {
+    console.log(this.props)
     return (
       <div className="auth-component">
         <div
@@ -90,24 +88,26 @@ class Auth extends Component {
               type="video/mp4"
             />
           </video>
-          <div className="auth-homepage" id="auth-homepage-pop-in">
-            <form onSubmit={e => e.preventDefault()}>
-              <input
-                type="text"
-                name="username"
-                placeholder="Username"
-                onChange={e => this.handleChange(e)}
-              />
-              <input
-                type="text"
-                name="password"
-                placeholder="Password"
-                onChange={e => this.handleChange(e)}
-              />
-              <button onClick={this.login}>Login</button>
-              <button onClick={this.handleRegButton}>Register</button>
-            </form>
-          </div>
+          {!this.props.userId ? (
+            <div className="auth-homepage" id="auth-homepage-pop-in">
+              <form onSubmit={e => e.preventDefault()}>
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Username"
+                  onChange={e => this.handleChange(e)}
+                />
+                <input
+                  type="text"
+                  name="password"
+                  placeholder="Password"
+                  onChange={e => this.handleChange(e)}
+                />
+                <button onClick={this.login}>Login</button>
+                <button onClick={this.handleRegButton}>Register</button>
+              </form>
+            </div>
+          ) : null}
         </div>
         <div className="registration-component">
           {this.state.register ? (
@@ -117,10 +117,10 @@ class Auth extends Component {
           ) : null}
         </div>
         <div className="nav-component">
-          {this.state.loggedIn ? <Nav /> : null}
+          {this.props.userId ? <Nav /> : null}
         </div>
         <div className="gene-lib-component">
-          {this.state.loggedIn ? (
+          {this.props.userId ? (
             <Element name="Gene-Lib-Ele">
               <GeneLib />
             </Element>
@@ -131,7 +131,12 @@ class Auth extends Component {
   }
 }
 
+function mapStateToProps(reduxState) {
+  const {userId} = reduxState
+  return {userId}
+}
+
 export default connect(
-  null,
+  mapStateToProps,
   { setUser }
 )(Auth);

@@ -15,11 +15,9 @@ class Nav extends Component {
   render() {
     return (
       <div>
-        <hr />
         <h3>{this.props.username}</h3>
         <img src={this.props.userImage} alt="profile pic" />
         <button onClick={this.logout}>Logout</button>
-        <hr />
       </div>
     );
   }
