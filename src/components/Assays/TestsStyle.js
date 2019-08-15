@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DNATestsCont = styled.div`
+export const TestsCont = styled.div`
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   list-style: none inside none;
@@ -21,7 +21,8 @@ export const SectionHeading = styled.label`
   -webkit-box-pack: justify;
   justify-content: space-between;
   font-family: "Montserrat", sans-serif;
-  font-size: 0.9em;
+  font-size: 1.3em;
+  font-weight: bold;
   text-transform: none;
 `;
 

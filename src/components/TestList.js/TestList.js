@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import DNATests from "../Assays/DNATests"
+import DNATests from "../Assays/DNATests";
+import RNATests from "../Assays/RNATests";
+import AATests from "../Assays/AATests";
 
 const TestMenu = styled.div`
   top: 0px;
@@ -45,7 +47,7 @@ const Logo = styled.img`
 `;
 
 const Search = styled.div`
-  padding: 5px 0;
+  padding: 25px 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   display: block;
@@ -101,7 +103,6 @@ const ScrollbarInnerCont = styled.div`
   padding-inline-start: 40px;
 `;
 
-
 export default class TestList extends Component {
   render() {
     return (
@@ -124,13 +125,9 @@ export default class TestList extends Component {
         </Search>
         <ScrollbarContainer>
           <ScrollbarInnerCont>
-            <DNATests/>
-            <li>RNA1</li>
-            <li>RNA2</li>
-            <li>RNA3</li>
-            <li>AA1</li>
-            <li>AA2</li>
-            <li>AA3</li>
+            <DNATests />
+            <RNATests />
+            <AATests/>
           </ScrollbarInnerCont>
         </ScrollbarContainer>
       </TestMenu>

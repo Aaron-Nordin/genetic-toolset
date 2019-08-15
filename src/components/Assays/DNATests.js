@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import {
-  DNATestsCont,
+  TestsCont,
   SectionHeading,
   HeadingText,
   HideIcon,
@@ -17,7 +16,7 @@ import {
 export default class DNATests extends Component {
   render() {
     return (
-      <DNATestsCont>
+      <TestsCont>
         <SectionHeading>
           <HeadingText>DNATests</HeadingText>
           <HideIcon>Later</HideIcon>
@@ -51,7 +50,7 @@ export default class DNATests extends Component {
             </SubListItem>
           </SubListItemCont>
         </SubListCont>
-      </DNATestsCont>
+      </TestsCont>
     );
   }
 }
