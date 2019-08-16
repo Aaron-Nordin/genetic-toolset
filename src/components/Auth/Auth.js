@@ -13,7 +13,6 @@ class Auth extends Component {
     username: "",
     password: "",
     register: false,
-    loggedIn: false
   };
 
   handleChange(e) {
@@ -24,7 +23,6 @@ class Auth extends Component {
 
   login = async () => {
     const { username, password } = this.state;
-    this.setState({ loggedIn: true });
     await axios
       .post("/auth/login", { username, password })
       .then(res => {
@@ -44,7 +42,7 @@ class Auth extends Component {
       duration: 1500,
       delay: 150,
       smooth: true,
-      offset: -25
+      offset: -150
     });
   };
 

@@ -70,7 +70,7 @@ const SearchInput = styled.input`
   padding: 5px 10px 5px 20px;
   border: 0;
   border-bottom: 1px solid #e1e1e1;
-  font-family: Roboto, sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: bold;
   font-size: 13px;
   color: #333333;
