@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 import {
   TestsCont,
   SectionHeading,
@@ -33,7 +33,7 @@ export default class AATests extends Component {
                   to="aaTest1"
                   spy={true}
                   smooth={true}
-                  offset={-70}
+                  offset={0}
                   duration={500}
                 >
                   AA Test 1
@@ -53,7 +53,7 @@ export default class AATests extends Component {
                   to="aaTest2"
                   spy={true}
                   smooth={true}
-                  offset={-70}
+                  offset={0}
                   duration={500}
                 >
                   AA Test 2
@@ -73,7 +73,7 @@ export default class AATests extends Component {
                   to="aaTest3"
                   spy={true}
                   smooth={true}
-                  offset={-70}
+                  offset={0}
                   duration={500}
                 >
                   AA Test 3
