@@ -30,7 +30,7 @@ const ScrollBoxDNA = styled.textarea`
   border: none;
   padding: 5px;
   font-family: "Montserrat", sans-serif;
-  width: 200px;
+  width: 26.6667%;
   height: 200px;
   ::-webkit-scrollbar {
     width: 12px;
@@ -72,17 +72,13 @@ const ScrollBoxAA = styled(ScrollBoxDNA)`
   }
 `;
 const SlidingPaneCont = styled.div`
-background: #343A40;
-height: 100%;
-width: 10%;
-margin: 0;
-position: absolute;
-right: 0px;
-`
-const DescContainer = styled.textarea`
-width: 80%;
-
-`
+  background: #343a40;
+  height: 100%;
+  width: 10%;
+  margin: 0;
+  position: absolute;
+  right: 0px;
+`;
 const ScrollBoxDesc = styled(ScrollBoxDNA)`
   width: 80%;
   ::-webkit-scrollbar-track {
@@ -95,9 +91,23 @@ const ScrollBoxDesc = styled(ScrollBoxDNA)`
     background: #1a97ba;
   }
 `;
+const DNAHamburger = styled.img`
+  position: relative;
+  left: 23%;
+  width: 50%;
+  height: auto;
+  margin-top: 4vh;
+  box-shadow: 10px 10px 5px black;
+  transition: .5s ease;
+  :hover {
+    opacity: 0.5;
+    border: 3px solid black;
+    border-radius: 8px;
+  }
+`;
 
 const testAreaStyle = {
-   width: "100%",
+  width: "100%"
 };
 
 class GeneLib extends Component {
@@ -140,7 +150,7 @@ class GeneLib extends Component {
     return (
       <Body>
         <BodyWrap>
-          <div className="Test-List" >
+          <div className="Test-List">
             <TestList />
           </div>
           <div
@@ -149,11 +159,16 @@ class GeneLib extends Component {
           >
             <TestArea style={testAreaStyle} />
           </div>
-          <div className="Gene-Lib" >
+          <div className="Gene-Lib">
             <SlidingPaneCont ref={ref => (this.el = ref)}>
-              <button onClick={() => this.setState({ isPaneOpen: true })}>
+              {/* <button onClick={() => this.setState({ isPaneOpen: true })}>
                 Open Gene Library
-              </button>
+              </button> */}
+              <DNAHamburger
+                src="http://localhost:5555/static/DNAHamburger.png"
+                alt="DNA icon onClick"
+                onClick={() => this.setState({ isPaneOpen: true })}
+              />
               <SlidingPane
                 className="some-custom-class"
                 overlayClassName="some-custom-overlay-class"
@@ -176,6 +191,7 @@ class GeneLib extends Component {
                         <ScrollBoxDNA>{g.dnaSeq}</ScrollBoxDNA>
                         <ScrollBoxRNA>{g.rnaSeq}</ScrollBoxRNA>
                         <ScrollBoxAA>{g.aaSeq}</ScrollBoxAA>
+                        <hr />
                       </div>
                     </div>
                   </div>
