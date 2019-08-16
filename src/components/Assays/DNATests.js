@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, animateScroll as scroll } from "react-scroll";
 import {
   TestsCont,
   SectionHeading,
@@ -9,9 +10,7 @@ import {
   SubListItem,
   IconItem,
   Item
-} from "./TestsStyle.js"
-
-
+} from "./TestsStyle.js";
 
 export default class DNATests extends Component {
   render() {
@@ -28,7 +27,18 @@ export default class DNATests extends Component {
                 src="http://localhost:5555/static/DNAIcon.png"
                 alt="DNA icon"
               />
-              <Item>DNA Test 1</Item>
+              <Item>
+                <Link
+                  activeClass="active"
+                  to="dnaTest1"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  DNA Test 1
+                </Link>
+              </Item>
             </SubListItem>
           </SubListItemCont>
           <SubListItemCont>
@@ -37,7 +47,18 @@ export default class DNATests extends Component {
                 src="http://localhost:5555/static/DNAIcon.png"
                 alt="DNA icon"
               />
-              <Item>DNA Test 2</Item>
+              <Item>
+                <Link
+                  activeClass="active"
+                  to="dnaTest2"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  DNA Test 2
+                </Link>
+              </Item>
             </SubListItem>
           </SubListItemCont>
           <SubListItemCont>
@@ -46,7 +67,18 @@ export default class DNATests extends Component {
                 src="http://localhost:5555/static/DNAIcon.png"
                 alt="DNA icon"
               />
-              <Item>DNA Test 3</Item>
+              <Item>
+                <Link
+                  activeClass="active"
+                  to="dnaTest3"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  DNA Test 3
+                </Link>
+              </Item>
             </SubListItem>
           </SubListItemCont>
         </SubListCont>

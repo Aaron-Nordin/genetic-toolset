@@ -127,7 +127,7 @@ export default class TestList extends Component {
           <ScrollbarInnerCont>
             <DNATests />
             <RNATests />
-            <AATests/>
+            <AATests />
           </ScrollbarInnerCont>
         </ScrollbarContainer>
       </TestMenu>

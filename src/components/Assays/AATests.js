@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, animateScroll as scroll } from "react-scroll";
 import {
   TestsCont,
   SectionHeading,
@@ -26,7 +27,18 @@ export default class AATests extends Component {
                 src="http://localhost:5555/static/AAIcon.png"
                 alt="DNA icon"
               />
-              <Item>AA Test 1</Item>
+              <Item>
+                <Link
+                  activeClass="active"
+                  to="aaTest1"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  AA Test 1
+                </Link>
+              </Item>
             </SubListItem>
           </SubListItemCont>
           <SubListItemCont>
@@ -35,7 +47,18 @@ export default class AATests extends Component {
                 src="http://localhost:5555/static/AAIcon.png"
                 alt="DNA icon"
               />
-              <Item>AA Test 2</Item>
+              <Item>
+                <Link
+                  activeClass="active"
+                  to="aaTest2"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  AA Test 2
+                </Link>
+              </Item>
             </SubListItem>
           </SubListItemCont>
           <SubListItemCont>
@@ -44,7 +67,18 @@ export default class AATests extends Component {
                 src="http://localhost:5555/static/AAIcon.png"
                 alt="DNA icon"
               />
-              <Item>AA Test 3</Item>
+              <Item>
+                <Link
+                  activeClass="active"
+                  to="aaTest3"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  AA Test 3
+                </Link>
+              </Item>
             </SubListItem>
           </SubListItemCont>
         </SubListCont>
