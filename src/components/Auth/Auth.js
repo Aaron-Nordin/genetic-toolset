@@ -12,7 +12,7 @@ class Auth extends Component {
   state = {
     username: "",
     password: "",
-    register: false,
+    register: false
   };
 
   handleChange(e) {
@@ -119,7 +119,10 @@ class Auth extends Component {
         </div>
         <div className="gene-lib-component">
           {this.props.userId ? (
-            <Element name="Gene-Lib-Ele">
+            <Element
+              name="Gene-Lib-Ele"
+             
+            >
               <GeneLib />
             </Element>
           ) : null}

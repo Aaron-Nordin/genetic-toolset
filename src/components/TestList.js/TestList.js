@@ -5,18 +5,21 @@ import RNATests from "../Assays/RNATests";
 import AATests from "../Assays/AATests";
 
 const TestMenu = styled.div`
-  top: 0px;
-  height: calc(100vh - 0px);
+  /* height: calc(100vh - 0px); */
+  min-height: 125vh;
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  width: 260px;
+  width: 20vw;
   background-color: #fafafa;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   backface-visibility: hidden;
   contain: strict;
+  /* position: -webkit-sticky;
   position: sticky;
+  top: 0px; */
+
 `;
 
 const LogoContainer = styled.div`

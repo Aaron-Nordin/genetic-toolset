@@ -10,6 +10,8 @@ import "./GeneLib.css";
 
 const Body = styled.div`
   display: block;
+  /* position: sticky;
+  top: 0px; */
 `;
 const BodyWrap = styled.div`
   font-family: Roboto, sans-serif;
@@ -18,6 +20,7 @@ const BodyWrap = styled.div`
   line-height: 1.5em;
   color: #333333;
   display: flex;
+  /* justify-content: space-between; */
   position: relative;
   text-align: left;
   -webkit-font-smoothing: antialiased;
@@ -69,14 +72,32 @@ const ScrollBoxAA = styled(ScrollBoxDNA)`
   }
 `;
 const SlidingPaneCont = styled.div`
-background: grey;
+background: #343A40;
 height: 100%;
-width: 33%;
+width: 10%;
+margin: 0;
+position: absolute;
+right: 0px;
+`
+const DescContainer = styled.textarea`
+width: 80%;
 
 `
+const ScrollBoxDesc = styled(ScrollBoxDNA)`
+  width: 80%;
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #1a97ba;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1a97ba;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1a97ba;
+  }
+`;
 
 const testAreaStyle = {
-  // width: "65%",
+   width: "100%",
 };
 
 class GeneLib extends Component {
@@ -119,16 +140,16 @@ class GeneLib extends Component {
     return (
       <Body>
         <BodyWrap>
-          <div className="Test-List">
+          <div className="Test-List" >
             <TestList />
           </div>
           <div
             className="Test-Area"
-            style={{ background: "blue", height: "100vh", width: "50vw" }}
+            style={{ height: "100vh", width: "69.2vw" }}
           >
             <TestArea style={testAreaStyle} />
           </div>
-          <div className="Gene-Lib" style={{ width: "25vw" }}>
+          <div className="Gene-Lib" >
             <SlidingPaneCont ref={ref => (this.el = ref)}>
               <button onClick={() => this.setState({ isPaneOpen: true })}>
                 Open Gene Library
@@ -150,10 +171,12 @@ class GeneLib extends Component {
                   <div key={g.geneId}>
                     <div className="gene-info">
                       <h4>{g.geneName}</h4>
-                      <textarea>{g.geneDesc}</textarea>
-                      <ScrollBoxDNA>{g.dnaSeq}</ScrollBoxDNA>
-                      <ScrollBoxRNA>{g.rnaSeq}</ScrollBoxRNA>
-                      <ScrollBoxAA>{g.aaSeq}</ScrollBoxAA>
+                      <ScrollBoxDesc>{g.geneDesc}</ScrollBoxDesc>
+                      <div>
+                        <ScrollBoxDNA>{g.dnaSeq}</ScrollBoxDNA>
+                        <ScrollBoxRNA>{g.rnaSeq}</ScrollBoxRNA>
+                        <ScrollBoxAA>{g.aaSeq}</ScrollBoxAA>
+                      </div>
                     </div>
                   </div>
                 ))}

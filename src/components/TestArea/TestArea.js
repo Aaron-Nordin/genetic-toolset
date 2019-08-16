@@ -4,7 +4,7 @@ import styled from "styled-components";
 const OuterCont = styled.div`
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  padding: 40px 0;
+  /* padding: 40px 0; */
   position: relative;
   display: block;
   font-family: Roboto, sans-serif;
@@ -15,11 +15,11 @@ const OuterCont = styled.div`
   text-align: left;
   -webkit-font-smoothing: antialiased;
   text-size-adjust: 100%;
-  width: 60%;
+  width: 100%;
 `;
 
 const Dark = styled.div`
-  background: #333;
+  background: black;
   color: white;
 `;
 
@@ -42,7 +42,7 @@ export default class TestArea extends Component {
         <div
           title=" DNA Assay 2"
           subtitle={dummyText}
-          dark={false}
+          dark={"false"}
           id="dnaTest2"
         >
           <h1>DNA Test 2</h1>
@@ -60,7 +60,7 @@ export default class TestArea extends Component {
         <div
           title="RNA Assay 1"
           subtitle={dummyText}
-          dark={false}
+          dark={"false"}
           id="rnaTest1"
         >
           <h1>RNA Test 1</h1>
@@ -78,7 +78,7 @@ export default class TestArea extends Component {
         <div
           title="RNA Assay 3"
           subtitle={dummyText}
-          dark={false}
+          dark={"false"}
           id="rnaTest3"
         >
           <h1>RNA Test 3</h1>
@@ -88,7 +88,7 @@ export default class TestArea extends Component {
           <h1>AA Test 1</h1>
           <p>{dummyText}</p>
         </Dark>
-        <div title="AA Assay 2" subtitle={dummyText} dark={false} id="aaTest2">
+        <div title="AA Assay 2" subtitle={dummyText} dark={"false"} id="aaTest2">
           <h1>AA Test 2</h1>
           <p>{dummyText}</p>
         </div>
