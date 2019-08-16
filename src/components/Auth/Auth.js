@@ -53,8 +53,8 @@ class Auth extends Component {
     scroller.scrollTo("Registration-Ele", {
       duration: 1500,
       delay: 150,
-      smooth: true
-      // offset: 10
+      smooth: true,
+      offset: 10
     });
   };
 

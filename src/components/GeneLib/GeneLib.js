@@ -21,6 +21,9 @@ const BodyWrap = styled.div`
   text-size-adjust: 100%;
 `;
 
+const testAreaStyle = {
+  // width: "65%",
+};
 
 class GeneLib extends Component {
   constructor() {
@@ -63,7 +66,7 @@ class GeneLib extends Component {
             <TestList />
           </div>
           <div className="Test-Area">
-            <TestArea />
+            <TestArea style={testAreaStyle} />
           </div>
           <div className="Gene-Lib">
             GeneLib
