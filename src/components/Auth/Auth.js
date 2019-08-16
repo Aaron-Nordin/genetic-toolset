@@ -3,6 +3,7 @@ import axios from "axios";
 import { setUser } from "../../ducks/reducer";
 import { connect } from "react-redux";
 import { Element, scroller } from "react-scroll";
+import { StickyContainer, Sticky } from 'react-sticky';
 import Registration from "../Registration/Registration";
 import GeneLib from "../GeneLib/GeneLib";
 import Nav from "../Nav/Nav";

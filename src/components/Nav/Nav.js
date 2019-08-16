@@ -25,6 +25,8 @@ const navStyle = {
   // alignContent: "center",
   // justifyContent: "space-around"
   width: "100%",
+  height: "13vh",
+
 };
 
 const rightText = {};

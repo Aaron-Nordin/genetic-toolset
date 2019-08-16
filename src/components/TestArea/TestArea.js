@@ -19,7 +19,7 @@ const OuterCont = styled.div`
 `;
 
 const Dark = styled.div`
-  background: black;
+  background: lightgrey;
   color: white;
 `;
 

@@ -74,7 +74,7 @@ const ScrollBoxAA = styled(ScrollBoxDNA)`
 const SlidingPaneCont = styled.div`
   background: #343a40;
   height: 100%;
-  width: 10%;
+  width: 7%;
   margin: 0;
   position: absolute;
   right: 0px;
@@ -155,7 +155,7 @@ class GeneLib extends Component {
           </div>
           <div
             className="Test-Area"
-            style={{ height: "100vh", width: "69.2vw" }}
+            style={{ height: "100vh", width: "72.5vw" }}
           >
             <TestArea style={testAreaStyle} />
           </div>
@@ -180,7 +180,7 @@ class GeneLib extends Component {
                   this.setState({ isPaneOpen: false });
                 }}
               >
-                <div>genesssssssss</div>
+                <div>Add Another Gene</div>
                 <br />
                 {this.state.genes.map(g => (
                   <div key={g.geneId}>
