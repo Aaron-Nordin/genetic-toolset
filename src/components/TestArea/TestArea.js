@@ -9,6 +9,17 @@ const OuterCont = styled.div`
   display: block;
   overflow-y: scroll;
   font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5em;
+  color: #333333;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  width: 100%;
+  max-height: 100%;
+
   ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
@@ -25,17 +36,6 @@ const OuterCont = styled.div`
   ::-webkit-scrollbar-thumb:hover {
     background: #1a97ba;
   }
-
-  font-family: Roboto, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.5em;
-  color: #333333;
-  text-align: left;
-  -webkit-font-smoothing: antialiased;
-  text-size-adjust: 100%;
-  width: 100%;
-  max-height: 100%;
 `;
 
 const Dark = styled.div`

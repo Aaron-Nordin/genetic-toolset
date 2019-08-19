@@ -109,6 +109,9 @@ const DNAHamburger = styled.img`
 const testAreaStyle = {
   width: "100%"
 };
+const slidingPaneStyle = {
+  // zIndex: 4
+};
 
 class GeneLib extends Component {
   constructor() {
@@ -146,6 +149,16 @@ class GeneLib extends Component {
     }
   };
 
+  handleDNAHambClick = () => {
+    this.setState({ isPaneOpen: true });
+    // slidingPaneStyle.zIndex = 6;
+  };
+
+  handleSlidingPaneClose = () => {
+    this.setState({ isPaneOpen: false });
+    // slidingPaneStyle.zIndex = 4;
+  };
+
   render() {
     return (
       <Body>
@@ -153,31 +166,26 @@ class GeneLib extends Component {
           <div className="Test-List">
             <TestList />
           </div>
-          <div
-            className="Test-Area"
-            style={{ height: "100vh", width: "72.5vw" }}
-          >
+          <div className="Test-Area" style={{ height: "100vh", width: "73vw" }}>
             <TestArea style={testAreaStyle} />
           </div>
           <div className="Gene-Lib">
             <SlidingPaneCont ref={ref => (this.el = ref)}>
-              {/* <button onClick={() => this.setState({ isPaneOpen: true })}>
-                Open Gene Library
-              </button> */}
               <DNAHamburger
                 src="http://localhost:5555/static/DNAHamburger.png"
                 alt="DNA icon onClick"
-                onClick={() => this.setState({ isPaneOpen: true })}
+                onClick={this.handleDNAHambClick}
               />
               <SlidingPane
                 className="some-custom-class"
+                style={slidingPaneStyle}
                 overlayClassName="some-custom-overlay-class"
                 isOpen={this.state.isPaneOpen}
                 title={`${this.props.username}'s Gene Library`}
                 subtitle="Select a gene to run assays"
                 onRequestClose={() => {
                   // triggered on "<" on left top click or on outside click
-                  this.setState({ isPaneOpen: false });
+                  this.handleSlidingPaneClose();
                 }}
               >
                 <div>Add Another Gene</div>

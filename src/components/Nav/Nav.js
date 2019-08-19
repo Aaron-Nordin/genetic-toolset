@@ -9,28 +9,39 @@ import { Navbar, Button } from "react-bootstrap";
 //---------------------------STYLE-----------------------------
 
 const ProfilePic = styled.img`
-  max-height: 120px;
-  max-width: 120px;
+  max-height: 10vh;
+  /* max-width: 120px; */
 `;
 const NameIcon = styled.div`
   font-size: 2em;
-  padding: 0.5em 0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-end;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 43vw;
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
 `;
 const PicContainer = styled.div`
-  width: 100%;
-  
+margin-right: 0.4em;
 `
 
 const navStyle = {
-  // display: "flex",
-  // alignItems: "center",
-  // alignContent: "center",
-  // justifyContent: "space-around"
   width: "100%",
-  height: "13vh"
+  display: "flex",
+  alignItems: "center",
+  alignContent: "center",
+  justifyContent: "space-between",
+  height: "11vh",
+  boxShadow: "5px 5px 10px 5px #111111",
+  // zIndex: "5",
 };
+const logoutButtonStyle = {
+  width: "5em"
+}
 
 const rightText = {};
 
@@ -47,12 +58,12 @@ class Nav extends Component {
   render() {
     return (
       <Navbar style={navStyle} variant="dark" bg="dark">
-        <Navbar.Brand>Welcome to Gene Toolkit</Navbar.Brand>
+        {/* <Navbar.Brand></Navbar.Brand> */}
         <NameIcon>
           <Navbar.Text style={rightText}>
             Signed in as: <a href="#login">{this.props.username}</a>
           </Navbar.Text>
-          <Button variant="light" onClick={this.logout}>
+          <Button variant="light" onClick={this.logout} style={logoutButtonStyle}>
             Logout
           </Button>
         </NameIcon>

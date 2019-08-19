@@ -29,6 +29,7 @@ const LogoContainer = styled.div`
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: center;
   display: block;
+  padding-top: 1em;
 `;
 
 const LogoLink = styled.a`
