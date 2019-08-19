@@ -48,7 +48,7 @@ class Auth extends Component {
       duration: 1500,
       delay: 150,
       smooth: true,
-      offset: -150
+      offset: -110
     });
   };
 

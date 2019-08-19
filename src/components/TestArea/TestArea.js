@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import Transcription from "../Assays/DNA1Transcription";
 
 const OuterCont = styled.div`
   box-sizing: border-box;
@@ -56,8 +57,7 @@ export default class TestArea extends Component {
           dark={true}
           id="dnaTest1"
         >
-          <h1>DNA Test 1</h1>
-          <p>{dummyText}</p>
+          <Transcription />
         </Dark>
         <div
           title=" DNA Assay 2"

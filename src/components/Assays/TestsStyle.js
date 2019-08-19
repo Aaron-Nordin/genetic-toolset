@@ -112,3 +112,54 @@ export const IconItem = styled.img`
   rotate: 90;
   transform: rotate(90deg);
 `;
+
+//------------------------INPUTS/TXTAREAS----------------------------
+
+export const InputStyle1 = styled.textarea`
+  width: 50vw;
+  height: 20vh;
+  font-family: "Montserrat", sans-serif;
+
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #9f1829;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #9f1829;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9f1829;
+  }
+`;
+
+//------------------------------------------------------------------
+
+//---------------------------CONTAINERS-----------------------------
+
+export const InputContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+//------------------------------------------------------------------
+
+//-----------------------------BUTTONS------------------------------
+
+export const InputButtonStyle1 = styled.button`
+  width: 15vw;
+  height: 2em;
+`
+
+//------------------------------------------------------------------
