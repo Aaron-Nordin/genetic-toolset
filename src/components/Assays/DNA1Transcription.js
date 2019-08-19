@@ -53,9 +53,7 @@ export default class DNA1Transcription extends Component {
           />
         </InputContainer>
         <ButtonContainer>
-          <InputButtonStyle1 onClick={this.handleTscriptClick}>
-            Transcribe
-          </InputButtonStyle1>
+          <InputButtonStyle1 onClick={this.handleTscriptClick}>Transcribe</InputButtonStyle1>
         </ButtonContainer>
       </div>
     );

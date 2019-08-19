@@ -119,7 +119,6 @@ export const InputStyle1 = styled.textarea`
   width: 50vw;
   height: 20vh;
   font-family: "Montserrat", sans-serif;
-
   overflow-y: scroll;
   ::-webkit-scrollbar {
     width: 12px;
@@ -160,6 +159,6 @@ export const ButtonContainer = styled.div`
 export const InputButtonStyle1 = styled.button`
   width: 15vw;
   height: 2em;
-`
+`;
 
 //------------------------------------------------------------------
