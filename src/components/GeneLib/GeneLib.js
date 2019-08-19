@@ -98,7 +98,7 @@ const DNAHamburger = styled.img`
   height: auto;
   margin-top: 4vh;
   box-shadow: 10px 10px 5px black;
-  transition: .5s ease;
+  transition: 0.5s ease;
   :hover {
     opacity: 0.5;
     border: 3px solid black;

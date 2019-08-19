@@ -6,7 +6,9 @@ import AATests from "../Assays/AATests";
 
 const TestMenu = styled.div`
   /* height: calc(100vh - 0px); */
-  min-height: 125vh;
+  overflow-y: scroll;
+
+  min-height: 100vh;
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   width: 20vw;

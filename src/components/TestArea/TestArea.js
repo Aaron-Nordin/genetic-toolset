@@ -7,6 +7,25 @@ const OuterCont = styled.div`
   /* padding: 40px 0; */
   position: relative;
   display: block;
+  overflow-y: scroll;
+  font-family: "Montserrat", sans-serif;
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #1a97ba;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #1a97ba;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1a97ba;
+  }
+
   font-family: Roboto, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -16,6 +35,7 @@ const OuterCont = styled.div`
   -webkit-font-smoothing: antialiased;
   text-size-adjust: 100%;
   width: 100%;
+  max-height: 100%;
 `;
 
 const Dark = styled.div`
@@ -88,7 +108,12 @@ export default class TestArea extends Component {
           <h1>AA Test 1</h1>
           <p>{dummyText}</p>
         </Dark>
-        <div title="AA Assay 2" subtitle={dummyText} dark={"false"} id="aaTest2">
+        <div
+          title="AA Assay 2"
+          subtitle={dummyText}
+          dark={"false"}
+          id="aaTest2"
+        >
           <h1>AA Test 2</h1>
           <p>{dummyText}</p>
         </div>

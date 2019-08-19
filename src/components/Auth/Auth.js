@@ -3,11 +3,16 @@ import axios from "axios";
 import { setUser } from "../../ducks/reducer";
 import { connect } from "react-redux";
 import { Element, scroller } from "react-scroll";
-import { StickyContainer, Sticky } from 'react-sticky';
+import styled from "styled-components";
+// import StickyBox from "react-sticky-box";
 import Registration from "../Registration/Registration";
 import GeneLib from "../GeneLib/GeneLib";
 import Nav from "../Nav/Nav";
 import "./Auth.css";
+
+const MainContainer = styled.div`
+  width: 100vw;
+`;
 
 class Auth extends Component {
   state = {
@@ -70,7 +75,7 @@ class Auth extends Component {
 
   render() {
     return (
-      <div className="auth-component">
+      <MainContainer className="auth-component">
         <div
           className="homepage"
           style={{
@@ -120,15 +125,12 @@ class Auth extends Component {
         </div>
         <div className="gene-lib-component">
           {this.props.userId ? (
-            <Element
-              name="Gene-Lib-Ele"
-             
-            >
+            <Element name="Gene-Lib-Ele">
               <GeneLib />
             </Element>
           ) : null}
         </div>
-      </div>
+      </MainContainer>
     );
   }
 }

@@ -18,6 +18,10 @@ const NameIcon = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
+const PicContainer = styled.div`
+  width: 100%;
+  
+`
 
 const navStyle = {
   // display: "flex",
@@ -25,8 +29,7 @@ const navStyle = {
   // alignContent: "center",
   // justifyContent: "space-around"
   width: "100%",
-  height: "13vh",
-
+  height: "13vh"
 };
 
 const rightText = {};
@@ -43,17 +46,19 @@ class Nav extends Component {
 
   render() {
     return (
-      <Navbar style={navStyle} variant="dark" bg="dark" >
+      <Navbar style={navStyle} variant="dark" bg="dark">
         <Navbar.Brand>Welcome to Gene Toolkit</Navbar.Brand>
         <NameIcon>
           <Navbar.Text style={rightText}>
             Signed in as: <a href="#login">{this.props.username}</a>
-            <Button variant="light" onClick={this.logout}>
-              Logout
-            </Button>
           </Navbar.Text>
-          <ProfilePic src={this.props.userImage} alt="profile pic" />
+          <Button variant="light" onClick={this.logout}>
+            Logout
+          </Button>
         </NameIcon>
+        <PicContainer>
+          <ProfilePic src={this.props.userImage} alt="profile pic" />
+        </PicContainer>
       </Navbar>
     );
   }
