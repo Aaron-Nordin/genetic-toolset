@@ -5,6 +5,7 @@ const session = require("express-session");
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 const authCtrl = require("./controllers/authController");
 const metaCtrl = require("./controllers/metaDataController");
+const dnaCtrl = require("./controllers/dnaController");
 
 const app = express();
 
@@ -33,4 +34,6 @@ app.delete("/auth/logout", authCtrl.logout)
 app.get("/auth/currentuser", authCtrl.currentUser)
 
 app.get("/api/metadata/genes/:userId", metaCtrl.getGenes)
+
+app.post("/api/geneticmaterial/dna", dnaCtrl.createDNA)
 

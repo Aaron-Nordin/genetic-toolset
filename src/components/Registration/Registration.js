@@ -35,6 +35,7 @@ const Input = styled.input`
   background-color: #fafafa;
   outline: none;
   margin-top: 10px;
+  width: 15vw;
   :focus {
     border: 3px solid #555;
   }
@@ -42,6 +43,23 @@ const Input = styled.input`
 
 const InputButton = styled.button`
   width: 15vw;
+  height: 2em;
+  margin-top: 10px;
+  background: #555;
+  color: #fafafa;
+  transition: 1sec;
+  border: 2px solid #fafafa;
+  :hover {
+    background: #fafafa;
+    color: #555;
+    border: 2px solid #555;
+  }
+`;
+
+const TitleH2 = styled.h2`
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  margin-top: 7vh;
 `;
 
 class Registration extends Component {
@@ -64,19 +82,19 @@ class Registration extends Component {
       .post("/auth/register", { username, password, email, userImage })
       .then(res => {
         this.props.setUser({ username, email, userImage });
-        this.props.history.push("/dashboard");
+        this.props.history.push("/");
       })
-      .catch(() => {
-        alert("Email is already in use");
-      });
+      // .catch(() => {
+      //   alert("Email is already in use");
+      // });
   };
 
   render() {
     return (
       <RegContainer>
         <RegInnerContainer>
-          Registration
           <RegForm onSubmit={e => e.preventDefault()}>
+            <TitleH2>REGISTRATION</TitleH2>
             <Input
               type="text"
               name="username"
@@ -107,7 +125,7 @@ class Registration extends Component {
               accept="image/*"
               onChange={e => this.handleChange(e)}
             />
-            <input type="submit" onClick={this.register} />
+            <InputButton onClick={this.register}>Submit</InputButton>
           </RegForm>
         </RegInnerContainer>
       </RegContainer>

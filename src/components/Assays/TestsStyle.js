@@ -159,6 +159,21 @@ export const ButtonContainer = styled.div`
 export const InputButtonStyle1 = styled.button`
   width: 15vw;
   height: 2em;
+  margin-top: 10px;
+  background: #343a40;
+  color: #fafafa;
+  transition: 1sec;
+  border: 2px solid #fafafa;
+  :hover {
+    background: #fafafa;
+    color: #343a40;
+    border: 2px solid #343a40;
+  }
+`;
+
+export const InputButtonStyle2 = styled.button`
+  width: 15vw;
+  height: 2em;
 `;
 
 //------------------------------------------------------------------

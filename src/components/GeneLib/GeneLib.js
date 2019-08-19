@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { connect } from "react-redux";
 import TestArea from "../TestArea/TestArea";
 import TestList from "../TestList.js/TestList";
+import GeneLibSlidingPane from "./GeneLibSlidingPane";
 import styled from "styled-components";
 import Modal from "react-modal";
 import SlidingPane from "react-sliding-pane";
@@ -26,51 +26,6 @@ const BodyWrap = styled.div`
   -webkit-font-smoothing: antialiased;
   text-size-adjust: 100%;
 `;
-const ScrollBoxDNA = styled.textarea`
-  border: none;
-  padding: 5px;
-  font-family: "Montserrat", sans-serif;
-  width: 26.6667%;
-  height: 200px;
-  ::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
-  }
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 10px #9f1829;
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: #9f1829;
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #9f1829;
-  }
-`;
-const ScrollBoxRNA = styled(ScrollBoxDNA)`
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 10px #1a97ba;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #1a97ba;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #1a97ba;
-  }
-`;
-const ScrollBoxAA = styled(ScrollBoxDNA)`
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 10px #64ad37;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #64ad37;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #64ad37;
-  }
-`;
 const SlidingPaneCont = styled.div`
   background: #343a40;
   height: 100%;
@@ -79,18 +34,7 @@ const SlidingPaneCont = styled.div`
   position: absolute;
   right: 0px;
 `;
-const ScrollBoxDesc = styled(ScrollBoxDNA)`
-  width: 80%;
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 10px #1a97ba;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #1a97ba;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #1a97ba;
-  }
-`;
+
 const DNAHamburger = styled.img`
   position: relative;
   left: 23%;
@@ -107,24 +51,25 @@ const DNAHamburger = styled.img`
 `;
 
 const testAreaStyle = {
-  width: "100%"
+  width: "100%",
+  zIndex: -2
 };
 const slidingPaneStyle = {
-  // zIndex: 4
+  zIndex: 4
 };
 
 class GeneLib extends Component {
   constructor() {
     super();
     this.state = {
-      genes: [],
+      // genes: [],
       isPaneOpen: false,
       isPaneOpenLeft: false
     };
   }
 
   componentDidMount() {
-    this.getGenes();
+    // this.getGenes();
     Modal.setAppElement(this.el);
   }
 
@@ -134,20 +79,20 @@ class GeneLib extends Component {
     }
   }
 
-  getGenes = () => {
-    if (this.props.userId !== null) {
-      axios
-        .get(`/api/metadata/genes/${this.props.userId}`)
-        .then(res => {
-          this.setState({
-            genes: res.data
-          });
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-  };
+  // getGenes = () => {
+  //   if (this.props.userId !== null) {
+  //     axios
+  //       .get(`/api/metadata/genes/${this.props.userId}`)
+  //       .then(res => {
+  //         this.setState({
+  //           genes: res.data
+  //         });
+  //       })
+  //       .catch(err => {
+  //         console.log(err);
+  //       });
+  //   }
+  // };
 
   handleDNAHambClick = () => {
     this.setState({ isPaneOpen: true });
@@ -188,22 +133,7 @@ class GeneLib extends Component {
                   this.handleSlidingPaneClose();
                 }}
               >
-                <div>Add Another Gene</div>
-                <br />
-                {this.state.genes.map(g => (
-                  <div key={g.geneId}>
-                    <div className="gene-info">
-                      <h4>{g.geneName}</h4>
-                      <ScrollBoxDesc>{g.geneDesc}</ScrollBoxDesc>
-                      <div>
-                        <ScrollBoxDNA>{g.dnaSeq}</ScrollBoxDNA>
-                        <ScrollBoxRNA>{g.rnaSeq}</ScrollBoxRNA>
-                        <ScrollBoxAA>{g.aaSeq}</ScrollBoxAA>
-                        <hr />
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                <GeneLibSlidingPane />
               </SlidingPane>
             </SlidingPaneCont>
           </div>

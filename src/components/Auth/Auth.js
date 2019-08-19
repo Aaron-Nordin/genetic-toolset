@@ -55,8 +55,8 @@ class Auth extends Component {
   handleRegButton = () => {
     this.setState({ register: true });
     scroller.scrollTo("Registration-Ele", {
-      duration: 1500,
-      delay: 150,
+      duration: 250,
+      delay: 25,
       smooth: true,
       offset: 10
     });

@@ -37,7 +37,7 @@ const navStyle = {
   justifyContent: "space-between",
   height: "11vh",
   boxShadow: "5px 5px 10px 5px #111111",
-  // zIndex: "5",
+  // zIndex: "1",
 };
 const logoutButtonStyle = {
   width: "5em"
