@@ -64,10 +64,10 @@ class GeneLibSlidingPane extends Component {
     this.setState({ addGene: true });
   };
 
-  handleInputSubitButton = () => {
+  handleInputSubitButton = async () => {
     this.setState({ addGene: false });
     const { userId, name, desc, dna, rna } = this.state;
-    axios
+    await axios
       .post("/api/geneticmaterial/dnaOrRna", {
         userId,
         name,
@@ -78,6 +78,7 @@ class GeneLibSlidingPane extends Component {
       .catch(() => {
         alert("Invalid Submission");
       });
+    this.getGenes();
   };
 
   handleInputCancelButton = () => {

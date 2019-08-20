@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Transcription from "../Assays/DNA1Transcription";
+import DNA1Transcription from "../Assays/DNA1Transcription";
+import RNA1Translation from "../Assays/RNA1Translation";
 
 const OuterCont = styled.div`
   box-sizing: border-box;
@@ -57,7 +58,7 @@ export default class TestArea extends Component {
           dark={true}
           id="dnaTest1"
         >
-          <Transcription />
+          <DNA1Transcription />
         </Dark>
         <div
           title=" DNA Assay 2"
@@ -83,7 +84,7 @@ export default class TestArea extends Component {
           dark={"false"}
           id="rnaTest1"
         >
-          <h1>RNA Test 1</h1>
+          <RNA1Translation />
           <p>{dummyText}</p>
         </div>
         <Dark

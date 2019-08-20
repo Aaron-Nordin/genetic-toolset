@@ -174,7 +174,7 @@ export const InputButtonStyle1 = styled.button`
   margin-top: 10px;
   background: #343a40;
   color: #fafafa;
-  transition: 1sec;
+  transition: 0.5s;
   border: 2px solid #fafafa;
   :hover {
     background: #fafafa;

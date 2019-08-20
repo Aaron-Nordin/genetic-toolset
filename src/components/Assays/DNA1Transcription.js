@@ -16,12 +16,15 @@ export default class DNA1Transcription extends Component {
   };
 
   tScripFn = dna => {
-    return dna.replace(/ /g, "").replace(/T/gi, "U");
+    return dna
+      .replace(/ /g, "")
+      .replace(/T/gi, "U")
+      .toUpperCase();
   };
 
-  handleDNA = val => {
-    this.setState({ dna: val.toUpperCase() });
-  };
+  // handleDNA = val => {
+  //   this.setState({ dna: val.toUpperCase() });
+  // };
 
   handleTscriptClick = () => {
     this.setState({
@@ -29,6 +32,16 @@ export default class DNA1Transcription extends Component {
       submitted: true
     });
   };
+
+  handleCancelClick = () => {
+    this.setState({ submitted: false });
+  };
+
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
 
   render() {
     return (
@@ -54,7 +67,7 @@ export default class DNA1Transcription extends Component {
             name="dna"
             type="text"
             placeholder="Enter DNA Sequence. Whitespace in sequence will be removed upon submission."
-            onChange={e => this.handleDNA(e.target.value)}
+            onChange={e => this.handleChange(e)}
           />
         </InputContainer>
         <ButtonContainer>
@@ -69,6 +82,9 @@ export default class DNA1Transcription extends Component {
             </InputContainer>
             <ButtonContainer>
               <InputButtonStyle1>Save</InputButtonStyle1>
+              <InputButtonStyle1 onClick={this.handleCancelClick}>
+                Cancel
+              </InputButtonStyle1>
             </ButtonContainer>
           </>
         ) : null}

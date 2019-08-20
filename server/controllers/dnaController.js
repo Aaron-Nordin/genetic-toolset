@@ -3,7 +3,6 @@ module.exports = {
   createDNA: async (req, res) => {
     try {
       const db = req.app.get("db");
-      console.log(req.body);
       let {
         userId: user_id,
         name: gene_name,
@@ -12,24 +11,23 @@ module.exports = {
         rna: rna_seq
       } = req.body;
       if (!dna_seq) {
-        let dna_seq = "";
+        dna_seq = "";
       }
       if (!rna_seq) {
-        let rna_seq = "";
+        rna_seq = "";
       }
-      console.log(dna_seq, rna_seq);
-      let newDNAId = "";
-      let newRNAId = "";
+      let newDNAId = null;
+      let newRNAId = null;
       if (dna_seq) {
         const newDNA = await db.create_dna({ user_id, dna_seq });
-        console.log(newDNA);
-        newDNAId = newDNA.dna_id;
+        newDNAId = newDNA[0].dna_id;
       }
       if (rna_seq) {
         const newRNA = await db.create_rna({ user_id, rna_seq });
         console.log(newRNA);
-        newRNAId = newRNA.rna_id;
+        newRNAId = newRNA[0].rna_id;
       }
+      console.log(newDNAId, newRNAId);
       const newGene = await db.create_gene({
         gene_name,
         gene_desc,
@@ -37,9 +35,10 @@ module.exports = {
         dna_id: newDNAId,
         rna_id: newRNAId
       });
-      res(200).send(newGene);
-    } catch {
-      res.sendStatus(500);
+      console.log(newGene);
+      res.status(200).send(newGene[0]);
+    } catch (error) {
+      res.status(500).send(error);
     }
   }
 };

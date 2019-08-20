@@ -36,7 +36,7 @@ export default class RNATests extends Component {
                   offset={0}
                   duration={500}
                 >
-                  RNA Test 1
+                  Translation
                 </Link>
               </Item>
             </SubListItem>
