@@ -40,10 +40,6 @@ class DNA1Transcription extends Component {
       .toUpperCase();
   };
 
-  // handleDNA = val => {
-  //   this.setState({ dna: val.toUpperCase() });
-  // };
-
   handleTscriptClick = () => {
     this.setState({
       rna: this.tScripFn(this.state.dna),
@@ -71,6 +67,7 @@ class DNA1Transcription extends Component {
   }
 
   render() {
+    console.log(this.state.rna);
     return (
       <div>
         <TestNameAndDescCont className="test-name">

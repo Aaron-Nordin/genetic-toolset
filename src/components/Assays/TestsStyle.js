@@ -196,11 +196,12 @@ export const TestDNA1Output = styled.div`
   width: 60vw;
   height: 20vh;
   font-family: "Montserrat", sans-serif;
+  color: black;
   outline: none;
   background-color: #fafafa;
   overflow-y: scroll;
   :focus {
-    border: 2px solid #9f1829;
+    border: 2px solid #1a97ba;
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
   }
   ::-webkit-scrollbar {
@@ -208,16 +209,16 @@ export const TestDNA1Output = styled.div`
     height: 12px;
   }
   ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 10px #9f1829;
+    box-shadow: inset 0 0 10px #1a97ba;
     border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background: #9f1829;
+    background: #1a97ba;
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #9f1829;
+    background: #1a97ba;
   }
 `;
 //------------------------------------------------------------------
