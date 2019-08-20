@@ -116,10 +116,15 @@ export const IconItem = styled.img`
 //------------------------INPUTS/TXTAREAS----------------------------
 
 export const InputStyle1 = styled.textarea`
-  width: 50vw;
+  width: 60vw;
   height: 20vh;
   font-family: "Montserrat", sans-serif;
+  outline: none;
   overflow-y: scroll;
+  :focus {
+    border: 2px solid #9f1829;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  }
   ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
@@ -150,6 +155,13 @@ export const InputContainer = styled.div`
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
+  padding: 3% 0%;
+`;
+
+export const TestNameAndDescCont = styled.div`
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  padding: 3% 5%;
 `;
 
 //------------------------------------------------------------------
@@ -176,4 +188,36 @@ export const InputButtonStyle2 = styled.button`
   height: 2em;
 `;
 
+//------------------------------------------------------------------
+
+//----------------------------DIVS----------------------------------
+
+export const TestDNA1Output = styled.div`
+  width: 60vw;
+  height: 20vh;
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+  background-color: #fafafa;
+  overflow-y: scroll;
+  :focus {
+    border: 2px solid #9f1829;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #9f1829;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #9f1829;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9f1829;
+  }
+`;
 //------------------------------------------------------------------

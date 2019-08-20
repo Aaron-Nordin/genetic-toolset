@@ -15,10 +15,15 @@ export const AddGeneButton = styled.button`
 `;
 export const ScrollBoxDNA = styled.textarea`
   border: none;
-  padding: 5px;
+  padding: 5px 5px;
   font-family: "Montserrat", sans-serif;
   width: 26.6667%;
   height: 200px;
+  outline: none;
+  :focus {
+    border: 2px solid #9f1829;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  }
   ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
@@ -37,6 +42,10 @@ export const ScrollBoxDNA = styled.textarea`
   }
 `;
 export const ScrollBoxRNA = styled(ScrollBoxDNA)`
+  :focus {
+    border: 2px solid #1a97ba;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  }
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 10px #1a97ba;
   }
@@ -48,6 +57,10 @@ export const ScrollBoxRNA = styled(ScrollBoxDNA)`
   }
 `;
 export const ScrollBoxAA = styled(ScrollBoxDNA)`
+  :focus {
+    border: 2px solid #64ad37;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  }
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 10px #64ad37;
   }
@@ -96,6 +109,7 @@ export const InputDNA = styled.textarea`
   :focus {
     border: 2px solid #9f1829;
     border-radius: 5px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
   }
   ::-webkit-scrollbar {
     width: 12px;
@@ -161,6 +175,7 @@ export const InputName = styled.input`
   :focus {
     border: 2px solid #343a40;
     border-radius: 5px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
   }
   ::-webkit-scrollbar {
     width: 12px;

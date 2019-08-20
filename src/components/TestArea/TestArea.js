@@ -40,7 +40,7 @@ const OuterCont = styled.div`
 `;
 
 const Dark = styled.div`
-  background: lightgrey;
+  background: #a0a0a0;
   color: white;
 `;
 

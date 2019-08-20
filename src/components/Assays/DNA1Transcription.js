@@ -3,13 +3,16 @@ import {
   InputStyle1,
   InputContainer,
   ButtonContainer,
-  InputButtonStyle1
+  InputButtonStyle1,
+  TestNameAndDescCont,
+  TestDNA1Output
 } from "./TestsStyle";
 
 export default class DNA1Transcription extends Component {
   state = {
     dna: "",
-    rna: ""
+    rna: "",
+    submitted: false
   };
 
   tScripFn = dna => {
@@ -22,14 +25,15 @@ export default class DNA1Transcription extends Component {
 
   handleTscriptClick = () => {
     this.setState({
-      rna: this.tScripFn(this.state.dna)
+      rna: this.tScripFn(this.state.dna),
+      submitted: true
     });
   };
 
   render() {
     return (
       <div>
-        <div className="test-name">
+        <TestNameAndDescCont className="test-name">
           <h2>Transcription</h2>
           <p>
             Transcription is the first step of DNA based gene expression, in
@@ -43,18 +47,31 @@ export default class DNA1Transcription extends Component {
               <sup>1</sup>
             </a>
           </p>
-        </div>
+        </TestNameAndDescCont>
         <div className="test-desc" />
         <InputContainer>
           <InputStyle1
+            name="dna"
             type="text"
             placeholder="Enter DNA Sequence. Whitespace in sequence will be removed upon submission."
             onChange={e => this.handleDNA(e.target.value)}
           />
         </InputContainer>
         <ButtonContainer>
-          <InputButtonStyle1 onClick={this.handleTscriptClick}>Transcribe</InputButtonStyle1>
+          <InputButtonStyle1 onClick={this.handleTscriptClick}>
+            Transcribe
+          </InputButtonStyle1>
         </ButtonContainer>
+        {this.state.submitted ? (
+          <>
+            <InputContainer>
+              <TestDNA1Output>{this.state.rna}</TestDNA1Output>
+            </InputContainer>
+            <ButtonContainer>
+              <InputButtonStyle1>Save</InputButtonStyle1>
+            </ButtonContainer>
+          </>
+        ) : null}
       </div>
     );
   }
