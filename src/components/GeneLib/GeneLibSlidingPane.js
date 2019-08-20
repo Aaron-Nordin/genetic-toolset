@@ -31,7 +31,6 @@ class GeneLibSlidingPane extends Component {
   componentDidMount() {
     this.getGenes();
     this.setState({ userId: this.props.userId });
-    console.log(this.state)
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -45,7 +44,6 @@ class GeneLibSlidingPane extends Component {
       axios
         .get(`/api/metadata/genes/${this.props.userId}`)
         .then(res => {
-          console.log(res.data)
           this.setState({
             genes: res.data
           });
@@ -65,6 +63,13 @@ class GeneLibSlidingPane extends Component {
   handleAddGeneButton = () => {
     this.setState({ addGene: true });
   };
+
+  async handleDeleteGeneButton(geneId) {
+    await axios
+      .delete(`/api/metadata/genes/${geneId}`)
+      .catch(() => alert("Unable to delete"));
+    this.getGenes();
+  }
 
   handleInputSubitButton = async () => {
     const { userId, name, desc, dna, rna } = this.state;
@@ -148,8 +153,14 @@ class GeneLibSlidingPane extends Component {
                 <ScrollBoxDNA>{g.dnaSeq}</ScrollBoxDNA>
                 <ScrollBoxRNA>{g.rnaSeq}</ScrollBoxRNA>
                 <ScrollBoxAA>{g.aaSeq}</ScrollBoxAA>
-                <hr />
               </div>
+              <AddGeneButton
+                onClick={() => this.handleDeleteGeneButton(g.geneId)}
+              >
+                Delete Gene
+              </AddGeneButton>
+              <hr />
+              <br />
             </div>
           </div>
         ))}

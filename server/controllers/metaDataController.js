@@ -20,5 +20,12 @@ module.exports = {
       ];
     });
     res.status(200).send(genesNew);
+  },
+
+  deleteGene: async (req, res) => {
+    const db = req.app.get("db");
+    const { geneId: gene_id } = req.params;
+    const deletedGene = await db.delete_gene([+gene_id]);
+    res.status(200).send(deletedGene);
   }
 };

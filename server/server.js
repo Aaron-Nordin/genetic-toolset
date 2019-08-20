@@ -34,6 +34,7 @@ app.delete("/auth/logout", authCtrl.logout)
 app.get("/auth/currentuser", authCtrl.currentUser)
 
 app.get("/api/metadata/genes/:userId", metaCtrl.getGenes)
+app.delete("/api/metadata/genes/:geneId", metaCtrl.deleteGene)
 
 app.post("/api/geneticmaterial/dnaOrRna", dnaCtrl.createDNA)
 
