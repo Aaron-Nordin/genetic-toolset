@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -21,6 +20,7 @@ class GeneLibSlidingPane extends Component {
     this.state = {
       genes: [],
       addGene: false,
+      userId: 0,
       name: "",
       desc: "",
       dna: "",
@@ -30,6 +30,7 @@ class GeneLibSlidingPane extends Component {
 
   componentDidMount() {
     this.getGenes();
+    this.setState({ userId: this.props.userId });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -65,6 +66,18 @@ class GeneLibSlidingPane extends Component {
 
   handleInputSubitButton = () => {
     this.setState({ addGene: false });
+    const { userId, name, desc, dna, rna } = this.state;
+    axios
+      .post("/api/geneticmaterial/dnaOrRna", {
+        userId,
+        name,
+        desc,
+        dna,
+        rna
+      })
+      .catch(() => {
+        alert("Invalid Submission");
+      });
   };
 
   handleInputCancelButton = () => {

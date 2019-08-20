@@ -35,5 +35,5 @@ app.get("/auth/currentuser", authCtrl.currentUser)
 
 app.get("/api/metadata/genes/:userId", metaCtrl.getGenes)
 
-app.post("/api/geneticmaterial/dna", dnaCtrl.createDNA)
+app.post("/api/geneticmaterial/dnaOrRna", dnaCtrl.createDNA)
 
