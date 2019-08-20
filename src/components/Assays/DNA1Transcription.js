@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import axios from "axios";
 import {
   InputStyle1,
   InputContainer,
@@ -8,11 +10,27 @@ import {
   TestDNA1Output
 } from "./TestsStyle";
 
-export default class DNA1Transcription extends Component {
+class DNA1Transcription extends Component {
   state = {
     dna: "",
     rna: "",
-    submitted: false
+    submitted: false,
+    genes: []
+  };
+
+  getGenes = () => {
+    if (this.props.userId !== null) {
+      axios
+        .get(`/api/metadata/genes/${this.props.userId}`)
+        .then(res => {
+          this.setState({
+            genes: res.data
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   };
 
   tScripFn = dna => {
@@ -34,6 +52,15 @@ export default class DNA1Transcription extends Component {
   };
 
   handleCancelClick = () => {
+    this.setState({ submitted: false });
+  };
+
+  handleSaveClick = async () => {
+    await this.getGenes();
+    const geneId = this.state.genes.select(g => g.dna === this.state.dna)
+      .geneId;
+    const { rna } = this.state.rna;
+    await axios.put("/api/geneticmaterial/rna", { geneId, rna });
     this.setState({ submitted: false });
   };
 
@@ -81,7 +108,9 @@ export default class DNA1Transcription extends Component {
               <TestDNA1Output>{this.state.rna}</TestDNA1Output>
             </InputContainer>
             <ButtonContainer>
-              <InputButtonStyle1>Save</InputButtonStyle1>
+              <InputButtonStyle1 onClick={this.handleSaveClick}>
+                Save
+              </InputButtonStyle1>
               <InputButtonStyle1 onClick={this.handleCancelClick}>
                 Cancel
               </InputButtonStyle1>
@@ -92,3 +121,10 @@ export default class DNA1Transcription extends Component {
     );
   }
 }
+
+function mapStateToProps(reduxState) {
+  const { userId } = reduxState;
+  return { userId };
+}
+
+export default connect(mapStateToProps)(DNA1Transcription);

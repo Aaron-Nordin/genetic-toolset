@@ -6,6 +6,7 @@ const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 const authCtrl = require("./controllers/authController");
 const metaCtrl = require("./controllers/metaDataController");
 const dnaCtrl = require("./controllers/dnaController");
+const rnaCtrl = require("./controllers/rnaController");
 
 const app = express();
 
@@ -37,4 +38,5 @@ app.get("/api/metadata/genes/:userId", metaCtrl.getGenes)
 app.delete("/api/metadata/genes/:geneId", metaCtrl.deleteGene)
 
 app.post("/api/geneticmaterial/dnaOrRna", dnaCtrl.createDNA)
+app.put("/api/geneticmaterial/rna", rnaCtrl.createRNA)
 
