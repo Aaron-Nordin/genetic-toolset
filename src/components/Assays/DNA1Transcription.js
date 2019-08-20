@@ -53,8 +53,12 @@ class DNA1Transcription extends Component {
 
   handleSaveClick = async () => {
     await this.getGenes();
-    const geneId = this.state.genes.select(g => g.dna === this.state.dna)
-      .geneId;
+    const gene = this.state.genes.find(function(gene) {
+      return gene.rna === this.state.rna;
+    });
+    console.log(gene);
+    const geneId = gene.gene_id;
+    console.log(geneId);
     const { rna } = this.state.rna;
     await axios.put("/api/geneticmaterial/rna", { geneId, rna });
     this.setState({ submitted: false });
@@ -102,7 +106,7 @@ class DNA1Transcription extends Component {
         {this.state.submitted ? (
           <>
             <InputContainer>
-              <TestDNA1Output>{this.state.rna}</TestDNA1Output>
+              <TestDNA1Output readOnly>{this.state.rna}</TestDNA1Output>
             </InputContainer>
             <ButtonContainer>
               <InputButtonStyle1 onClick={this.handleSaveClick}>

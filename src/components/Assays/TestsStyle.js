@@ -192,7 +192,7 @@ export const InputButtonStyle2 = styled.button`
 
 //----------------------------DIVS----------------------------------
 
-export const TestDNA1Output = styled.div`
+export const TestDNA1Output = styled.textarea`
   width: 60vw;
   height: 20vh;
   font-family: "Montserrat", sans-serif;

@@ -7,7 +7,7 @@ import AATests from "../Assays/AATests";
 const TestMenu = styled.div`
   /* height: calc(100vh - 0px); */
   overflow-y: scroll;
-
+  position: ${props => props.position};
   min-height: 100vh;
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -21,7 +21,6 @@ const TestMenu = styled.div`
   /* position: -webkit-sticky;
   position: sticky;
   top: 0px; */
-
 `;
 
 const LogoContainer = styled.div`
@@ -112,7 +111,7 @@ const ScrollbarInnerCont = styled.div`
 export default class TestList extends Component {
   render() {
     return (
-      <TestMenu>
+      <TestMenu position="relative">
         <LogoContainer>
           <LogoLink href="http://localhost:5555/about">
             <Logo src="http://localhost:5555/static/logo.png" alt="logo" />

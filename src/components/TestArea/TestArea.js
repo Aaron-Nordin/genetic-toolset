@@ -9,7 +9,7 @@ const OuterCont = styled.div`
   /* padding: 40px 0; */
   position: relative;
   display: block;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   font-family: "Montserrat", sans-serif;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -41,7 +41,7 @@ const OuterCont = styled.div`
 `;
 
 const Dark = styled.div`
-  background: #a0a0a0;
+  background: rgb(130,138,146);
   color: white;
 `;
 
