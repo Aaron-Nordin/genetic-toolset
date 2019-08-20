@@ -20,7 +20,7 @@ class GeneLibSlidingPane extends Component {
     this.state = {
       genes: [],
       addGene: false,
-      userId: 0,
+      userId: null,
       name: "",
       desc: "",
       dna: "",
@@ -31,6 +31,7 @@ class GeneLibSlidingPane extends Component {
   componentDidMount() {
     this.getGenes();
     this.setState({ userId: this.props.userId });
+    console.log(this.state)
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -44,6 +45,7 @@ class GeneLibSlidingPane extends Component {
       axios
         .get(`/api/metadata/genes/${this.props.userId}`)
         .then(res => {
+          console.log(res.data)
           this.setState({
             genes: res.data
           });
@@ -65,8 +67,8 @@ class GeneLibSlidingPane extends Component {
   };
 
   handleInputSubitButton = async () => {
-    this.setState({ addGene: false });
     const { userId, name, desc, dna, rna } = this.state;
+    this.setState({ addGene: false });
     await axios
       .post("/api/geneticmaterial/dnaOrRna", {
         userId,
@@ -102,21 +104,25 @@ class GeneLibSlidingPane extends Component {
                 type="text"
                 name="name"
                 placeholder="Enter Gene Name (required)"
+                onChange={e => this.handleChange(e)}
               />
             </h4>
             <InputDesc
               type="text"
               name="desc"
               placeholder="Enter Gene Description (required"
+              onChange={e => this.handleChange(e)}
             />
             <div>
               <InputDNA
                 name="dna"
                 placeholder="Enter DNA Sequence. Either DNA or RNA sequence is required."
+                onChange={e => this.handleChange(e)}
               />
               <InputRNA
                 name="rna"
                 placeholder="Enter RNA Sequence. Either DNA or RNA sequence is required."
+                onChange={e => this.handleChange(e)}
               />
             </div>
             <div>
