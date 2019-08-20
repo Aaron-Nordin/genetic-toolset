@@ -23,9 +23,11 @@ class DNA1Transcription extends Component {
       axios
         .get(`/api/metadata/genes/${this.props.userId}`)
         .then(res => {
+          console.log("getgenes");
           this.setState({
             genes: res.data
           });
+          return this.state;
         })
         .catch(err => {
           console.log(err);
@@ -52,15 +54,27 @@ class DNA1Transcription extends Component {
   };
 
   handleSaveClick = async () => {
-    await this.getGenes();
-    const gene = this.state.genes.find(function(gene) {
-      return gene.rna === this.state.rna;
-    });
-    console.log(gene);
-    const geneId = gene.gene_id;
-    console.log(geneId);
-    const { rna } = this.state.rna;
-    await axios.put("/api/geneticmaterial/rna", { geneId, rna });
+    // await this.getGenes();
+    // let matchDNAId = null;
+    // let matchUserId = null;
+    // console.log("handlesaveclick")
+    // this.state.genes.filter(function(gene) {
+    //   if (gene.dna === this.state.dna) {
+    //     matchDNAId = gene.dnaId;
+    //     matchUserId = gene.userId;
+    //     return gene;
+    //   } else return null;
+    // });
+    // const { rna } = this.state;
+    // console.log(matchDNAId, matchUserId, rna);
+    // await axios.put("/api/geneticmaterial/rna", {
+    //   matchDNAId,
+    //   matchUserId,
+    //   rna
+    // });
+    const { dna, rna } = this.state;
+    const { userId } = this.props;
+    await axios.put("/api/geneticmaterial/rna", { userId, dna, rna });
     this.setState({ submitted: false });
   };
 
@@ -71,7 +85,7 @@ class DNA1Transcription extends Component {
   }
 
   render() {
-    console.log(this.state.rna);
+    console.log(this.state);
     return (
       <div>
         <TestNameAndDescCont className="test-name">

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 import DNATests from "../Assays/DNATests";
 import RNATests from "../Assays/RNATests";
@@ -108,7 +109,7 @@ const ScrollbarInnerCont = styled.div`
   padding-inline-start: 40px;
 `;
 
-export default class TestList extends Component {
+class TestList extends Component {
   render() {
     return (
       <TestMenu position="relative">
@@ -139,3 +140,5 @@ export default class TestList extends Component {
     );
   }
 }
+
+export default connect()(TestList)

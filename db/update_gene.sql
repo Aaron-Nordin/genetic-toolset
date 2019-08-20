@@ -1,4 +1,5 @@
 update gene
 set rna_id = ${rna_id}
-where gene_id = ${gene_id}
-returning *
+where [user_id = ${user_id}]
+and [dna_id = ${dna_id}]
+returning *;
