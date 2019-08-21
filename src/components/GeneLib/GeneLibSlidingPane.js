@@ -24,8 +24,7 @@ class GeneLibSlidingPane extends Component {
     this.state = {
       genes: [],
       addGene: false,
-      selectGene: false,
-      GeneContainerBackground: "#fafafa",
+      selectedGeneId: null,
       userId: null,
       name: "",
       desc: "",
@@ -98,14 +97,13 @@ class GeneLibSlidingPane extends Component {
     this.setState({ addGene: false, name: "", desc: "", dna: "", rna: "" });
   };
 
-  handleSelectGeneButton = async (geneId) => {
+  handleSelectGeneButton = async geneId => {
     this.setState({
-      selectGene: true,
-      GeneContainerBackground: "rgb(130, 138, 146)"
+      selectedGeneId: geneId,
     });
     await axios.get(`/api/metadata/genes/${geneId}`).then(res => {
-      this.props.setSelectedGene(res.data)
-    })
+      this.props.setSelectedGene(res.data);
+    });
   };
 
   render() {
@@ -163,8 +161,12 @@ class GeneLibSlidingPane extends Component {
         {this.state.genes.map(g => (
           <div key={g.geneId}>
             <GeneContainer
+              // id={this.state.selectedGeneId === g.geneId ? "selected" : null}
               className="gene-info"
-              background={this.state.GeneContainerBackground}
+              style={{
+                background:
+                  this.state.selectedGeneId === g.geneId ? "#828A92" : null
+              }}
             >
               <HContainerStyle1>
                 <DarkH4>{g.geneName}</DarkH4>

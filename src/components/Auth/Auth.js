@@ -28,7 +28,6 @@ class Auth extends Component {
   containerRef = React.createRef();
 
   componentDidMount() {
-    console.log(this.containerRef);
     this.props.updateBannerHeight(this.containerRef.current.clientHeight);
   }
 

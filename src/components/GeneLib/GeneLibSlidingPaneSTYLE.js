@@ -18,9 +18,9 @@ export const DarkH4 = styled.h4`
 
 export const GeneContainer = styled.div`
   /* border: 2px solid red; */
-  padding: 1em 1em;
+  padding: 1em 2.5em;
   margin-bottom: 3vh;
-  background: ${props => props.background};
+  position: relative;
 `;
 
 export const HContainerStyle1 = styled.div`

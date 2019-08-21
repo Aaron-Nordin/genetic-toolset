@@ -21,7 +21,7 @@ class DNA1Transcription extends Component {
   getGenes = () => {
     if (this.props.userId !== null) {
       axios
-        .get(`/api/metadata/genes/${this.props.userId}`)
+        .get(`/api/metadata/usergenes/${this.props.userId}`)
         .then(res => {
           this.setState({
             genes: res.data
