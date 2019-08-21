@@ -6,9 +6,10 @@ import RNATests from "../Assays/RNATests";
 import AATests from "../Assays/AATests";
 
 const TestMenu = styled.div`
-  /* height: calc(100vh - 0px); */
   overflow-y: scroll;
   position: ${props => props.position};
+  top: 0px;
+  left: ${props => (props.position === "fixed" ? "0px" : "-20vw")};
   min-height: 100vh;
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -19,9 +20,6 @@ const TestMenu = styled.div`
   flex-direction: column;
   backface-visibility: hidden;
   contain: strict;
-  /* position: -webkit-sticky;
-  position: sticky;
-  top: 0px; */
 `;
 
 const LogoContainer = styled.div`
@@ -110,9 +108,28 @@ const ScrollbarInnerCont = styled.div`
 `;
 
 class TestList extends Component {
+  state = {
+    testListPosition: "absolute"
+  };
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.onScroll);
+  }
+
+  onScroll = () => {
+    if (
+      window.scrollY >=
+      this.props.navbarHeight + this.props.bannerImageHeight
+    ) {
+      this.setState({ testListPosition: "fixed" });
+    } else {
+      this.setState({ testListPosition: "absolute" });
+    }
+  };
+
   render() {
     return (
-      <TestMenu position="relative">
+      <TestMenu position={this.state.testListPosition}>
         <LogoContainer>
           <LogoLink href="http://localhost:5555/about">
             <Logo src="http://localhost:5555/static/logo.png" alt="logo" />
@@ -141,4 +158,8 @@ class TestList extends Component {
   }
 }
 
-export default connect()(TestList)
+function mapStateToProps(reduxState) {
+  return reduxState;
+}
+
+export default connect(mapStateToProps)(TestList);

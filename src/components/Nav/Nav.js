@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
-import { logoutUser } from "../../ducks/reducer";
+import { logoutUser, updateNavHeight } from "../../ducks/reducer";
 import { Navbar, Button } from "react-bootstrap";
 
 //---------------------------STYLE-----------------------------
@@ -26,8 +26,8 @@ const NameIcon = styled.div`
   padding-bottom: 0.5em;
 `;
 const PicContainer = styled.div`
-margin-right: 0.4em;
-`
+  margin-right: 0.4em;
+`;
 
 const navStyle = {
   width: "100%",
@@ -36,18 +36,20 @@ const navStyle = {
   alignContent: "center",
   justifyContent: "space-between",
   height: "11vh",
-  boxShadow: "5px 5px 10px 5px #111111",
+  boxShadow: "5px 5px 10px 5px #111111"
   // zIndex: "1",
 };
 const logoutButtonStyle = {
   width: "5em"
-}
+};
 
 const rightText = {};
 
 //---------------------------CLASS-----------------------------
 
 class Nav extends Component {
+  navRef = React.createRef();
+
   logout = () => {
     axios.delete("/auth/logout").then(() => {
       this.props.logoutUser();
@@ -55,22 +57,32 @@ class Nav extends Component {
     });
   };
 
+  componentDidMount() {
+    this.props.updateNavHeight(this.navRef.current.clientHeight);
+  }
+
   render() {
     return (
-      <Navbar style={navStyle} variant="dark" bg="dark">
-        {/* <Navbar.Brand></Navbar.Brand> */}
-        <NameIcon>
-          <Navbar.Text style={rightText}>
-            Signed in as: <a href="#login">{this.props.username}</a>
-          </Navbar.Text>
-          <Button variant="light" onClick={this.logout} style={logoutButtonStyle}>
-            Logout
-          </Button>
-        </NameIcon>
-        <PicContainer>
-          <ProfilePic src={this.props.userImage} alt="profile pic" />
-        </PicContainer>
-      </Navbar>
+      <div ref={this.navRef}>
+        <Navbar style={navStyle} variant="dark" bg="dark">
+          {/* <Navbar.Brand></Navbar.Brand> */}
+          <NameIcon>
+            <Navbar.Text style={rightText}>
+              Signed in as: <a href="#login">{this.props.username}</a>
+            </Navbar.Text>
+            <Button
+              variant="light"
+              onClick={this.logout}
+              style={logoutButtonStyle}
+            >
+              Logout
+            </Button>
+          </NameIcon>
+          <PicContainer>
+            <ProfilePic src={this.props.userImage} alt="profile pic" />
+          </PicContainer>
+        </Navbar>
+      </div>
     );
   }
 }
@@ -82,5 +94,5 @@ function mapStateToProps(reduxState) {
 
 export default connect(
   mapStateToProps,
-  { logoutUser }
+  { logoutUser, updateNavHeight }
 )(withRouter(Nav));

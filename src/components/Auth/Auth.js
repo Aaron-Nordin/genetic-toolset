@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { setUser } from "../../ducks/reducer";
+import {
+  setUser,
+  updateBannerHeight,
+  updateNavHeight
+} from "../../ducks/reducer";
 import { connect } from "react-redux";
 import { Element, scroller } from "react-scroll";
 import styled from "styled-components";
@@ -20,6 +24,12 @@ class Auth extends Component {
     password: "",
     register: false
   };
+
+  containerRef = React.createRef();
+
+  componentDidMount() {
+    this.props.updateBannerHeight(this.containerRef.current.clientHeight);
+  }
 
   handleChange(e) {
     this.setState({
@@ -78,6 +88,7 @@ class Auth extends Component {
       <MainContainer className="auth-component">
         <div
           className="homepage"
+          ref={this.containerRef}
           style={{
             maxWidth: "100vw",
             height: "100vh",
@@ -142,5 +153,5 @@ function mapStateToProps(reduxState) {
 
 export default connect(
   mapStateToProps,
-  { setUser }
+  { setUser, updateBannerHeight, updateNavHeight }
 )(Auth);

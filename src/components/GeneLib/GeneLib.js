@@ -10,6 +10,7 @@ import "./GeneLib.css";
 
 const Body = styled.div`
   display: block;
+  margin-left: 20vw;
   /* position: sticky;
   top: 0px; */
 `;
