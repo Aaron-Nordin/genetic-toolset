@@ -20,7 +20,7 @@ app.use(
   })
 );
 
-app.use("/static", express.static("./media"))
+app.use("/static", express.static("./media"));
 
 massive(CONNECTION_STRING).then(db => {
   app.set("db", db);
@@ -29,14 +29,14 @@ massive(CONNECTION_STRING).then(db => {
 
 //------------------------ENDPOINTS---------------------------------
 
-app.post("/auth/register", authCtrl.register)
-app.post("/auth/login", authCtrl.login)
-app.delete("/auth/logout", authCtrl.logout)
-app.get("/auth/currentuser", authCtrl.currentUser)
+app.post("/auth/register", authCtrl.register);
+app.post("/auth/login", authCtrl.login);
+app.delete("/auth/logout", authCtrl.logout);
+app.get("/auth/currentuser", authCtrl.currentUser);
 
-app.get("/api/metadata/genes/:userId", metaCtrl.getGenes)
-app.delete("/api/metadata/genes/:geneId", metaCtrl.deleteGene)
+app.get("/api/metadata/genes/:geneId", metaCtrl.getGene);
+app.get("/api/metadata/usergenes/:userId", metaCtrl.getGenes);
+app.delete("/api/metadata/genes/:geneId", metaCtrl.deleteGene);
 
-app.post("/api/geneticmaterial/dnaOrRna", dnaCtrl.createDNA)
-app.put("/api/geneticmaterial/rna", rnaCtrl.createRNA)
-
+app.post("/api/geneticmaterial/dnaOrRna", dnaCtrl.createDNA);
+app.put("/api/geneticmaterial/rna", rnaCtrl.createRNA);

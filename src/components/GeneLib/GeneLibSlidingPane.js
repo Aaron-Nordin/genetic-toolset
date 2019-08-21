@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
+import { setSelectedGene } from "../../ducks/reducer";
 import {
   DarkToLightButton,
   ScrollBoxDNA,
@@ -47,7 +48,7 @@ class GeneLibSlidingPane extends Component {
   getGenes = () => {
     if (this.props.userId !== null) {
       axios
-        .get(`/api/metadata/genes/${this.props.userId}`)
+        .get(`/api/metadata/usergenes/${this.props.userId}`)
         .then(res => {
           this.setState({
             genes: res.data
@@ -97,11 +98,14 @@ class GeneLibSlidingPane extends Component {
     this.setState({ addGene: false, name: "", desc: "", dna: "", rna: "" });
   };
 
-  handleSelectGeneButton = () => {
+  handleSelectGeneButton = async (geneId) => {
     this.setState({
       selectGene: true,
       GeneContainerBackground: "rgb(130, 138, 146)"
     });
+    await axios.get(`/api/metadata/genes/${geneId}`).then(res => {
+      this.props.setSelectedGene(res.data)
+    })
   };
 
   render() {
@@ -171,7 +175,9 @@ class GeneLibSlidingPane extends Component {
                 <ScrollBoxRNA readOnly defaultValue={g.rnaSeq} />
                 <ScrollBoxAA readOnly defaultValue={g.aaSeq} />
               </div>
-              <DarkToLightButton onClick={() => this.handleSelectGeneButton()}>
+              <DarkToLightButton
+                onClick={() => this.handleSelectGeneButton(g.geneId)}
+              >
                 Select Gene
               </DarkToLightButton>
               <DarkToLightButton
@@ -194,4 +200,7 @@ function mapStateToProps(reduxState) {
   return { userId, username };
 }
 
-export default connect(mapStateToProps)(GeneLibSlidingPane);
+export default connect(
+  mapStateToProps,
+  { setSelectedGene }
+)(GeneLibSlidingPane);
