@@ -44,6 +44,10 @@ export const LogoutButton = styled.button`
   }
 `;
 
+// const NavbarCustom = styled.div`
+
+// `
+
 const navStyle = {
   width: "100%",
   display: "flex",

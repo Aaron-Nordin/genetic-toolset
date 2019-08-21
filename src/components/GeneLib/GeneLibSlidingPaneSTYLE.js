@@ -1,8 +1,64 @@
 import styled from "styled-components";
 
+//-----------------------------H'S--------------------------------------
+
+export const DarkH4 = styled.h4`
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  color: #333;
+  ::selection {
+    background-color: rgba(52, 58, 64, 0.2);
+    color: #343a40;
+  }
+`;
+
+//----------------------------------------------------------------------
+
+//--------------------------CONTAINERS----------------------------------
+
+export const GeneContainer = styled.div`
+  /* border: 2px solid red; */
+  padding: 1em 1em;
+  margin-bottom: 3vh;
+  background: ${props => props.background};
+`;
+
+export const HContainerStyle1 = styled.div`
+  width: 80%;
+  height: 10%;
+  white-space: normal;
+  /* overflow-y: scroll; */
+  :focus {
+    border: 2px solid #343a40;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #343a40;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #343a40;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #343a40;
+  }
+  ::selection {
+    background-color: rgba(52, 58, 64, 0.2);
+    color: #343a40;
+  }
+`;
+
+//----------------------------------------------------------------------
+
 //---------------------------BUTTONS------------------------------------
 
-export const AddGeneButton = styled.button`
+export const DarkToLightButton = styled.button`
   width: 15vw;
   height: 2em;
   margin-top: 10px;
@@ -17,7 +73,7 @@ export const AddGeneButton = styled.button`
   }
 `;
 
-export const InputButton = styled(AddGeneButton)`
+export const InputButton = styled(DarkToLightButton)`
   width: 19.5%;
 `;
 
@@ -88,49 +144,70 @@ export const ScrollBoxDNA = styled.textarea`
   ::-webkit-scrollbar-thumb:hover {
     background: #9f1829;
   }
+  ::selection {
+    background-color: rgba(159, 24, 41, 0.2);
+    color: #9f1829;
+  }
 `;
-    export const ScrollBoxRNA = styled(ScrollBoxDNA)`
-      :focus {
-        border: 2px solid #1a97ba;
-        box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
-      }
-      ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 10px #1a97ba;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #1a97ba;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #1a97ba;
-      }
-    `;
-    export const ScrollBoxAA = styled(ScrollBoxDNA)`
-      :focus {
-        border: 2px solid #64ad37;
-        box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
-      }
-      ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 10px #64ad37;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #64ad37;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #64ad37;
-      }
-    `;
-    export const ScrollBoxDesc = styled(ScrollBoxDNA)`
-      width: 80%;
-      ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 10px #1a97ba;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #1a97ba;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #1a97ba;
-      }
-    `;
+export const ScrollBoxRNA = styled(ScrollBoxDNA)`
+  :focus {
+    border: 2px solid #1a97ba;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #1a97ba;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1a97ba;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1a97ba;
+  }
+  ::selection {
+    background-color: rgba(26, 151, 186, 0.2);
+    color: #1a97ba;
+  }
+`;
+export const ScrollBoxAA = styled(ScrollBoxDNA)`
+  :focus {
+    border: 2px solid #64ad37;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #64ad37;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #64ad37;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #64ad37;
+  }
+  ::selection {
+    background-color: rgba(100, 173, 55, 0.2);
+    color: #64ad37;
+  }
+`;
+export const ScrollBoxDesc = styled(ScrollBoxDNA)`
+  width: 80%;
+  :focus {
+    border: 2px solid #343a40;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #343a40;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #343a40;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #343a40;
+  }
+  ::selection {
+    background-color: rgba(52, 58, 64, 0.2);
+    color: #343a40;
+  }
+`;
+
 export const InputDNA = styled.textarea`
   border: none;
   padding: 5px;
@@ -162,38 +239,38 @@ export const InputDNA = styled.textarea`
     background: #9f1829;
   }
 `;
-    export const InputRNA = styled(InputDNA)`
-      border: 2px dotted #1a97ba;
-      margin-left: 2%;
-      :focus {
-        border: 2px solid #1a97ba;
-      }
-      ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 10px #1a97ba;
-        border-radius: 10px;
-      }
-      ::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        background: #1a97ba;
-        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #1a97ba;
-      }
-    `;
-    export const InputDesc = styled(InputDNA)`
-      width: 80%;
-      border: 2px dotted #343a40;
-      :focus {
-        border: 2px solid #343a40;
-      }
-      ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 10px #343a40;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #343a40;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #343a40;
-      }
-    `;
+export const InputRNA = styled(InputDNA)`
+  border: 2px dotted #1a97ba;
+  margin-left: 2%;
+  :focus {
+    border: 2px solid #1a97ba;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #1a97ba;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #1a97ba;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1a97ba;
+  }
+`;
+export const InputDesc = styled(InputDNA)`
+  width: 80%;
+  border: 2px dotted #343a40;
+  :focus {
+    border: 2px solid #343a40;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #343a40;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #343a40;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #343a40;
+  }
+`;

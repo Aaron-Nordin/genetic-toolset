@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import {
-  AddGeneButton,
+  DarkToLightButton,
   ScrollBoxDNA,
   ScrollBoxRNA,
   ScrollBoxAA,
@@ -11,7 +11,10 @@ import {
   InputDNA,
   InputRNA,
   InputDesc,
-  InputName
+  InputName,
+  GeneContainer,
+  DarkH4,
+  HContainerStyle1
 } from "./GeneLibSlidingPaneSTYLE";
 
 class GeneLibSlidingPane extends Component {
@@ -20,6 +23,8 @@ class GeneLibSlidingPane extends Component {
     this.state = {
       genes: [],
       addGene: false,
+      selectGene: false,
+      GeneContainerBackground: "#fafafa",
       userId: null,
       name: "",
       desc: "",
@@ -60,7 +65,7 @@ class GeneLibSlidingPane extends Component {
     });
   }
 
-  handleAddGeneButton = () => {
+  handleDarkToLightButton = () => {
     this.setState({ addGene: true });
   };
 
@@ -92,13 +97,20 @@ class GeneLibSlidingPane extends Component {
     this.setState({ addGene: false, name: "", desc: "", dna: "", rna: "" });
   };
 
+  handleSelectGeneButton = () => {
+    this.setState({
+      selectGene: true,
+      GeneContainerBackground: "rgb(130, 138, 146)"
+    });
+  };
+
   render() {
     return (
       <div>
         {!this.state.addGene ? (
-          <AddGeneButton onClick={this.handleAddGeneButton}>
+          <DarkToLightButton onClick={this.handleDarkToLightButton}>
             Add Gene
-          </AddGeneButton>
+          </DarkToLightButton>
         ) : null}
         <br />
         <br />
@@ -146,22 +158,30 @@ class GeneLibSlidingPane extends Component {
         <br />
         {this.state.genes.map(g => (
           <div key={g.geneId}>
-            <div className="gene-info">
-              <h4>{g.geneName}</h4>
+            <GeneContainer
+              className="gene-info"
+              background={this.state.GeneContainerBackground}
+            >
+              <HContainerStyle1>
+                <DarkH4>{g.geneName}</DarkH4>
+              </HContainerStyle1>
               <ScrollBoxDesc readOnly defaultValue={g.geneDesc} />
               <div>
                 <ScrollBoxDNA readOnly defaultValue={g.dnaSeq} />
                 <ScrollBoxRNA readOnly defaultValue={g.rnaSeq} />
                 <ScrollBoxAA readOnly defaultValue={g.aaSeq} />
               </div>
-              <AddGeneButton
+              <DarkToLightButton onClick={() => this.handleSelectGeneButton()}>
+                Select Gene
+              </DarkToLightButton>
+              <DarkToLightButton
                 onClick={() => this.handleDeleteGeneButton(g.geneId)}
               >
                 Delete Gene
-              </AddGeneButton>
+              </DarkToLightButton>
               <hr />
               <br />
-            </div>
+            </GeneContainer>
           </div>
         ))}
       </div>
