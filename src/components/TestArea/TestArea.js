@@ -40,9 +40,14 @@ const OuterCont = styled.div`
   }
 `;
 
-const Dark = styled.div`
-  background: rgb(130,138,146);
-  color: white;
+const DarkTest = styled.div`
+  background: rgb(130, 138, 146);
+  color: #fafafa;
+`;
+
+const LightTest = styled(DarkTest)`
+  background: #fafafa;
+  color: #333;
 `;
 
 const dummyText =
@@ -52,76 +57,86 @@ export default class TestArea extends Component {
   render() {
     return (
       <OuterCont>
-        <Dark
+        <DarkTest
           title="DNA Assay 1"
           subtitle={dummyText}
-          dark={true}
+          DarkTest={true}
           id="dnaTest1"
         >
           <DNA1Transcription />
-        </Dark>
-        <div
+        </DarkTest>
+        <LightTest
           title=" DNA Assay 2"
           subtitle={dummyText}
-          dark={"false"}
+          LightTest={true}
           id="dnaTest2"
         >
           <h1>DNA Test 2</h1>
           <p>{dummyText}</p>
-        </div>
-        <Dark
+        </LightTest>
+        <DarkTest
           title=" DNA Assay 3"
           subtitle={dummyText}
-          dark={true}
+          DarkTest={true}
           id="dnaTest3"
         >
           <h1>DNA Test 3</h1>
           <p>{dummyText}</p>
-        </Dark>
-        <div
+        </DarkTest>
+        <LightTest
           title="RNA Assay 1"
           subtitle={dummyText}
-          dark={"false"}
+          LightTest={true}
           id="rnaTest1"
         >
           <RNA1Translation />
           <p>{dummyText}</p>
-        </div>
-        <Dark
+        </LightTest>
+        <DarkTest
           title="RNA Assay 2"
           subtitle={dummyText}
-          dark={true}
+          DarkTest={true}
           id="rnaTest2"
         >
           <h1>RNA Test 2</h1>
           <p>{dummyText}</p>
-        </Dark>
-        <div
+        </DarkTest>
+        <LightTest
           title="RNA Assay 3"
           subtitle={dummyText}
-          dark={"false"}
+          LightTest={true}
           id="rnaTest3"
         >
           <h1>RNA Test 3</h1>
           <p>{dummyText}</p>
-        </div>
-        <Dark title="AA Assay 1" subtitle={dummyText} dark={true} id="aaTest1">
+        </LightTest>
+        <DarkTest
+          title="AA Assay 1"
+          subtitle={dummyText}
+          DarkTest={true}
+          id="aaTest1"
+        >
           <h1>AA Test 1</h1>
           <p>{dummyText}</p>
-        </Dark>
-        <div
+        </DarkTest>
+        <LightTest
           title="AA Assay 2"
           subtitle={dummyText}
-          dark={"false"}
+          LightTest={true}
           id="aaTest2"
         >
           <h1>AA Test 2</h1>
           <p>{dummyText}</p>
-        </div>
-        <Dark title="AA Assay 3" subtitle={dummyText} dark={true} id="aaTest3">
+        </LightTest>
+        <DarkTest
+          title="AA Assay 3"
+          subtitle={dummyText}
+          DarkTest={true}
+          id="aaTest3"
+        >
           <h1>AA Test 3</h1>
           <p>{dummyText}</p>
-        </Dark>
+        </DarkTest>
       </OuterCont>
     );
   }

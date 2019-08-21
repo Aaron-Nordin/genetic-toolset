@@ -24,10 +24,8 @@ module.exports = {
       }
       if (rna_seq) {
         const newRNA = await db.create_rna({ user_id, rna_seq });
-        console.log(newRNA);
         newRNAId = newRNA[0].rna_id;
       }
-      console.log(newDNAId, newRNAId);
       const newGene = await db.create_gene({
         gene_name,
         gene_desc,
@@ -35,7 +33,6 @@ module.exports = {
         dna_id: newDNAId,
         rna_id: newRNAId
       });
-      console.log(newGene);
       res.status(200).send(newGene[0]);
     } catch (error) {
       res.status(500).send(error);

@@ -8,7 +8,6 @@ import {
 import { connect } from "react-redux";
 import { Element, scroller } from "react-scroll";
 import styled from "styled-components";
-// import StickyBox from "react-sticky-box";
 import Registration from "../Registration/Registration";
 import GeneLib from "../GeneLib/GeneLib";
 import Nav from "../Nav/Nav";

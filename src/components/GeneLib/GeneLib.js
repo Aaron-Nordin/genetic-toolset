@@ -11,8 +11,6 @@ import "./GeneLib.css";
 const Body = styled.div`
   display: block;
   margin-left: 20vw;
-  /* position: sticky;
-  top: 0px; */
 `;
 const BodyWrap = styled.div`
   font-family: Roboto, sans-serif;
@@ -21,7 +19,6 @@ const BodyWrap = styled.div`
   line-height: 1.5em;
   color: #333333;
   display: flex;
-  /* justify-content: space-between; */
   position: relative;
   text-align: left;
   -webkit-font-smoothing: antialiased;
@@ -79,21 +76,6 @@ class GeneLib extends Component {
       this.getGenes();
     }
   }
-
-  // getGenes = () => {
-  //   if (this.props.userId !== null) {
-  //     axios
-  //       .get(`/api/metadata/genes/${this.props.userId}`)
-  //       .then(res => {
-  //         this.setState({
-  //           genes: res.data
-  //         });
-  //       })
-  //       .catch(err => {
-  //         console.log(err);
-  //       });
-  //   }
-  // };
 
   handleDNAHambClick = () => {
     this.setState({ isPaneOpen: true });

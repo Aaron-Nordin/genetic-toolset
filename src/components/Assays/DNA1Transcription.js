@@ -23,7 +23,6 @@ class DNA1Transcription extends Component {
       axios
         .get(`/api/metadata/genes/${this.props.userId}`)
         .then(res => {
-          console.log("getgenes");
           this.setState({
             genes: res.data
           });
@@ -68,7 +67,6 @@ class DNA1Transcription extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <TestNameAndDescCont className="test-name">

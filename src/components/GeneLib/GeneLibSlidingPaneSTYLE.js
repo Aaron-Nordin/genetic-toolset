@@ -64,6 +64,7 @@ export const ScrollBoxDNA = styled.textarea`
   border: none;
   padding: 5px 5px;
   font-family: "Montserrat", sans-serif;
+  color: #333;
   width: 26.6667%;
   height: 200px;
   outline: none;

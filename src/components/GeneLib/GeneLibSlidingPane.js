@@ -148,11 +148,11 @@ class GeneLibSlidingPane extends Component {
           <div key={g.geneId}>
             <div className="gene-info">
               <h4>{g.geneName}</h4>
-              <ScrollBoxDesc readOnly value={g.geneDesc} />
+              <ScrollBoxDesc readOnly defaultValue={g.geneDesc} />
               <div>
-                <ScrollBoxDNA readOnly value={g.dnaSeq} />
-                <ScrollBoxRNA readOnly value={g.rnaSeq} />
-                <ScrollBoxAA readOnly value={g.aaSeq} />
+                <ScrollBoxDNA readOnly defaultValue={g.dnaSeq} />
+                <ScrollBoxRNA readOnly defaultValue={g.rnaSeq} />
+                <ScrollBoxAA readOnly defaultValue={g.aaSeq} />
               </div>
               <AddGeneButton
                 onClick={() => this.handleDeleteGeneButton(g.geneId)}
