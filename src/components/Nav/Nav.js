@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import { logoutUser, updateNavHeight } from "../../ducks/reducer";
-import { Navbar, Button } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 
 //---------------------------STYLE-----------------------------
 
@@ -28,6 +28,21 @@ const NameIcon = styled.div`
 const PicContainer = styled.div`
   margin-right: 0.4em;
 `;
+export const LogoutButton = styled.button`
+  background: #fafafa;
+  width: 10vw;
+  height: 1.5em;
+  /* margin-top: 10px; */
+  color: #343a40;
+  font-size: 0.75em;
+  transition: 0.5s;
+  border: 2px solid #343a40;
+  :hover {
+    background: #343a40;
+    color: #fafafa;
+    border: 2px solid #fafafa;
+  }
+`;
 
 const navStyle = {
   width: "100%",
@@ -38,9 +53,6 @@ const navStyle = {
   height: "11vh",
   boxShadow: "5px 5px 10px 5px #111111"
   // zIndex: "1",
-};
-const logoutButtonStyle = {
-  width: "5em"
 };
 
 const rightText = {};
@@ -70,13 +82,7 @@ class Nav extends Component {
             <Navbar.Text style={rightText}>
               Signed in as: <a href="#login">{this.props.username}</a>
             </Navbar.Text>
-            <Button
-              variant="light"
-              onClick={this.logout}
-              style={logoutButtonStyle}
-            >
-              Logout
-            </Button>
+            <LogoutButton onClick={this.logout}>Logout</LogoutButton>
           </NameIcon>
           <PicContainer>
             <ProfilePic src={this.props.userImage} alt="profile pic" />

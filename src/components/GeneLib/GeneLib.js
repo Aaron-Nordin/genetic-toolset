@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { connect } from "react-redux";
 import TestArea from "../TestArea/TestArea";
 import TestList from "../TestList.js/TestList";
@@ -27,12 +28,11 @@ const BodyWrap = styled.div`
 const SlidingPaneCont = styled.div`
   background: #343a40;
   height: 100%;
-  width: 7%;
+  width: 7vw;
   margin: 0;
   position: absolute;
   right: 0px;
 `;
-
 const DNAHamburger = styled.img`
   position: relative;
   left: 23%;
@@ -47,6 +47,13 @@ const DNAHamburger = styled.img`
     border-radius: 8px;
   }
 `;
+const SlidingPaneMainCont = styled.div`
+  height: 100vh;
+  width: 7vw;
+  position: ${props => props.position};
+  top: 0px;
+  right: 0px;
+`;
 
 const testAreaStyle = {
   width: "100%",
@@ -60,15 +67,17 @@ class GeneLib extends Component {
   constructor() {
     super();
     this.state = {
-      // genes: [],
+      genes: [],
       isPaneOpen: false,
-      isPaneOpenLeft: false
+      isPaneOpenLeft: false,
+      slidPaneContDivPosition: "absolute"
     };
   }
 
   componentDidMount() {
-    // this.getGenes();
+    this.getGenes();
     Modal.setAppElement(this.el);
+    window.addEventListener("scroll", this.onScroll);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -76,6 +85,33 @@ class GeneLib extends Component {
       this.getGenes();
     }
   }
+
+  onScroll = () => {
+    if (
+      window.scrollY >=
+      this.props.navbarHeight + this.props.bannerImageHeight
+    ) {
+      this.setState({ slidPaneContDivPosition: "fixed" });
+    } else {
+      this.setState({ slidPaneContDivPosition: "absolute" });
+    }
+  };
+
+  getGenes = () => {
+    if (this.props.userId !== null) {
+      axios
+        .get(`/api/metadata/genes/${this.props.userId}`)
+        .then(res => {
+          this.setState({
+            genes: res.data
+          });
+          return this.state;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  };
 
   handleDNAHambClick = () => {
     this.setState({ isPaneOpen: true });
@@ -94,10 +130,13 @@ class GeneLib extends Component {
           <div className="Test-List">
             <TestList />
           </div>
-          <div className="Test-Area" style={{ height: "100vh", width: "73vw" }}>
+          <div className="Test-Area" style={{ height: "100vh", width: "72.5vw" }}>
             <TestArea style={testAreaStyle} />
           </div>
-          <div className="Gene-Lib">
+          <SlidingPaneMainCont
+            className="Gene-Lib"
+            position={this.state.slidPaneContDivPosition}
+          >
             <SlidingPaneCont ref={ref => (this.el = ref)}>
               <DNAHamburger
                 src="http://localhost:5555/static/DNAHamburger.png"
@@ -119,7 +158,7 @@ class GeneLib extends Component {
                 <GeneLibSlidingPane />
               </SlidingPane>
             </SlidingPaneCont>
-          </div>
+          </SlidingPaneMainCont>
         </BodyWrap>
       </Body>
     );
@@ -127,8 +166,8 @@ class GeneLib extends Component {
 }
 
 function mapStateToProps(reduxState) {
-  const { userId, username } = reduxState;
-  return { userId, username };
+  const { userId, username, bannerImageHeight, navbarHeight } = reduxState;
+  return { userId, username, bannerImageHeight, navbarHeight };
 }
 
 export default connect(mapStateToProps)(GeneLib);

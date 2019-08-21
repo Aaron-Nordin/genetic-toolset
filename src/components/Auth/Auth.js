@@ -14,7 +14,8 @@ import Nav from "../Nav/Nav";
 import "./Auth.css";
 
 const MainContainer = styled.div`
-  width: 100vw;
+  max-width: 100vw;
+
 `;
 
 class Auth extends Component {
@@ -27,6 +28,7 @@ class Auth extends Component {
   containerRef = React.createRef();
 
   componentDidMount() {
+    console.log(this.containerRef);
     this.props.updateBannerHeight(this.containerRef.current.clientHeight);
   }
 
@@ -71,17 +73,6 @@ class Auth extends Component {
     });
   };
 
-  // onMouseMoveBackground = () => {
-  //   const loginRegister = document.getElementById("auth-homepage-pop-in");
-  //   if (loginRegister.classList.contains("hide")) {
-  //     loginRegister.classList.remove("hide");
-  //   } else {
-  //     loginRegister.classList.add("hide");
-  //   }
-  // };
-  // onMouseMove={this.onMouseMoveBackground}
-  // hide
-
   render() {
     return (
       <MainContainer className="auth-component">
@@ -96,7 +87,19 @@ class Auth extends Component {
             overflowY: "hidden"
           }}
         >
-          <video autoPlay muted loop id="DNA-vid">
+          <video
+            autoPlay
+            muted
+            loop
+            id="DNA-vid"
+            style={{
+              width: "100%",
+              margin: 0,
+              pading: 0,
+              overflowX: "hidden",
+              
+            }}
+          >
             <source
               src="http://localhost:5555/static/DNA.mp4"
               type="video/mp4"

@@ -22,7 +22,7 @@ export class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" >
         {this.props.location.pathname === "/" ||
         this.props.location.pathname === "/registration" ? null : (
           <Nav />

@@ -183,7 +183,7 @@ export const InputButtonStyle1 = styled.button`
   }
 `;
 
-export const InputButtonStyle2 = styled.button`
+export const InputButtonStyle3 = styled.button`
   width: 15vw;
   height: 2em;
 `;
