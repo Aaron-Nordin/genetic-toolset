@@ -15,7 +15,8 @@ import {
   InputName,
   GeneContainer,
   DarkH4,
-  HContainerStyle1
+  HContainerStyle1,
+  AddGeneContainer
 } from "./GeneLibSlidingPaneSTYLE";
 
 class GeneLibSlidingPane extends Component {
@@ -117,7 +118,7 @@ class GeneLibSlidingPane extends Component {
         <br />
         <br />
         {!this.state.addGene ? null : (
-          <div>
+          <AddGeneContainer>
             <h4>
               <InputName
                 type="text"
@@ -154,7 +155,7 @@ class GeneLibSlidingPane extends Component {
             </div>
             <br />
             <hr />
-          </div>
+          </AddGeneContainer>
         )}
         <br />
         <br />
@@ -164,6 +165,8 @@ class GeneLibSlidingPane extends Component {
               // id={this.state.selectedGeneId === g.geneId ? "selected" : null}
               className="gene-info"
               style={{
+                border: "2px solid #343a40",
+                boxShadow: "inset 0 0 8px rgba(0, 0, 0, 0.5)",
                 background:
                   this.state.selectedGeneId === g.geneId ? "#828A92" : null
               }}
@@ -187,8 +190,6 @@ class GeneLibSlidingPane extends Component {
               >
                 Delete Gene
               </DarkToLightButton>
-              <hr />
-              <br />
             </GeneContainer>
           </div>
         ))}

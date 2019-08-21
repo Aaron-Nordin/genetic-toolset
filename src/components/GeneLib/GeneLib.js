@@ -130,7 +130,7 @@ class GeneLib extends Component {
           <div className="Test-List">
             <TestList />
           </div>
-          <div className="Test-Area" style={{ height: "100vh", width: "72.5vw" }}>
+          <div className="Test-Area" style={{ height: "100vh", width: "91.2%" }}>
             <TestArea style={testAreaStyle} />
           </div>
           <SlidingPaneMainCont

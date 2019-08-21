@@ -43,11 +43,18 @@ const OuterCont = styled.div`
 const DarkTest = styled.div`
   background: rgb(130, 138, 146);
   color: #fafafa;
+  /* border-left: 2px solid #343a40;
+  border-bottom: 2px solid #343a40; */
+  /* border-right: 2px solid #fafafa;
+  border-top: 2px solid #fafafa; */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
 `;
 
 const LightTest = styled(DarkTest)`
   background: #fafafa;
   color: #333;
+  border: none;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
 `;
 
 const dummyText =

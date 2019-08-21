@@ -17,16 +17,25 @@ export const DarkH4 = styled.h4`
 //--------------------------CONTAINERS----------------------------------
 
 export const GeneContainer = styled.div`
-  /* border: 2px solid red; */
-  padding: 1em 2.5em;
+  padding: 2em 2.5em;
   margin-bottom: 3vh;
   position: relative;
 `;
+
+export const AddGeneContainer = styled.div`
+  padding: 2em 2.5em;
+  margin-bottom: 3vh;
+  position: relative;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  border: 2px dotted #343a40;
+  border-radius: 5px;
+`
 
 export const HContainerStyle1 = styled.div`
   width: 80%;
   height: 10%;
   white-space: normal;
+  margin: 0;
   /* overflow-y: scroll; */
   :focus {
     border: 2px solid #343a40;
