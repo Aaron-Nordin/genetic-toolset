@@ -31,13 +31,23 @@ const RegForm = styled.form`
 `;
 
 const Input = styled.input`
+  position: relative;
   padding: 10px 15px;
-  background-color: #fafafa;
+  background-color: rgba(52, 58, 64, 0.25);
+  color: #333;
   outline: none;
   margin-top: 10px;
   width: 15vw;
+  transition: 0.3s all;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  :hover {
+    background-color: rgba(52, 58, 64, 0.25);
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
+  }
   :focus {
     border: 3px solid #555;
+
   }
 `;
 
@@ -83,10 +93,10 @@ class Registration extends Component {
       .then(res => {
         this.props.setUser({ username, email, userImage });
         this.props.history.push("/");
-      })
-      // .catch(() => {
-      //   alert("Email is already in use");
-      // });
+      });
+    // .catch(() => {
+    //   alert("Email is already in use");
+    // });
   };
 
   render() {

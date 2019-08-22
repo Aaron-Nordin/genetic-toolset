@@ -1,10 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {
-  setUser,
-  updateBannerHeight,
-  updateNavHeight
-} from "../../ducks/reducer";
 import { connect } from "react-redux";
 import { Element, scroller } from "react-scroll";
 import styled from "styled-components";
@@ -12,17 +7,25 @@ import Registration from "../Registration/Registration";
 import GeneLib from "../GeneLib/GeneLib";
 import Nav from "../Nav/Nav";
 import "./Auth.css";
+import {
+  setUser,
+  updateBannerHeight,
+  updateNavHeight
+} from "../../ducks/reducer";
+import { Input, DarkToLightButton } from "./AuthSTYLE.js";
 
 const MainContainer = styled.div`
   max-width: 100vw;
-
 `;
 
 class Auth extends Component {
   state = {
     username: "",
     password: "",
-    register: false
+    register: false,
+    mouseMove: false,
+    mouseTriggered: false,
+    showDiv: false
   };
 
   containerRef = React.createRef();
@@ -72,6 +75,29 @@ class Auth extends Component {
     });
   };
 
+  handleMouseMove = e => {
+    this.setState({ mouseMove: true });
+    let lastEvent = e;
+    if (!this.state.mouseTriggered) {
+      this.setState({ mouseTriggered: true });
+      setTimeout(() => {
+        this.setState({ mouseTriggered: false, mouseMove: false });
+      }, 1500);
+    }
+  };
+
+  handleMouseEnter = e => {
+    // let eventClone = Object.assign({}, e);
+    // this.setState({ mouseMove: true, mouseTriggered: true });
+    this.setState({ showDiv: true });
+  };
+
+  handleMouseLeave = e => {
+    setTimeout(() => {
+      this.setState({ showDiv: false });
+    }, 1500);
+  };
+
   render() {
     return (
       <MainContainer className="auth-component">
@@ -87,6 +113,7 @@ class Auth extends Component {
           }}
         >
           <video
+            onMouseMove={e => this.handleMouseMove(e)}
             autoPlay
             muted
             loop
@@ -95,8 +122,7 @@ class Auth extends Component {
               width: "100%",
               margin: 0,
               pading: 0,
-              overflowX: "hidden",
-              
+              overflowX: "hidden"
             }}
           >
             <source
@@ -104,23 +130,38 @@ class Auth extends Component {
               type="video/mp4"
             />
           </video>
-          {!this.props.userId ? (
-            <div className="auth-homepage" id="auth-homepage-pop-in">
+          {(!this.props.userId && this.state.mouseMove) ||
+          (!this.props.userId && this.state.showDiv) ? (
+            <div
+              className="auth-homepage"
+              id="auth-homepage-pop-in"
+              onMouseEnter={e => this.handleMouseEnter(e)}
+              onMouseLeave={e => this.handleMouseLeave(e)}
+              style={{ display: "flex", flexDirection: "column" }}
+            >
               <form onSubmit={e => e.preventDefault()}>
-                <input
-                  type="text"
-                  name="username"
-                  placeholder="Username"
-                  onChange={e => this.handleChange(e)}
-                />
-                <input
-                  type="text"
-                  name="password"
-                  placeholder="Password"
-                  onChange={e => this.handleChange(e)}
-                />
-                <button onClick={this.login}>Login</button>
-                <button onClick={this.handleRegButton}>Register</button>
+                <div>
+                  <Input
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                    onChange={e => this.handleChange(e)}
+                  />
+                  <Input
+                    type="text"
+                    name="password"
+                    placeholder="Password"
+                    onChange={e => this.handleChange(e)}
+                  />
+                </div>
+                <div>
+                  <DarkToLightButton onClick={this.login}>
+                    Login
+                  </DarkToLightButton>
+                  <DarkToLightButton onClick={this.handleRegButton}>
+                    Register
+                  </DarkToLightButton>
+                </div>
               </form>
             </div>
           ) : null}
