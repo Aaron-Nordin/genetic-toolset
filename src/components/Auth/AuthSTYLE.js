@@ -32,6 +32,33 @@ export const Input = styled.input`
   }
   :focus {
     border: 3px solid #555;
-
   }
+`;
+
+export const LoginForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: space-around;
+  justify-content: center;
+  position: absolute;
+  /* bottom: 5%; */
+  width: 25%;
+  height: 85%;
+  /* padding-top: 20px; */
+  color: #f1f1f1;
+  border: 2px solid red;
+  background: rgba(0, 0, 0, 0.9);
+`;
+
+export const LoginFormContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  bottom: 30%;
+  border: 2px solid yellow;
+  width: 100%;
+  height: 45%;
 `;

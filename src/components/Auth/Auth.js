@@ -12,7 +12,12 @@ import {
   updateBannerHeight,
   updateNavHeight
 } from "../../ducks/reducer";
-import { Input, DarkToLightButton } from "./AuthSTYLE.js";
+import {
+  DarkToLightButton,
+  Input,
+  LoginForm,
+  LoginFormContainer
+} from "./AuthSTYLE.js";
 
 const MainContainer = styled.div`
   max-width: 100vw;
@@ -132,38 +137,36 @@ class Auth extends Component {
           </video>
           {(!this.props.userId && this.state.mouseMove) ||
           (!this.props.userId && this.state.showDiv) ? (
-            <div
+            <LoginFormContainer
               className="auth-homepage"
               id="auth-homepage-pop-in"
-              onMouseEnter={e => this.handleMouseEnter(e)}
-              onMouseLeave={e => this.handleMouseLeave(e)}
-              style={{ display: "flex", flexDirection: "column" }}
+              transition={props => props.transition}
             >
-              <form onSubmit={e => e.preventDefault()}>
-                <div>
-                  <Input
-                    type="text"
-                    name="username"
-                    placeholder="Username"
-                    onChange={e => this.handleChange(e)}
-                  />
-                  <Input
-                    type="text"
-                    name="password"
-                    placeholder="Password"
-                    onChange={e => this.handleChange(e)}
-                  />
-                </div>
-                <div>
-                  <DarkToLightButton onClick={this.login}>
-                    Login
-                  </DarkToLightButton>
-                  <DarkToLightButton onClick={this.handleRegButton}>
-                    Register
-                  </DarkToLightButton>
-                </div>
-              </form>
-            </div>
+              <LoginForm
+                onSubmit={e => e.preventDefault()}
+                onMouseEnter={e => this.handleMouseEnter(e)}
+                onMouseLeave={e => this.handleMouseLeave(e)}
+              >
+                <Input
+                  type="text"
+                  name="username"
+                  placeholder="Username"
+                  onChange={e => this.handleChange(e)}
+                />
+                <Input
+                  type="text"
+                  name="password"
+                  placeholder="Password"
+                  onChange={e => this.handleChange(e)}
+                />
+                <DarkToLightButton onClick={this.login}>
+                  Login
+                </DarkToLightButton>
+                <DarkToLightButton onClick={this.handleRegButton}>
+                  Register
+                </DarkToLightButton>
+              </LoginForm>
+            </LoginFormContainer>
           ) : null}
         </div>
         <div className="registration-component">

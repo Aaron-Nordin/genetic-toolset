@@ -12,20 +12,6 @@
     overflow: hidden;
 } */
 
-.auth-homepage > form {
-  position: absolute;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
-  width: 100%;
-  padding-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 8vh;
-  border: 2px solid red;
-}
-
 .hidden-a-tag a {
     display: none;
     visibility: hidden;
