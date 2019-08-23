@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import { codonDict } from "./CodonDict";
+import { setSelectedGene } from "../../ducks/reducer";
 import {
   InputStyle1,
   InputContainer,
@@ -58,6 +59,11 @@ class RNA1Translation extends Component {
     await axios.put("/api/geneticmaterial/aa", { userId, rna, aa });
     this.setState({ submitted: false });
     this.getGenes();
+    await axios
+      .get(`/api/metadata/genes/${this.props.selectedGene.geneId}`)
+      .then(res => {
+        this.props.setSelectedGene(res.data);
+      });
   };
 
   handleTlateClick = () => {
@@ -131,8 +137,11 @@ class RNA1Translation extends Component {
 }
 
 function mapStateToProps(reduxState) {
-  const { userId } = reduxState;
-  return { userId };
+  const { userId, selectedGene } = reduxState;
+  return { userId, selectedGene };
 }
 
-export default connect(mapStateToProps)(RNA1Translation);
+export default connect(
+  mapStateToProps,
+  { setSelectedGene }
+)(RNA1Translation);

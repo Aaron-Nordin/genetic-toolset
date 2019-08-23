@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
+import { setSelectedGene } from "../../ducks/reducer";
 import {
   InputStyle1,
   InputContainer,
@@ -57,6 +58,11 @@ class DNA1Transcription extends Component {
     await axios.put("/api/geneticmaterial/rna", { userId, dna, rna });
     this.setState({ submitted: false });
     this.getGenes();
+    await axios
+      .get(`/api/metadata/genes/${this.props.selectedGene.geneId}`)
+      .then(res => {
+        this.props.setSelectedGene(res.data);
+      });
   };
 
   handleTscriptClick = () => {
@@ -119,8 +125,11 @@ class DNA1Transcription extends Component {
 }
 
 function mapStateToProps(reduxState) {
-  const { userId } = reduxState;
-  return { userId };
+  const { userId, selectedGene } = reduxState;
+  return { userId, selectedGene };
 }
 
-export default connect(mapStateToProps)(DNA1Transcription);
+export default connect(
+  mapStateToProps,
+  { setSelectedGene }
+)(DNA1Transcription);

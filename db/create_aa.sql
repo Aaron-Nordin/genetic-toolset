@@ -1,3 +1,3 @@
-insert into aa (user_id, aa_seq)
-values (${user_id}, ${aa_seq})
+insert into amino_acid (user_id, amino_acid_seq)
+values (${user_id}, ${amino_acid_seq})
 returning *;

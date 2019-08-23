@@ -14,6 +14,7 @@ g.gene_name,
 g.gene_desc, 
 g.dna_id,
 d.dna_seq,
+r.rna_id,
 r.rna_seq, 
 a.amino_acid_seq
 from gene g
