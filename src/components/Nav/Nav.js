@@ -121,7 +121,7 @@ class Nav extends Component {
   render() {
     return (
       <div ref={this.navRef} style={{ display: "flex" }}>
-        <NavbarCustom>
+        <NavbarCustom id="NavbarCustom">
           {/* <Navbar.Brand></Navbar.Brand> */}
           <NameButton>
             <Welcome>

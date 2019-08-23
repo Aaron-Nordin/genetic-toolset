@@ -85,7 +85,12 @@ export const SubListItem = styled.label`
   justify-content: space-between;
   align-items: center;
   font-family: "Montserrat", sans-serif;
+  font-size: 16px;
   color: #333333;
+  :hover {
+    text-decoration: underline;
+    font-weight: bold;
+  }
 `;
 
 export const Item = styled.span`

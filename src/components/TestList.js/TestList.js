@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-scroll";
 import styled from "styled-components";
 import DNATests from "../Assays/DNATests";
 import RNATests from "../Assays/RNATests";
@@ -15,11 +16,27 @@ const TestMenu = styled.div`
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   width: 20vw;
   background-color: #fafafa;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
   backface-visibility: hidden;
   contain: strict;
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #343a40;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #343a40;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #343a40;
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -30,14 +47,14 @@ const LogoContainer = styled.div`
   padding-top: 1em;
 `;
 
-const LogoLink = styled.a`
+const LogoInnerContainer = styled.a`
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   display: inline-block;
   color: -webkit-link;
-  cursor: pointer;
   text-align: center;
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  transition: 0.5s;
 `;
 
 const Logo = styled.img`
@@ -48,6 +65,8 @@ const Logo = styled.img`
   padding: 2px;
   width: 100%;
   display: block;
+  cursor: pointer;
+
 `;
 
 const Search = styled.div`
@@ -104,7 +123,7 @@ const ScrollbarInnerCont = styled.div`
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  padding-inline-start: 40px;
+  padding-inline-start: 5%;
 `;
 
 class TestList extends Component {
@@ -119,8 +138,7 @@ class TestList extends Component {
   onScroll = () => {
     if (
       window.scrollY >=
-      this.props.navbarHeight + 
-      this.props.bannerImageHeight
+      this.props.navbarHeight + this.props.bannerImageHeight
     ) {
       this.setState({ testListPosition: "fixed" });
     } else {
@@ -132,9 +150,18 @@ class TestList extends Component {
     return (
       <TestMenu position={this.state.testListPosition}>
         <LogoContainer>
-          <LogoLink href="http://localhost:5555/about">
-            <Logo src="http://localhost:5555/static/logo.png" alt="logo" />
-          </LogoLink>
+          <LogoInnerContainer>
+            <Link
+              activeClass="active"
+              to="NavbarCustom"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={500}
+            >
+              <Logo src="http://localhost:5555/static/logo.png" alt="logo" />
+            </Link>
+          </LogoInnerContainer>
         </LogoContainer>
         <Search>
           <SearchIcon
