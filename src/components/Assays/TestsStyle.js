@@ -226,4 +226,34 @@ export const TestDNA1Output = styled.textarea`
     background: #1a97ba;
   }
 `;
+
+export const TestRNA1Output = styled.textarea`
+  width: 60vw;
+  height: 20vh;
+  font-family: "Montserrat", sans-serif;
+  color: black;
+  outline: none;
+  background-color: #fafafa;
+  overflow-y: scroll;
+  :focus {
+    border: 2px solid #64ad37;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #64ad37;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #64ad37;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #64ad37;
+  }
+`;
 //------------------------------------------------------------------

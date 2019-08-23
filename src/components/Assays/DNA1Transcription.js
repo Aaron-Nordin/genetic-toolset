@@ -41,23 +41,8 @@ class DNA1Transcription extends Component {
       .toUpperCase();
   };
 
-  handleTscriptClick = () => {
-    this.setState({
-      rna: this.tScripFn(this.state.dna),
-      submitted: true
-    });
-  };
-
   handleCancelClick = () => {
     this.setState({ submitted: false });
-  };
-
-  handleSaveClick = async () => {
-    const { dna, rna } = this.state;
-    const { userId } = this.props;
-    await axios.put("/api/geneticmaterial/rna", { userId, dna, rna });
-    this.setState({ submitted: false });
-    this.getGenes()
   };
 
   handleChange(e) {
@@ -65,6 +50,21 @@ class DNA1Transcription extends Component {
       [e.target.name]: e.target.value
     });
   }
+
+  handleSaveClick = async () => {
+    const { dna, rna } = this.state;
+    const { userId } = this.props;
+    await axios.put("/api/geneticmaterial/rna", { userId, dna, rna });
+    this.setState({ submitted: false });
+    this.getGenes();
+  };
+
+  handleTscriptClick = () => {
+    this.setState({
+      rna: this.tScripFn(this.state.dna),
+      submitted: true
+    });
+  };
 
   render() {
     return (
@@ -101,7 +101,7 @@ class DNA1Transcription extends Component {
         {this.state.submitted ? (
           <>
             <InputContainer>
-              <TestDNA1Output readOnly value={this.state.rna}></TestDNA1Output>
+              <TestDNA1Output readOnly value={this.state.rna} />
             </InputContainer>
             <ButtonContainer>
               <InputButtonStyle1 onClick={this.handleSaveClick}>

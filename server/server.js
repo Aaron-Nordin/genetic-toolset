@@ -7,6 +7,7 @@ const authCtrl = require("./controllers/authController");
 const metaCtrl = require("./controllers/metaDataController");
 const dnaCtrl = require("./controllers/dnaController");
 const rnaCtrl = require("./controllers/rnaController");
+const aaCtrl = require("./controllers/aaController");
 
 const app = express();
 
@@ -39,4 +40,7 @@ app.get("/api/metadata/usergenes/:userId", metaCtrl.getGenes);
 app.delete("/api/metadata/genes/:geneId", metaCtrl.deleteGene);
 
 app.post("/api/geneticmaterial/dnaOrRna", dnaCtrl.createDNA);
+
 app.put("/api/geneticmaterial/rna", rnaCtrl.createRNA);
+
+app.put("/api/geneticmaterial/aa", aaCtrl.createAA);

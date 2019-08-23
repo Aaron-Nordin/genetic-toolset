@@ -13,7 +13,7 @@ module.exports = {
       const newRNA = await db.create_rna({ user_id, rna_seq });
       // eslint-disable-next-line no-redeclare
       var { rna_id, user_id } = newRNA[0];
-      const updatedGene = await db.update_gene({
+      const updatedGene = await db.update_gene_with_rna({
         user_id,
         dna_id: matchDNAId,
         rna_id

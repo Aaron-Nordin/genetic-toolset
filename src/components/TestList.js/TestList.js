@@ -7,7 +7,7 @@ import RNATests from "../Assays/RNATests";
 import AATests from "../Assays/AATests";
 
 const TestMenu = styled.div`
-  overflow-y: scroll;
+  overflow-y: auto;
   position: ${props => props.position};
   top: 0px;
   left: ${props => (props.position === "fixed" ? "0px" : "-20vw")};
@@ -47,11 +47,11 @@ const LogoContainer = styled.div`
   padding-top: 1em;
 `;
 
-const LogoInnerContainer = styled.a`
+const LogoInnerContainer = styled.div`
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   display: inline-block;
-  color: -webkit-link;
+  /* color: -webkit-link; */
   text-align: center;
   /* text-decoration: underline; */
   transition: 0.5s;
