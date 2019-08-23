@@ -33,7 +33,10 @@ module.exports = {
       gene_desc: geneDesc,
       user_id: userId,
       dna_id: dnaId,
+      dna_seq: dnaSeq,
       rna_id: rnaId,
+      rna_seq: rnaSeq,
+      amino_acid_seq: aaSeq,
       amino_acid_id: aaId
     } = result[0];
     const gene = {
@@ -42,8 +45,11 @@ module.exports = {
       geneDesc,
       userId,
       dnaId,
+      dnaSeq,
       rnaId,
-      aaId
+      rnaSeq,
+      aaId,
+      aaSeq
     };
     res.status(200).send(gene);
   },

@@ -47,17 +47,24 @@ const SlidingPaneMainCont = styled.div`
 const HamArrowContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   :hover {
     opacity: 0.5;
     /* border: 3px solid black;
     border-radius: 8px; */
     cursor: pointer;
   }
-`
+`;
+const SelGeneContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 const DNAHamburger = styled.img`
   position: relative;
-  left: 23%;
-  width: 50%;
+  width: 70px;
   height: auto;
   margin-top: 4vh;
   box-shadow: 10px 10px 5px black;
@@ -65,13 +72,33 @@ const DNAHamburger = styled.img`
 `;
 const ArrowExpand = styled.img`
   position: relative;
-  left: 37%;
   width: 35%;
   height: auto;
   transition: 0.5s ease;
   color: #fafafa;
   transform: rotate(90deg);
-  padding-top: 20px;
+  margin-top: 10px;
+`;
+const LightButton = styled.button`
+  position: relative;
+  top: 5px;
+  background: #fafafa;
+  width: 75px;
+  height: 6vh;
+  /* margin-top: 10px; */
+  color: #343a40;
+  font-size: 16pt;
+  transition: 0.5s;
+  border: 2px solid #343a40;
+  padding: 2px;
+  box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    inset 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  :hover {
+    background: #343a40;
+    color: #fafafa;
+    border: 2px solid #fafafa;
+  }
 `;
 
 const testAreaStyle = {
@@ -89,6 +116,7 @@ class GeneLib extends Component {
       genes: [],
       isPaneOpen: false,
       isPaneOpenLeft: false,
+      isSelectedGene: false,
       testAreaWidth: "91.2%",
       sPaneMContPosition: "absolute",
       sPaneMContHeight: "100vh",
@@ -111,11 +139,23 @@ class GeneLib extends Component {
   onScroll = () => {
     if (
       window.scrollY >=
-      this.props.navbarHeight + this.props.bannerImageHeight
+        this.props.navbarHeight + this.props.bannerImageHeight &&
+      !this.props.selectedGene.geneId
     ) {
       this.setState({
         sPaneMContPosition: "fixed",
-        sPaneMContHeight: "200px",
+        sPaneMContHeight: "225px",
+        testAreaWidth: "100%",
+        sPaneMContBRadius: "30px"
+      });
+    } else if (
+      window.scrollY >=
+        this.props.navbarHeight + this.props.bannerImageHeight &&
+      this.props.selectedGene.geneId
+    ) {
+      this.setState({
+        sPaneMContPosition: "fixed",
+        sPaneMContHeight: "400px",
         testAreaWidth: "100%",
         sPaneMContBRadius: "30px"
       });
@@ -143,6 +183,39 @@ class GeneLib extends Component {
           console.log(err);
         });
     }
+  };
+
+  handleCopyAA = () => {
+    let aa = this.props.selectedGene.aaSeq;
+    let dummy = document.createElement("input");
+    document.body.appendChild(dummy);
+    dummy.setAttribute("id", "dummyId");
+    document.getElementById("dummyId").value = aa;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+  };
+
+  handleCopyDNA = () => {
+    let dna = this.props.selectedGene.dnaSeq;
+    let dummyTwo = document.createElement("input");
+    document.body.appendChild(dummyTwo);
+    dummyTwo.setAttribute("id", "dummyIdTwo");
+    document.getElementById("dummyIdTwo").value = dna;
+    dummyTwo.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummyTwo);
+  };
+
+  handleCopyRNA = () => {
+    let rna = this.props.selectedGene.rnaSeq;
+    let dummyThree = document.createElement("input");
+    document.body.appendChild(dummyThree);
+    dummyThree.setAttribute("id", "dummyIdThree");
+    document.getElementById("dummyIdThree").value = rna;
+    dummyThree.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummyThree);
   };
 
   handleDNAHambClick = () => {
@@ -173,7 +246,7 @@ class GeneLib extends Component {
             <TestArea style={testAreaStyle} />
           </div>
           <SlidingPaneMainCont
-            className="Gene-Lib"
+            className="Gene-Lib selectedGene"
             position={this.state.sPaneMContPosition}
             height={this.state.sPaneMContHeight}
             borderRadius={this.state.sPaneMContBRadius}
@@ -191,6 +264,15 @@ class GeneLib extends Component {
                   onClick={this.handleDNAHambClick}
                 />
               </HamArrowContainer>
+              {this.props.selectedGene.geneId ? (
+                <SelGeneContainer>
+                  <LightButton onClick={this.handleCopyDNA}>DNA</LightButton>
+                  <LightButton onClick={this.handleCopyRNA}>RNA</LightButton>
+                  <LightButton onClick={this.handleCopyAA}>
+                    Amino Acid
+                  </LightButton>
+                </SelGeneContainer>
+              ) : null}
               <SlidingPane
                 className="some-custom-class"
                 style={slidingPaneStyle}
@@ -214,8 +296,14 @@ class GeneLib extends Component {
 }
 
 function mapStateToProps(reduxState) {
-  const { userId, username, bannerImageHeight, navbarHeight } = reduxState;
-  return { userId, username, bannerImageHeight, navbarHeight };
+  const {
+    userId,
+    username,
+    bannerImageHeight,
+    navbarHeight,
+    selectedGene
+  } = reduxState;
+  return { userId, username, bannerImageHeight, navbarHeight, selectedGene };
 }
 
 export default connect(mapStateToProps)(GeneLib);
