@@ -28,6 +28,26 @@ export class App extends Component {
           <Nav />
         )}
         {routes}
+        {/* <video
+            autoPlay
+            muted
+            loop
+            id="DNA-vid"
+            style={{
+              width: "100%",
+              postition: "absolute",
+              top: 0,
+              margin: 0,
+              pading: 0,
+              overflowX: "hidden",
+              zIndex: 1
+            }}
+          >
+            <source
+              src="http://localhost:5555/static/DNA.mp4"
+              type="video/mp4"
+            />
+          </video> */}
       </div>
     );
   }

@@ -61,4 +61,5 @@ export const LoginFormContainer = styled.div`
   border: 2px solid yellow;
   width: 100%;
   height: 45%;
+  z-index: 3;
 `;

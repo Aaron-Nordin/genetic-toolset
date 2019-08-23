@@ -10,31 +10,47 @@ import { Navbar } from "react-bootstrap";
 
 const ProfilePic = styled.img`
   max-height: 10vh;
+
   /* max-width: 120px; */
 `;
-const NameIcon = styled.div`
+const PicContainer = styled.div`
+  img {
+    width: 100px;
+
+    /* #1 */
+    border: 5px solid #828a92;
+
+    /* #2 */
+    padding: 5px;
+    background: #343a40;
+
+    /* #3 */
+    outline: 5px solid #fafafa;
+  }
+`;
+const NameButton = styled.div`
   font-size: 2em;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-content: center;
   align-items: flex-end;
-  width: 50%;
-  display: flex;
   flex-direction: column;
-  margin-left: 43vw;
+  width: 50%;
+  position: relative;
+  left: 48.5%;
   padding-right: 0.5em;
   padding-bottom: 0.5em;
 `;
-const PicContainer = styled.div`
-  margin-right: 0.4em;
-`;
 export const LogoutButton = styled.button`
+  position: relative;
+  top: 5px;
   background: #fafafa;
   width: 10vw;
-  height: 1.5em;
+  height: 2em;
   /* margin-top: 10px; */
   color: #343a40;
-  font-size: 0.75em;
+  font-size: 0.6em;
+  font-weight: bold;
   transition: 0.5s;
   border: 2px solid #343a40;
   :hover {
@@ -44,20 +60,45 @@ export const LogoutButton = styled.button`
   }
 `;
 
-// const NavbarCustom = styled.div`
+const NavbarCustom = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  height: 11vh;
+  box-shadow: 5px 5px 10px 5px #111111;
+  background: #343a40;
+  color: #fafafa;
+  font-family: "Montserrat", sans-serif;
+`;
+const UserH1 = styled.h1`
+  font-weight: bold;
+  position: relative;
+  top: 4px;
+`;
+const H3 = styled.h3`
+  font-weight: normal;
+  position: relative;
+  right: 10px;
+`;
+const Welcome = styled.div`
+  width: 60vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+`;
 
-// `
-
-const navStyle = {
-  width: "100%",
-  display: "flex",
-  alignItems: "center",
-  alignContent: "center",
-  justifyContent: "space-between",
-  height: "11vh",
-  boxShadow: "5px 5px 10px 5px #111111"
-  // zIndex: "1",
-};
+// const navStyle = {
+//   width: "100%",
+//   display: "flex",
+//   alignItems: "center",
+//   alignContent: "center",
+//   justifyContent: "space-between",
+//   height: "11vh",
+//   boxShadow: "5px 5px 10px 5px #111111"
+//   // zIndex: "1",
+// };
 
 const rightText = {};
 
@@ -79,19 +120,27 @@ class Nav extends Component {
 
   render() {
     return (
-      <div ref={this.navRef}>
-        <Navbar style={navStyle} variant="dark" bg="dark">
+      <div ref={this.navRef} style={{ display: "flex" }}>
+        <NavbarCustom>
           {/* <Navbar.Brand></Navbar.Brand> */}
-          <NameIcon>
-            <Navbar.Text style={rightText}>
-              Signed in as: <a href="#login">{this.props.username}</a>
-            </Navbar.Text>
-            <LogoutButton onClick={this.logout}>Logout</LogoutButton>
-          </NameIcon>
+          <NameButton>
+            <Welcome>
+              <H3>LOGGED IN AS:</H3>
+              <UserH1>{this.props.username}</UserH1>
+            </Welcome>
+            <LogoutButton onClick={this.logout}>LOGOUT</LogoutButton>
+          </NameButton>
+        </NavbarCustom>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center"
+          }}
+        >
           <PicContainer>
             <ProfilePic src={this.props.userImage} alt="profile pic" />
           </PicContainer>
-        </Navbar>
+        </div>
       </div>
     );
   }

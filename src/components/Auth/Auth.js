@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Registration from "../Registration/Registration";
 import GeneLib from "../GeneLib/GeneLib";
 import Nav from "../Nav/Nav";
+// import ActiveBackground from "./ActiveBackground";
 import "./Auth.css";
 import {
   setUser,
@@ -117,6 +118,20 @@ class Auth extends Component {
             overflowY: "hidden"
           }}
         >
+          {/* <ActiveBackground  onMouseMove={e => this.handleMouseMove(e)}/> */}
+          {/* <div style={{
+              position: "relative",
+              width: "100%",
+              height: "100vh",
+              margin: 0,
+              pading: 0,
+              overflowX: "hidden",
+              border: "2px solid green",
+              zIndex: 2
+            }}
+>
+
+          </div> */}
           <video
             onMouseMove={e => this.handleMouseMove(e)}
             autoPlay

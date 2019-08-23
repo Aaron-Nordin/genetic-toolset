@@ -119,7 +119,8 @@ class TestList extends Component {
   onScroll = () => {
     if (
       window.scrollY >=
-      this.props.navbarHeight + this.props.bannerImageHeight
+      this.props.navbarHeight + 
+      this.props.bannerImageHeight
     ) {
       this.setState({ testListPosition: "fixed" });
     } else {
