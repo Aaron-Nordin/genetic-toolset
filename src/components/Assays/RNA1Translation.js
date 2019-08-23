@@ -78,7 +78,8 @@ class RNA1Translation extends Component {
       <div>
         <TestNameAndDescCont className="test-name">
           <h2>Translation</h2>
-          <p>
+          <hr style={{ borderColor: "#343a40" }} />
+          <p style={{ fontSize: "18px" }}>
             Translation is the process in which ribosomes in the cytoplasm or ER
             synthesize proteins after the process of transcription of DNA to RNA
             in the cell's nucleus. The entire process is called gene expression.

@@ -59,7 +59,8 @@ export const SubListCont = styled.ul`
   margin-block-end: 0px;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  padding-inline-start: 40px;
+  padding-inline-start: 20px;
+  padding-inline-end: 10px;
 `;
 
 export const SubListItemCont = styled.li`
@@ -88,8 +89,8 @@ export const SubListItem = styled.label`
   font-size: 16px;
   color: #333333;
   :hover {
-    text-decoration: underline;
     font-weight: bold;
+    box-shadow: inset 0 0 8px rgba(52, 58, 64, 0.8);
   }
 `;
 

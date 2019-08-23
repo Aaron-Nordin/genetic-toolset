@@ -97,7 +97,6 @@ export default class TestArea extends Component {
           id="rnaTest1"
         >
           <RNA1Translation />
-          <p>{dummyText}</p>
         </LightTest>
         <DarkTest
           title="RNA Assay 2"
