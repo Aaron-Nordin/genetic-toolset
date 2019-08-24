@@ -56,7 +56,7 @@ export default class DNATests extends Component {
                   offset={0}
                   duration={500}
                 >
-                  DNA Test 2
+                  GC Content
                 </Link>
               </Item>
             </SubListItem>

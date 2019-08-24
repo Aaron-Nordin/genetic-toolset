@@ -19,19 +19,19 @@ export const Input = styled.input`
   position: relative;
   padding: 10px 15px;
   background-color: rgba(52, 58, 64, 0.25);
-  color: #333;
+  color: #fafafa;
   outline: none;
   margin-top: 10px;
   width: 15vw;
   transition: 0.3s all;
   font-family: "Montserrat", sans-serif;
-  font-weight: bold;
+  
   :hover {
-    background-color: rgba(52, 58, 64, 0.25);
+    background-color: rgba(52, 58, 64, 0.55);
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
   }
   :focus {
-    border: 3px solid #555;
+    border: 2px solid #fafafa;
   }
 `;
 

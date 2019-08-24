@@ -165,12 +165,14 @@ class Auth extends Component {
                 <Input
                   type="text"
                   name="username"
+                  autoComplete="off"
                   placeholder="Username"
                   onChange={e => this.handleChange(e)}
                 />
                 <Input
-                  type="text"
+                  type="password"
                   name="password"
+                  autoComplete="off"
                   placeholder="Password"
                   onChange={e => this.handleChange(e)}
                 />
