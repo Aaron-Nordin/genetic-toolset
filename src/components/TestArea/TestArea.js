@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import DNA1Transcription from "../Assays/DNA1Transcription";
 import DNA2gcContent from "../Assays/DNA2gcContent";
+import DNA3TelomereIdent from "../Assays/DNA3TelomereIdent";
 import RNA1Translation from "../Assays/RNA1Translation";
 import RNA2RevTranscription from "../Assays/RNA2RevTranscription";
 
@@ -88,8 +89,7 @@ export default class TestArea extends Component {
           DarkTest={true}
           id="dnaTest3"
         >
-          <h1>DNA Test 3</h1>
-          <p>{dummyText}</p>
+          <DNA3TelomereIdent />
         </DarkTest>
         <LightTest
           title="RNA Assay 1"

@@ -11,44 +11,38 @@ import {
   TestDNA1Output
 } from "./TestsStyle";
 
-class DNA2gcContent extends Component {
+class DNA3TelomereIdent extends Component {
   state = {
     dna: "",
+    telomereArr: [],
+    telComplementArr: [],
+    telOverhangArr: [],
     submitted: false,
-    baseRatios: {},
-    basePercentages: {},
     genes: []
   };
 
-  gcFn = dna => {
-    dna.toUpperCase();
-    let A = 0,
-      T = 0,
-      G = 0,
-      C = 0;
-    for (let i = 0; i < dna.length; i++) {
-      if ((dna[i] = "A")) {
-        A++;
-      } else if ((dna[i] = "T")) {
-        T++;
-      } else if ((dna[i] = "G")) {
-        G++;
-      } else if ((dna[i] = "C")) {
-        C++;
-      }
+  telomereFn = dna => {
+    dna.toUpper()
+    const telomere = "AGGGTT",
+      telComplement = "TCCCAA",
+      telOverhang = "TTAGGG";
+    let telomereArr = [],
+      telComplementArr = [],
+      telOverhangArr = [],
+      i = -1;
+    while ((i = dna.indexOf(telomere, i + 1)) !== -1) {
+      telomereArr.push(i + 1);
     }
-    const totalBases = A + T + G + C;
-    const aRatio = A / totalBases,
-      tRatio = T / totalBases,
-      gRatio = G / totalBases,
-      cRatio = C / totalBases;
-    const aPercent = aRatio * 100,
-      tPercent = tRatio * 100,
-      gPercent = gRatio * 100,
-      cPercent = cRatio * 100;
+    while ((i = dna.indexOf(telComplement, i + 1)) !== -1) {
+      telComplementArr.push(i + 1);
+    }
+    while ((i = dna.indexOf(telOverhang, i + 1)) !== -1) {
+      telOverhangArr.push(i + 1);
+    }
     this.setState({
-      baseRatios: { A: aRatio, T: tRatio, G: gRatio, C: cRatio },
-      basePercentages: { A: aPercent, T: tPercent, G: gPercent, C: cPercent }
+      telomereArr: [...this.telomereArr],
+      telComplementArr: [...this.telComplementArr],
+      telOverhangArr: [...this.telOverhangArr]
     });
   };
 
@@ -72,22 +66,22 @@ class DNA2gcContent extends Component {
     return (
       <div>
         <TestNameAndDescCont className="test-name">
-          <h2>DNA GC-Content</h2>
-          <hr style={{ borderColor: "#343a40" }} />
+          <h2>Telomere Identification</h2>
+          <hr style={{ borderColor: "#fafafa" }} />
           <p style={{ fontSize: "18px" }}>
-            GC-content (or guanine-cytosine content) is the percentage of
-            nitrogenous bases on a DNA or RNA molecule that are either guanine
-            or cytosine. This may refer to a certain fragment of DNA or RNA, or
-            that of the whole genome. When it refers to a fragment of the
-            genetic material, it may denote the GC-content of section of a gene
-            (domain), single gene, group of genes (or gene clusters), or even a
-            non-coding region. GC pairs are bound by three hydrogen bonds,
-            whereas AT pairs are bound by two hydrogen bonds. DNA with low
-            GC-content is less stable than DNA with high GC-content; however,
-            the hydrogen bonds themselves do not have a particularly significant
-            impact on stabilization, the stabilization is due mainly to
-            interactions of base stacking.
-            <a href="https://en.wikipedia.org/wiki/GC-content">
+            A telomere is a region of repetitive nucleotide sequences at each
+            end of a chromosome, which protects the end of the chromosome from
+            deterioration or from fusion with neighboring chromosomes. For
+            vertebrates, the sequence of nucleotides in telomeres is AGGGTT,
+            with the complementary DNA strand being TCCCAA, with a
+            single-stranded TTAGGG overhang. During chromosome replication, the
+            enzymes that duplicate DNA cannot continue their duplication all the
+            way to the end of a chromosome, so in each duplication the end of
+            the chromosome is shortened. The telomeres are disposable buffers at
+            the ends of chromosomes which are truncated during cell division;
+            their presence protects the genes before them on the chromosome from
+            being truncated instead.
+            <a href="https://en.wikipedia.org/wiki/Telomere">
               <sup>1</sup>
             </a>
           </p>
@@ -113,8 +107,8 @@ class DNA2gcContent extends Component {
             </InputContainer>
             <ButtonContainer>
               {/* <InputButtonStyle1 onClick={this.handleSaveClick}>
-                Save
-              </InputButtonStyle1> */}
+                    Save
+                  </InputButtonStyle1> */}
               <InputButtonStyle1 onClick={this.handleCancelClick}>
                 Cancel
               </InputButtonStyle1>
@@ -134,4 +128,4 @@ function mapStateToProps(reduxState) {
 export default connect(
   mapStateToProps,
   { setSelectedGene }
-)(DNA2gcContent);
+)(DNA3TelomereIdent);
