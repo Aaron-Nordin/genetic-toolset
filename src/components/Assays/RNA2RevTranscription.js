@@ -8,10 +8,10 @@ import {
   ButtonContainer,
   InputButtonStyle1,
   TestNameAndDescCont,
-  TestDNA1Output
+  TestRNA2Output
 } from "./TestsStyle";
 
-class DNA1Transcription extends Component {
+class RNA2RevTranscription extends Component {
   state = {
     dna: "",
     rna: "",
@@ -35,10 +35,10 @@ class DNA1Transcription extends Component {
     }
   };
 
-  tScripFn = dna => {
-    return dna
+  revTScripFn = rna => {
+    return rna
       .replace(/ /g, "")
-      .replace(/T/gi, "U")
+      .replace(/U/gi, "T")
       .toUpperCase();
   };
 
@@ -52,10 +52,17 @@ class DNA1Transcription extends Component {
     });
   }
 
+  handleRevTScripClick = () => {
+    this.setState({
+      dna: this.revTScripFn(this.state.rna),
+      submitted: true
+    });
+  };
+
   handleSaveClick = async () => {
-    const { dna, rna } = this.state;
+    const { rna, dna } = this.state;
     const { userId } = this.props;
-    await axios.put("/api/geneticmaterial/rna", { userId, dna, rna });
+    await axios.put("/api/geneticmaterial/cdna", { userId, rna, dna });
     this.setState({ submitted: false });
     this.getGenes();
     await axios
@@ -65,28 +72,24 @@ class DNA1Transcription extends Component {
       });
   };
 
-  handleTscriptClick = () => {
-    this.setState({
-      rna: this.tScripFn(this.state.dna),
-      submitted: true
-    });
-  };
-
   render() {
     return (
       <div>
         <TestNameAndDescCont className="test-name">
-          <h2>Transcription</h2>
+          <h2>Reverse Transcription</h2>
           <hr style={{ borderColor: "#fafafa" }} />
           <p style={{ fontSize: "18px" }}>
-            Transcription is the first step of DNA based gene expression, in
-            which a particular segment of DNA is copied into RNA (especially
-            mRNA) by the enzyme RNA polymerase. Both DNA and RNA are nucleic
-            acids, which use base pairs of nucleotides as a complementary
-            language. During transcription, a DNA sequence is read by an RNA
-            polymerase, which produces a complementary, antiparallel RNA strand
-            called a primary transcript.
-            <a href="https://en.wikipedia.org/wiki/Transcription_(biology)">
+            Reverse transcriptase enzymes create double-stranded DNA from RNA
+            templates. In virus species with reverse transcriptase lacking
+            DNA-dependent DNA polymerase activity, creation of double-stranded
+            DNA can possibly be done by host-encoded DNA polymerase δ, mistaking
+            the viral DNA-RNA for a primer and synthesizing a double-stranded
+            DNA by similar mechanism as in primer removal, where the newly
+            synthesized DNA displaces the original RNA template. The process of
+            reverse transcription is extremely error-prone, and it is during
+            this step that mutations may occur. Such mutations may cause drug
+            resistance.
+            <a href="https://en.wikipedia.org/wiki/Reverse_transcriptase#Process_of_reverse_transcription">
               <sup>1</sup>
             </a>
           </p>
@@ -94,21 +97,21 @@ class DNA1Transcription extends Component {
         <div className="test-desc" />
         <InputContainer>
           <InputStyle1
-            name="dna"
+            name="rna"
             type="text"
-            placeholder="Enter DNA Sequence. Whitespace in sequence will be removed upon submission."
+            placeholder="Enter RNA Sequence. Whitespace in sequence will be removed upon submission."
             onChange={e => this.handleChange(e)}
           />
         </InputContainer>
         <ButtonContainer>
-          <InputButtonStyle1 onClick={this.handleTscriptClick}>
-            Transcribe
+          <InputButtonStyle1 onClick={this.handleRevTScripClick}>
+            Reverse Transcribe
           </InputButtonStyle1>
         </ButtonContainer>
         {this.state.submitted ? (
           <>
             <InputContainer>
-              <TestDNA1Output readOnly value={this.state.rna} />
+              <TestRNA2Output readOnly value={this.state.dna} />
             </InputContainer>
             <ButtonContainer>
               <InputButtonStyle1 onClick={this.handleSaveClick}>
@@ -133,4 +136,4 @@ function mapStateToProps(reduxState) {
 export default connect(
   mapStateToProps,
   { setSelectedGene }
-)(DNA1Transcription);
+)(RNA2RevTranscription);

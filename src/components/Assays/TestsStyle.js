@@ -257,4 +257,25 @@ export const TestRNA1Output = styled.textarea`
     background: #64ad37;
   }
 `;
+
+export const TestRNA2Output = styled(TestDNA1Output)`
+    :focus {
+    border: 2px solid #343a40;
+    ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #343a40;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #343a40;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #343a40;
+  }
+
+  }
+
+`
+
 //------------------------------------------------------------------

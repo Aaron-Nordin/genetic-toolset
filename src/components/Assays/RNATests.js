@@ -56,7 +56,7 @@ export default class RNATests extends Component {
                   offset={0}
                   duration={500}
                 >
-                  RNA Test 2
+                  Reverse Transcription
                 </Link>
               </Item>
             </SubListItem>

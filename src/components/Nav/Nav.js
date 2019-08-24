@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import { logoutUser, updateNavHeight } from "../../ducks/reducer";
-import { Navbar } from "react-bootstrap";
 
 //---------------------------STYLE-----------------------------
 
@@ -41,7 +40,7 @@ const NameButton = styled.div`
   padding-right: 0.5em;
   padding-bottom: 0.5em;
 `;
-export const LogoutButton = styled.button`
+const LogoutButton = styled.button`
   position: relative;
   top: 5px;
   background: #fafafa;
@@ -100,7 +99,7 @@ const Welcome = styled.div`
 //   // zIndex: "1",
 // };
 
-const rightText = {};
+// const rightText = {};
 
 //---------------------------CLASS-----------------------------
 

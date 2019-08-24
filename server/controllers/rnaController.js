@@ -2,7 +2,7 @@ module.exports = {
   createRNA: async (req, res) => {
     try {
       const db = req.app.get("db");
-      var { userId: user_id, dna: dna_seq, rna: rna_seq } = req.body;
+      const { userId: user_id, dna: dna_seq, rna: rna_seq } = req.body;
       const genesArr = await db.get_genes(user_id);
       let matchDNAId = null;
       genesArr.forEach(gene => {

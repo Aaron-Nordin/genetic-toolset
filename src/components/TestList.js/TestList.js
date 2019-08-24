@@ -55,6 +55,7 @@ const LogoInnerContainer = styled.div`
   text-align: center;
   /* text-decoration: underline; */
   transition: 0.5s;
+  padding-top: 10px;
 `;
 
 const Logo = styled.img`
@@ -75,31 +76,31 @@ const Search = styled.div`
   display: block;
 `;
 
-const SearchIcon = styled.svg`
-  position: absolute;
-  left: 20px;
-  height: 1.8em;
-  width: 0.9em;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  overflow: hidden;
-`;
+// const SearchIcon = styled.svg`
+//   position: absolute;
+//   left: 20px;
+//   height: 1.8em;
+//   width: 0.9em;
+//   box-sizing: border-box;
+//   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+//   overflow: hidden;
+// `;
 
-const SearchInput = styled.input`
-  width: calc(100% - 40px);
-  box-sizing: border-box;
-  margin: 0 20px;
-  padding: 5px 10px 5px 20px;
-  border: 0;
-  border-bottom: 1px solid #e1e1e1;
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  font-size: 13px;
-  color: #333333;
-  background-color: transparent;
-  outline: none;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-`;
+// const SearchInput = styled.input`
+//   width: calc(100% - 40px);
+//   box-sizing: border-box;
+//   margin: 0 20px;
+//   padding: 5px 10px 5px 20px;
+//   border: 0;
+//   border-bottom: 1px solid #e1e1e1;
+//   font-family: "Roboto", sans-serif;
+//   font-weight: bold;
+//   font-size: 13px;
+//   color: #333333;
+//   background-color: transparent;
+//   outline: none;
+//   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+// `;
 
 const ScrollbarContainer = styled.div`
   box-sizing: border-box;

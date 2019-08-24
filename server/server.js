@@ -40,6 +40,7 @@ app.get("/api/metadata/usergenes/:userId", metaCtrl.getGenes);
 app.delete("/api/metadata/genes/:geneId", metaCtrl.deleteGene);
 
 app.post("/api/geneticmaterial/dnaOrRna", dnaCtrl.createDNA);
+app.put("/api/geneticmaterial/cdna", dnaCtrl.createCDNA);
 
 app.put("/api/geneticmaterial/rna", rnaCtrl.createRNA);
 
