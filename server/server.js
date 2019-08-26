@@ -21,8 +21,8 @@ app.use(
   })
 );
 
-app.use("/static", express.static("./media"));
 app.use( express.static( `${__dirname}/../build` ) );
+app.use("/static", express.static("./media"));
 
 massive(CONNECTION_STRING).then(db => {
   app.set("db", db);
