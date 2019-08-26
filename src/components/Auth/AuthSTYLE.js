@@ -25,7 +25,6 @@ export const Input = styled.input`
   width: 15vw;
   transition: 0.3s all;
   font-family: "Montserrat", sans-serif;
-  
   :hover {
     background-color: rgba(52, 58, 64, 0.55);
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
@@ -42,13 +41,14 @@ export const LoginForm = styled.form`
   justify-items: space-around;
   justify-content: center;
   position: absolute;
-  /* bottom: 5%; */
   width: 25%;
   height: 85%;
+  /* bottom: 5%; */
   /* padding-top: 20px; */
+  /* border: 2px solid red; */
   color: #f1f1f1;
-  border: 2px solid red;
   background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 8px 10px 6px rgba(0, 0, 0, 0.6), 0 8px 25px 6px rgba(0, 0, 0, 0.39);
 `;
 
 export const LoginFormContainer = styled.div`
@@ -58,8 +58,20 @@ export const LoginFormContainer = styled.div`
   align-content: center;
   position: absolute;
   bottom: 30%;
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
   width: 100%;
   height: 45%;
   z-index: 3;
+  transition: 2s;
+
+`;
+
+export const TitleH2 = styled.h2`
+  font-family: "Montserrat", sans-serif;
+  padding-bottom: 2%;
+`;
+
+export const AboutH5 = styled.h5`
+  font-family: "Montserrat", sans-serif;
+  padding-top: 8%;
 `;

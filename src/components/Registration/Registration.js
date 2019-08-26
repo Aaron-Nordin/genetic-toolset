@@ -7,7 +7,7 @@ import styled from "styled-components";
 const RegContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  background-image: url("http://localhost:5555/static/frameworkDNABackgrd.png");
+  background-image: url("/static/frameworkDNABackgrd.png");
   display: flex;
   align-content: center;
   justify-content: center;

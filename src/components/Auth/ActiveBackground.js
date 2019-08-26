@@ -17,7 +17,7 @@ export default class ActiveBackground extends Component {
             }}
           >
             <source
-              src="http://localhost:5555/static/DNA.mp4"
+              src="/static/DNA.mp4"
               type="video/mp4"
             />
           </video>

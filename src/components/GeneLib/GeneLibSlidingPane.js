@@ -130,7 +130,7 @@ class GeneLibSlidingPane extends Component {
             <InputDesc
               type="text"
               name="desc"
-              placeholder="Enter Gene Description (required"
+              placeholder="Enter Gene Description (required)"
               onChange={e => this.handleChange(e)}
             />
             <div>

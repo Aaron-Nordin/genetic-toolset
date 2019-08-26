@@ -14,10 +14,12 @@ import {
   updateNavHeight
 } from "../../ducks/reducer";
 import {
+  AboutH5,
   DarkToLightButton,
   Input,
   LoginForm,
-  LoginFormContainer
+  LoginFormContainer,
+  TitleH2
 } from "./AuthSTYLE.js";
 
 const MainContainer = styled.div`
@@ -146,7 +148,7 @@ class Auth extends Component {
             }}
           >
             <source
-              src="http://localhost:5555/static/DNA.mp4"
+              src="/static/DNA.mp4"
               type="video/mp4"
             />
           </video>
@@ -162,6 +164,7 @@ class Auth extends Component {
                 onMouseEnter={e => this.handleMouseEnter(e)}
                 onMouseLeave={e => this.handleMouseLeave(e)}
               >
+                <TitleH2>GENE TOOLKIT</TitleH2>
                 <Input
                   type="text"
                   name="username"
@@ -182,6 +185,7 @@ class Auth extends Component {
                 <DarkToLightButton onClick={this.handleRegButton}>
                   Register
                 </DarkToLightButton>
+                <AboutH5>about</AboutH5>
               </LoginForm>
             </LoginFormContainer>
           ) : null}

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mediaQuerySize } from "../../mediaQueries";
 
 export const TestsCont = styled.div`
   box-sizing: border-box;
@@ -34,6 +35,10 @@ export const HeadingText = styled.span`
   width: auto;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media ${mediaQuerySize[850]} {
+    font-size: 14px;
+  }
 `;
 
 export const HideIcon = styled.svg`
@@ -61,6 +66,12 @@ export const SubListCont = styled.ul`
   margin-inline-end: 0px;
   padding-inline-start: 20px;
   padding-inline-end: 10px;
+
+  @media ${mediaQuerySize[1000]} {
+    padding: 0;
+    padding-inline-end: 0px;
+    padding-inline-start: 0px;
+  }
 `;
 
 export const SubListItemCont = styled.li`
@@ -92,6 +103,11 @@ export const SubListItem = styled.label`
     font-weight: bold;
     box-shadow: inset 0 0 8px rgba(52, 58, 64, 0.8);
   }
+
+  @media ${mediaQuerySize[1000]} {
+    padding: 0;
+  }
+  
 `;
 
 export const Item = styled.span`
@@ -103,6 +119,9 @@ export const Item = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
   padding-top: 1px;
+  @media ${mediaQuerySize[850]} {
+    font-size: 12px;
+  }
 `;
 
 export const IconItem = styled.img`
@@ -117,6 +136,11 @@ export const IconItem = styled.img`
   margin-top: 2px;
   rotate: 90;
   transform: rotate(90deg);
+
+  @media ${mediaQuerySize[850]} {
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 //------------------------INPUTS/TXTAREAS----------------------------

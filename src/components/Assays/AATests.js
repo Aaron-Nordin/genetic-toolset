@@ -24,7 +24,7 @@ export default class AATests extends Component {
           <SubListItemCont>
             <SubListItem>
               <IconItem
-                src="http://localhost:5555/static/AAIcon.png"
+                src="/static/AAIcon.png"
                 alt="DNA icon"
               />
               <Item>
@@ -44,7 +44,7 @@ export default class AATests extends Component {
           <SubListItemCont>
             <SubListItem>
               <IconItem
-                src="http://localhost:5555/static/AAIcon.png"
+                src="/static/AAIcon.png"
                 alt="DNA icon"
               />
               <Item>
@@ -64,7 +64,7 @@ export default class AATests extends Component {
           <SubListItemCont>
             <SubListItem>
               <IconItem
-                src="http://localhost:5555/static/AAIcon.png"
+                src="/static/AAIcon.png"
                 alt="DNA icon"
               />
               <Item>

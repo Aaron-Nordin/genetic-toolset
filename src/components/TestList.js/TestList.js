@@ -165,13 +165,13 @@ class TestList extends Component {
               offset={0}
               duration={500}
             >
-              <Logo src="http://localhost:5555/static/logo.png" alt="logo" />
+              <Logo src="/static/logo.png" alt="logo" />
             </Link>
           </LogoInnerContainer>
         </LogoContainer>
         <Search>
           <DnaLineDeco
-            src="http://localhost:5555/static/DNALineDeco.png"
+            src="/static/DNALineDeco.png"
             alt="line decoration"
           />
           {/* <SearchIcon

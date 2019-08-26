@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mediaQuerySize } from "../../mediaQueries";
 
 //-----------------------------H'S--------------------------------------
 
@@ -9,6 +10,10 @@ export const DarkH4 = styled.h4`
   ::selection {
     background-color: rgba(52, 58, 64, 0.2);
     color: #343a40;
+  }
+
+  @media ${mediaQuerySize[850]} {
+    font-size: 18px;
   }
 `;
 
@@ -29,7 +34,7 @@ export const AddGeneContainer = styled.div`
   box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
   border: 2px dotted #343a40;
   border-radius: 5px;
-`
+`;
 
 export const HContainerStyle1 = styled.div`
   width: 80%;
@@ -80,6 +85,9 @@ export const DarkToLightButton = styled.button`
     color: #343a40;
     border: 2px solid #343a40;
   }
+  @media ${mediaQuerySize[850]} {
+    font-size: 14px;
+  }
 `;
 
 export const InputButton = styled(DarkToLightButton)`
@@ -98,6 +106,7 @@ export const InputName = styled.input`
   outline: none;
   border: 2px dotted #343a40;
   border-radius: 5px;
+  
   :focus {
     border: 2px solid #343a40;
     border-radius: 5px;
@@ -118,6 +127,9 @@ export const InputName = styled.input`
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #343a40;
+  }
+  @media ${mediaQuerySize[850]} {
+    font-size: 14px;
   }
 `;
 
@@ -156,6 +168,10 @@ export const ScrollBoxDNA = styled.textarea`
   ::selection {
     background-color: rgba(159, 24, 41, 0.2);
     color: #9f1829;
+  }
+
+  @media ${mediaQuerySize[850]} {
+    font-size: 12px;
   }
 `;
 export const ScrollBoxRNA = styled(ScrollBoxDNA)`
@@ -215,6 +231,10 @@ export const ScrollBoxDesc = styled(ScrollBoxDNA)`
     background-color: rgba(52, 58, 64, 0.2);
     color: #343a40;
   }
+
+  @media ${mediaQuerySize[850]} {
+    font-size: 14px;
+  }
 `;
 
 export const InputDNA = styled.textarea`
@@ -246,6 +266,9 @@ export const InputDNA = styled.textarea`
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #9f1829;
+  }
+  @media ${mediaQuerySize[850]} {
+    font-size: 12px;
   }
 `;
 export const InputRNA = styled(InputDNA)`
@@ -281,5 +304,8 @@ export const InputDesc = styled(InputDNA)`
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #343a40;
+  }
+  @media ${mediaQuerySize[850]} {
+    font-size: 14px;
   }
 `;

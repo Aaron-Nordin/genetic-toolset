@@ -24,7 +24,7 @@ export default class RNATests extends Component {
           <SubListItemCont>
             <SubListItem>
               <IconItem
-                src="http://localhost:5555/static/RNAIcon.png"
+                src="/static/RNAIcon.png"
                 alt="DNA icon"
               />
               <Item>
@@ -44,7 +44,7 @@ export default class RNATests extends Component {
           <SubListItemCont>
             <SubListItem>
               <IconItem
-                src="http://localhost:5555/static/RNAIcon.png"
+                src="/static/RNAIcon.png"
                 alt="DNA icon"
               />
               <Item>
@@ -64,7 +64,7 @@ export default class RNATests extends Component {
           <SubListItemCont>
             <SubListItem>
               <IconItem
-                src="http://localhost:5555/static/RNAIcon.png"
+                src="/static/RNAIcon.png"
                 alt="DNA icon"
               />
               <Item>

@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import { logoutUser, updateNavHeight } from "../../ducks/reducer";
+import {mediaQuerySize} from "../../mediaQueries";
 
 //---------------------------STYLE-----------------------------
 
@@ -56,6 +57,11 @@ const LogoutButton = styled.button`
     background: #343a40;
     color: #fafafa;
     border: 2px solid #fafafa;
+  }
+
+  @media ${mediaQuerySize[1000]} {
+    width: 18vw;
+    font-size: 0.4em;
   }
 `;
 

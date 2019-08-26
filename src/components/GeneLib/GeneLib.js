@@ -7,6 +7,7 @@ import GeneLibSlidingPane from "./GeneLibSlidingPane";
 import styled from "styled-components";
 import Modal from "react-modal";
 import SlidingPane from "react-sliding-pane";
+import { mediaQuerySize } from "../../mediaQueries";
 import "./GeneLib.css";
 
 const Body = styled.div`
@@ -55,6 +56,11 @@ const HamArrowContainer = styled.div`
     border-radius: 8px; */
     cursor: pointer;
   }
+  /* @media ${mediaQuerySize[850]} {
+    [title~="Library"] {
+    font-size: 12px;
+  }
+  } */
 `;
 const SelGeneContainer = styled.div`
   display: flex;
@@ -69,6 +75,10 @@ const DNAHamburger = styled.img`
   margin-top: 4vh;
   box-shadow: 10px 10px 5px black;
   transition: 0.5s ease;
+
+  @media ${mediaQuerySize[1000]} {
+    width: 50px;
+  }
 `;
 const ArrowExpand = styled.img`
   position: relative;
@@ -254,12 +264,12 @@ class GeneLib extends Component {
             <SlidingPaneCont ref={ref => (this.el = ref)}>
               <HamArrowContainer>
                 <DNAHamburger
-                  src="http://localhost:5555/static/DNAHamburger.png"
+                  src="/static/DNAHamburger.png"
                   alt="DNA icon onClick"
                   onClick={this.handleDNAHambClick}
                 />
                 <ArrowExpand
-                  src="http://localhost:5555/static/ArrowExpand.png"
+                  src="/static/ArrowExpand.png"
                   alt="expand arrow"
                   onClick={this.handleDNAHambClick}
                 />

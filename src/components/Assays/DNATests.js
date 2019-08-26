@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-scroll";
+import { mediaQuerySize } from "../../mediaQueries"
 import {
   TestsCont,
   SectionHeading,
@@ -24,7 +25,7 @@ export default class DNATests extends Component {
           <SubListItemCont>
             <SubListItem>
               <IconItem
-                src="http://localhost:5555/static/DNAIcon.png"
+                src="/static/DNAIcon.png"
                 alt="DNA icon"
               />
               <Item>
@@ -44,7 +45,7 @@ export default class DNATests extends Component {
           <SubListItemCont>
             <SubListItem>
               <IconItem
-                src="http://localhost:5555/static/DNAIcon.png"
+                src="/static/DNAIcon.png"
                 alt="DNA icon"
               />
               <Item>
@@ -64,7 +65,7 @@ export default class DNATests extends Component {
           <SubListItemCont>
             <SubListItem>
               <IconItem
-                src="http://localhost:5555/static/DNAIcon.png"
+                src="/static/DNAIcon.png"
                 alt="DNA icon"
               />
               <Item>

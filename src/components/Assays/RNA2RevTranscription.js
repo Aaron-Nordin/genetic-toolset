@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import { setSelectedGene } from "../../ducks/reducer";
+import RevTScriptD3 from "../d3/RevTScriptD3";
 import {
   InputStyle1,
   InputContainer,
@@ -111,7 +112,7 @@ class RNA2RevTranscription extends Component {
         {this.state.submitted ? (
           <>
             <InputContainer>
-              <TestRNA2Output readOnly value={this.state.dna} />
+              <TestRNA2Output readOnly value={this.state.dna} id="RevTScriptOutputData" />
             </InputContainer>
             <ButtonContainer>
               <InputButtonStyle1 onClick={this.handleSaveClick}>
@@ -121,6 +122,7 @@ class RNA2RevTranscription extends Component {
                 Cancel
               </InputButtonStyle1>
             </ButtonContainer>
+            <RevTScriptD3/>
           </>
         ) : null}
       </div>
