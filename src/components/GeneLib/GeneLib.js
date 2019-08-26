@@ -103,11 +103,14 @@ const LightButton = styled.button`
   padding: 2px;
   box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.2),
     inset 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
   :hover {
     background: #343a40;
     color: #fafafa;
     border: 2px solid #fafafa;
+  }
+  @media ${mediaQuerySize[1000]} {
+    width: 50px;
+    font-size: 12pt;
   }
 `;
 

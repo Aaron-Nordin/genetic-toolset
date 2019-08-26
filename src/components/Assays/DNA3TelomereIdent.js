@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 // import axios from "axios";
 import { setSelectedGene } from "../../ducks/reducer";
 import {
-  InputStyle1,
+  InputStyleDNA,
   InputContainer,
   ButtonContainer,
   InputButtonStyle1,
@@ -88,7 +88,7 @@ class DNA3TelomereIdent extends Component {
         </TestNameAndDescCont>
         <div className="test-desc" />
         <InputContainer>
-          <InputStyle1
+          <InputStyleDNA
             name="dna"
             type="text"
             placeholder="Enter DNA Sequence. Whitespace in sequence will be removed upon submission."

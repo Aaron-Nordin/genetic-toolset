@@ -1,0 +1,67 @@
+.RevTScriptD3Container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 8vh;
+    width: 90%;
+    padding-left: 5%;
+  }
+  
+  #RevTScriptD3-svg {
+    background: #fafafa;
+    width: 75%;
+  }
+  
+  .area {
+    fill: steelblue;
+    clip-path: url(#clip);
+  }
+  
+  .zoom {
+    cursor: move;
+    fill: none;
+    pointer-events: all;
+  }
+  
+  .axis line,
+  text {
+    stroke: #555;
+  }
+  
+  
+  .axis path {
+    stroke: #9f1829;
+    stroke-width: 2px;
+  }
+  
+  .axis--x {
+    font-size: 12pt;
+    font-family: "Montserrat", sans-serif;
+    color: #555;
+    font-weight: bold;
+  }
+  
+  .axis--y text {
+    font-size: 14pt;
+    font-family: "Montserrat", sans-serif;
+    color: #555;
+    font-weight: bold;
+    /* mix-blend-mode: darken;
+    text-shadow: 0px 0px 10px  #fafafa; */
+  }
+  
+  .A {
+      fill: #2ECC40;
+  }
+  
+  .U {
+    fill: #FF4136;
+  }
+  
+  .G {
+      fill: #0074D9;
+  }
+  
+  .C {
+      fill: #FF851B
+  }
+  

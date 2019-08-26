@@ -3,15 +3,6 @@ import * as d3 from "d3";
 import "./TScriptD3.css";
 
 export default class Transcription2Array extends Component {
-  // state = {
-  //   dnaSeq:
-  //     "ATATATAGACCCGCATATATATGCAGAGGAGATTATATAGAGGAGACACACACCAAAGGAGGAGAGAGATATTATATAGGAGAGGACACAC"
-  // };
-  // constructor() {
-  //   super()
-  //   this.brushed = this.brushed.bind(this)
-  // }
-
   componentDidMount() {
     this.transcribe();
   }

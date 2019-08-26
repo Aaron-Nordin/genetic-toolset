@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import { codonDict } from "./CodonDict";
+import { codonDict } from "./AssayResources/CodonDict";
 import { setSelectedGene } from "../../ducks/reducer";
 import {
-  InputStyle1,
+  InputStyleRNA,
   InputContainer,
   ButtonContainer,
   InputButtonStyle1,
   TestNameAndDescCont,
-  TestRNA1Output
+  TestOutputAA
 } from "./TestsStyle";
 class RNA1Translation extends Component {
   state = {
@@ -37,9 +37,13 @@ class RNA1Translation extends Component {
 
   tLateFn = rna => {
     return rna
+      .trim()
       .toUpperCase()
       .match(/.{1,3}/g)
-      .map(c => codonDict[c])
+      .map(c => {
+        if (codonDict[c]) return codonDict[c][0];
+        else return null;
+      })
       .join("");
   };
 
@@ -105,7 +109,7 @@ class RNA1Translation extends Component {
         </TestNameAndDescCont>
         <div className="test-desc" />
         <InputContainer>
-          <InputStyle1
+          <InputStyleRNA
             name="rna"
             type="text"
             placeholder="Enter RNA Sequence. Whitespace in sequence will be removed upon submission."
@@ -120,7 +124,11 @@ class RNA1Translation extends Component {
         {this.state.submitted ? (
           <>
             <InputContainer>
-              <TestRNA1Output readOnly value={this.state.aa} />
+              <TestOutputAA
+                readOnly
+                value={this.state.aa}
+                id="TLateOutputData"
+              />
             </InputContainer>
             <ButtonContainer>
               <InputButtonStyle1 onClick={this.handleSaveClick}>

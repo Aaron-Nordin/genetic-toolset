@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
-import "./RevTScriptD3.css";
+import "./TScriptD3.css";
 
 export default class Transcription2Array extends Component {
   componentDidMount() {
@@ -20,7 +20,6 @@ export default class Transcription2Array extends Component {
       obj.base = arr[i];
       data.push(obj);
     }
-    console.log(data);
     return data;
   };
 
@@ -110,14 +109,14 @@ export default class Transcription2Array extends Component {
       .attr("class", "context")
       .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 
-    const data = this.formatData(d3.select("#RevTScriptOutputData").text());
+    const data = this.formatData(d3.select("#TLateOutputData").text());
 
     x.domain(
       d3.extent(data, function(d) {
         return d.index;
       })
     );
-    y.domain(["A", "T", "G", "C"].reverse());
+    y.domain(["A", "U", "G", "C"].reverse());
     x2.domain(x.domain());
     y2.domain(y.domain());
 
@@ -250,7 +249,7 @@ export default class Transcription2Array extends Component {
     return (
       <div className="RevTScriptD3Container">
         <svg
-          id="RevTScriptD3-svg"
+          id="TLateD3-svg"
           ref={node => (this.node = node)}
           style={{ background: "#fafafa", border: "2px solid #444" }}
           width={960}

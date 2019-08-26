@@ -4,12 +4,12 @@ import axios from "axios";
 import { setSelectedGene } from "../../ducks/reducer";
 import RevTScriptD3 from "../d3/RevTScriptD3";
 import {
-  InputStyle1,
+  InputStyleRNA,
   InputContainer,
   ButtonContainer,
   InputButtonStyle1,
   TestNameAndDescCont,
-  TestRNA2Output
+  TestOutputDNA
 } from "./TestsStyle";
 
 class RNA2RevTranscription extends Component {
@@ -97,7 +97,7 @@ class RNA2RevTranscription extends Component {
         </TestNameAndDescCont>
         <div className="test-desc" />
         <InputContainer>
-          <InputStyle1
+          <InputStyleRNA
             name="rna"
             type="text"
             placeholder="Enter RNA Sequence. Whitespace in sequence will be removed upon submission."
@@ -112,7 +112,11 @@ class RNA2RevTranscription extends Component {
         {this.state.submitted ? (
           <>
             <InputContainer>
-              <TestRNA2Output readOnly value={this.state.dna} id="RevTScriptOutputData" />
+              <TestOutputDNA
+                readOnly
+                value={this.state.dna}
+                id="RevTScriptOutputData"
+              />
             </InputContainer>
             <ButtonContainer>
               <InputButtonStyle1 onClick={this.handleSaveClick}>
@@ -122,7 +126,7 @@ class RNA2RevTranscription extends Component {
                 Cancel
               </InputButtonStyle1>
             </ButtonContainer>
-            <RevTScriptD3/>
+            <RevTScriptD3 />
           </>
         ) : null}
       </div>

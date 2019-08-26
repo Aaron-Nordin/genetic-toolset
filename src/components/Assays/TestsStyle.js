@@ -107,7 +107,6 @@ export const SubListItem = styled.label`
   @media ${mediaQuerySize[1000]} {
     padding: 0;
   }
-  
 `;
 
 export const Item = styled.span`
@@ -145,7 +144,7 @@ export const IconItem = styled.img`
 
 //------------------------INPUTS/TXTAREAS----------------------------
 
-export const InputStyle1 = styled.textarea`
+export const InputStyleDNA = styled.textarea`
   width: 60vw;
   height: 20vh;
   font-family: "Montserrat", sans-serif;
@@ -170,6 +169,22 @@ export const InputStyle1 = styled.textarea`
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #9f1829;
+  }
+`;
+
+export const InputStyleRNA = styled(InputStyleDNA)`
+  outline: none;
+  :focus {
+    border: 2px solid #1a97ba;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #1a97ba;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1a97ba;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1a97ba;
   }
 `;
 
@@ -252,7 +267,7 @@ export const TestDNA1Output = styled.textarea`
   }
 `;
 
-export const TestRNA1Output = styled.textarea`
+export const TestOutputAA = styled.textarea`
   width: 60vw;
   height: 20vh;
   font-family: "Montserrat", sans-serif;
@@ -282,10 +297,15 @@ export const TestRNA1Output = styled.textarea`
   }
 `;
 
-export const TestRNA2Output = styled(TestDNA1Output)`
-    :focus {
+export const TestOutputRNA = styled(TestOutputAA)`
+  :focus {
     border: 2px solid #343a40;
-    ::-webkit-scrollbar-track {
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 10px #343a40;
     border-radius: 10px;
   }
@@ -297,9 +317,28 @@ export const TestRNA2Output = styled(TestDNA1Output)`
   ::-webkit-scrollbar-thumb:hover {
     background: #343a40;
   }
+`;
 
+export const TestOutputDNA = styled(TestOutputAA)`
+  :focus {
+    border: 2px solid #9f1829;
   }
-
-`
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #9f1829;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #9f1829;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9f1829;
+  }
+`;
 
 //------------------------------------------------------------------
