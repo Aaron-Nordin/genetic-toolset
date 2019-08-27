@@ -45,6 +45,22 @@ const SlidingPaneMainCont = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-bottom-left-radius: ${props => props.borderRadius};
 `;
+const ProfilePic = styled.img`
+  width: 75%;
+  height: auto;
+  /* #1 */
+  border: 5px solid #828a92;
+  /* #2 */
+  padding: 5px;
+  background: #343a40;
+  /* #3 */
+  outline: 5px solid #fafafa;
+`;
+const PicContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+`;
 const HamArrowContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -156,7 +172,7 @@ class GeneLib extends Component {
     ) {
       this.setState({
         sPaneMContPosition: "fixed",
-        sPaneMContHeight: "225px",
+        sPaneMContHeight: "400px",
         testAreaWidth: "100%",
         sPaneMContBRadius: "30px"
       });
@@ -167,7 +183,7 @@ class GeneLib extends Component {
     ) {
       this.setState({
         sPaneMContPosition: "fixed",
-        sPaneMContHeight: "400px",
+        sPaneMContHeight: "625px",
         testAreaWidth: "100%",
         sPaneMContBRadius: "30px"
       });
@@ -264,6 +280,9 @@ class GeneLib extends Component {
             borderRadius={this.state.sPaneMContBRadius}
           >
             <SlidingPaneCont ref={ref => (this.el = ref)}>
+              <PicContainer>
+                <ProfilePic src={this.props.userImage} alt="profile pic" />
+              </PicContainer>
               <HamArrowContainer>
                 <DNAHamburger
                   src="/static/DNAHamburger.png"
@@ -311,11 +330,12 @@ function mapStateToProps(reduxState) {
   const {
     userId,
     username,
+    userImage,
     bannerImageHeight,
     navbarHeight,
     selectedGene
   } = reduxState;
-  return { userId, username, bannerImageHeight, navbarHeight, selectedGene };
+  return { userId, username, userImage, bannerImageHeight, navbarHeight, selectedGene };
 }
 
 export default connect(mapStateToProps)(GeneLib);

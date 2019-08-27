@@ -8,26 +8,6 @@ import {mediaQuerySize} from "../../mediaQueries";
 
 //---------------------------STYLE-----------------------------
 
-const ProfilePic = styled.img`
-  max-height: 10vh;
-
-  /* max-width: 120px; */
-`;
-const PicContainer = styled.div`
-  img {
-    width: 100px;
-
-    /* #1 */
-    border: 5px solid #828a92;
-
-    /* #2 */
-    padding: 5px;
-    background: #343a40;
-
-    /* #3 */
-    outline: 5px solid #fafafa;
-  }
-`;
 const NameButton = styled.div`
   font-size: 2em;
   display: flex;
@@ -143,9 +123,6 @@ class Nav extends Component {
             alignItems: "center"
           }}
         >
-          <PicContainer>
-            <ProfilePic src={this.props.userImage} alt="profile pic" />
-          </PicContainer>
         </div>
       </div>
     );
@@ -153,8 +130,8 @@ class Nav extends Component {
 }
 
 function mapStateToProps(reduxState) {
-  const { username, userImage } = reduxState;
-  return { username, userImage };
+  const { username } = reduxState;
+  return { username };
 }
 
 export default connect(
