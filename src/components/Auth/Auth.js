@@ -9,6 +9,7 @@ import Nav from "../Nav/Nav";
 // import ActiveBackground from "./ActiveBackground";
 import "./Auth.css";
 import {
+  showRegisterCompFn,
   setUser,
   updateBannerHeight,
   updateNavHeight
@@ -30,7 +31,7 @@ class Auth extends Component {
   state = {
     username: "",
     password: "",
-    register: false,
+    // showRegister: false,
     mouseMove: false,
     mouseTriggered: false,
     showDiv: false
@@ -74,7 +75,8 @@ class Auth extends Component {
   };
 
   handleRegButton = () => {
-    this.setState({ register: true });
+    // this.setState({ showRegister: true });
+    this.props.showRegisterCompFn(true)
     scroller.scrollTo("Registration-Ele", {
       duration: 250,
       delay: 25,
@@ -85,7 +87,7 @@ class Auth extends Component {
 
   handleMouseMove = e => {
     this.setState({ mouseMove: true });
-    let lastEvent = e;
+    // let lastEvent = e;
     if (!this.state.mouseTriggered) {
       this.setState({ mouseTriggered: true });
       setTimeout(() => {
@@ -147,10 +149,7 @@ class Auth extends Component {
               overflowX: "hidden"
             }}
           >
-            <source
-              src="/static/DNA.mp4"
-              type="video/mp4"
-            />
+            <source src="/static/DNA.mp4" type="video/mp4" />
           </video>
           {(!this.props.userId && this.state.mouseMove) ||
           (!this.props.userId && this.state.showDiv) ? (
@@ -191,7 +190,7 @@ class Auth extends Component {
           ) : null}
         </div>
         <div className="registration-component">
-          {this.state.register ? (
+          {this.props.showRegisterComp ? (
             <Element name="Registration-Ele">
               <Registration />
             </Element>
@@ -213,11 +212,11 @@ class Auth extends Component {
 }
 
 function mapStateToProps(reduxState) {
-  const { userId } = reduxState;
-  return { userId };
+  const { showRegisterComp, userId } = reduxState;
+  return { showRegisterComp, userId };
 }
 
 export default connect(
   mapStateToProps,
-  { setUser, updateBannerHeight, updateNavHeight }
+  { showRegisterCompFn, setUser, updateBannerHeight, updateNavHeight }
 )(Auth);

@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import { logoutUser, updateNavHeight } from "../../ducks/reducer";
-import {mediaQuerySize} from "../../mediaQueries";
+import { mediaQuerySize } from "../../mediaQueries";
 
 //---------------------------STYLE-----------------------------
 
@@ -23,6 +23,7 @@ const NameButton = styled.div`
   margin-top: 1vh;
   margin-bottom: 1vh;
 `;
+const InstructionsIconImg = styled.img``;
 const LogoutButton = styled.button`
   position: relative;
   top: 5px;
@@ -117,6 +118,10 @@ class Nav extends Component {
               <UserH1>{this.props.username}</UserH1>
             </Welcome>
             <LogoutButton onClick={this.logout}>LOGOUT</LogoutButton>
+            {/* <InstructionsIconImg
+              src="/static/InstructionIcon.png"
+              alt="instructions"
+            /> */}
           </NameButton>
         </NavbarCustom>
       </div>

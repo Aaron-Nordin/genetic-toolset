@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { setUser } from "../../ducks/reducer";
+import { showRegisterCompFn, setUser } from "../../ducks/reducer";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const RegContainer = styled.div`
@@ -47,7 +48,6 @@ const Input = styled.input`
   }
   :focus {
     border: 3px solid #555;
-
   }
 `;
 
@@ -86,12 +86,17 @@ class Registration extends Component {
     });
   }
 
+  cancel = () => {
+    this.props.showRegisterCompFn(false);
+  };
+
   register = () => {
     const { username, password, email, userImage } = this.state;
     axios
       .post("/auth/register", { username, password, email, userImage })
       .then(res => {
         this.props.setUser({ username, email, userImage });
+        this.props.showRegisterCompFn(false);
         this.props.history.push("/");
       });
     // .catch(() => {
@@ -136,6 +141,7 @@ class Registration extends Component {
               onChange={e => this.handleChange(e)}
             />
             <InputButton onClick={this.register}>Submit</InputButton>
+            <InputButton onClick={this.cancel}>Cancel</InputButton>
           </RegForm>
         </RegInnerContainer>
       </RegContainer>
@@ -145,5 +151,5 @@ class Registration extends Component {
 
 export default connect(
   null,
-  { setUser }
+  { showRegisterCompFn, setUser }
 )(Registration);

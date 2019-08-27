@@ -154,7 +154,7 @@ export const ScrollBoxDNA = styled.textarea`
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
   }
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 18px;
     height: 12px;
   }
   ::-webkit-scrollbar-track {
