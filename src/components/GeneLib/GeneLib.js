@@ -123,6 +123,9 @@ const LightButton = styled.button`
     color: #fafafa;
     border: 2px solid #fafafa;
   }
+  :focus {
+    outline: none;
+  }
   /* @media ${mediaQuerySize[1000]} {
     width: 50px;
     font-size: 12px;

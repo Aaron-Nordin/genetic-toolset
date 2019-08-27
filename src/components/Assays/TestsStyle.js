@@ -227,16 +227,23 @@ export const InputButtonStyle1 = styled.button`
   color: #fafafa;
   transition: 0.5s;
   border: 2px solid #fafafa;
+  outline: none;
   :hover {
     background: #fafafa;
     color: #343a40;
     border: 2px solid #343a40;
+  }
+  :focus {
+    outline: none;
   }
 `;
 
 export const InputButtonStyle3 = styled.button`
   width: 15vw;
   height: 2em;
+  :focus {
+    outline: none;
+  }
 `;
 
 //------------------------------------------------------------------

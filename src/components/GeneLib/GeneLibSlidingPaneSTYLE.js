@@ -87,6 +87,9 @@ export const DarkToLightButton = styled.button`
     color: #343a40;
     border: 2px solid #343a40;
   }
+  :focus {
+    outline: none;
+  }
   /* @media ${mediaQuerySize[850]} {
     font-size: 14px;
   } */

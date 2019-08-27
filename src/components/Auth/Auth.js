@@ -31,7 +31,6 @@ class Auth extends Component {
   state = {
     username: "",
     password: "",
-    // showRegister: false,
     mouseMove: false,
     mouseTriggered: false,
     showDiv: false
@@ -75,13 +74,12 @@ class Auth extends Component {
   };
 
   handleRegButton = () => {
-    // this.setState({ showRegister: true });
     this.props.showRegisterCompFn(true)
-    scroller.scrollTo("Registration-Ele", {
-      duration: 250,
-      delay: 25,
+    scroller.scrollTo("scroll-to-register", {
+      duration: 500,
+      delay: 150,
       smooth: true,
-      offset: 10
+      offset: 0
     });
   };
 

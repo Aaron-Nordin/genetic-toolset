@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import { showRegisterCompFn, setUser } from "../../ducks/reducer";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const RegContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-image: url("/static/frameworkDNABackgrd.png");
   display: flex;
@@ -19,6 +18,7 @@ const RegInnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-content: center;
+  align-items: center;
   width: 25vw;
   height: 30vw;
   background: lightgrey;
@@ -57,12 +57,15 @@ const InputButton = styled.button`
   margin-top: 10px;
   background: #555;
   color: #fafafa;
-  transition: 1sec;
+  transition: 1s;
   border: 2px solid #fafafa;
   :hover {
     background: #fafafa;
     color: #555;
     border: 2px solid #555;
+  }
+  :focus {
+    outline: none;
   }
 `;
 
@@ -107,7 +110,7 @@ class Registration extends Component {
   render() {
     return (
       <RegContainer>
-        <RegInnerContainer>
+        <RegInnerContainer name="scroll-to-register">
           <RegForm onSubmit={e => e.preventDefault()}>
             <TitleH2>REGISTRATION</TitleH2>
             <Input

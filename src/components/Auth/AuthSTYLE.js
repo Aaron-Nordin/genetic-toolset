@@ -13,6 +13,9 @@ export const DarkToLightButton = styled.button`
     color: #343a40;
     border: 2px solid #343a40;
   }
+  :focus {
+    outline: none;
+  }
 `;
 
 export const Input = styled.input`
@@ -48,7 +51,8 @@ export const LoginForm = styled.form`
   /* border: 2px solid red; */
   color: #f1f1f1;
   background: rgba(0, 0, 0, 0.9);
-  box-shadow: 0 8px 10px 6px rgba(0, 0, 0, 0.6), 0 8px 25px 6px rgba(0, 0, 0, 0.39);
+  box-shadow: 0 8px 10px 6px rgba(0, 0, 0, 0.6),
+    0 8px 25px 6px rgba(0, 0, 0, 0.39);
 `;
 
 export const LoginFormContainer = styled.div`
@@ -63,7 +67,6 @@ export const LoginFormContainer = styled.div`
   height: 45%;
   z-index: 3;
   transition: 2s;
-
 `;
 
 export const TitleH2 = styled.h2`

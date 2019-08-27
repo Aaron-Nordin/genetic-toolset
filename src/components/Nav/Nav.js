@@ -41,7 +41,9 @@ const LogoutButton = styled.button`
     color: #fafafa;
     border: 2px solid #fafafa;
   }
-
+  :focus {
+    outline: none;
+  }
   /* @media ${mediaQuerySize[1000]} {
     width: 18vw;
     font-size: 0.4em;
