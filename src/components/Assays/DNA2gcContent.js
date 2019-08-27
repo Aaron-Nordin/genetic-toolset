@@ -72,9 +72,9 @@ class DNA2gcContent extends Component {
     return (
       <div>
         <TestNameAndDescCont className="test-name">
-          <h2>DNA GC-Content</h2>
+          <h1>DNA GC-Content</h1>
           <hr style={{ borderColor: "#343a40" }} />
-          <p style={{ fontSize: "18px" }}>
+          <p style={{ fontSize: "20px" }}>
             GC-content (or guanine-cytosine content) is the percentage of
             nitrogenous bases on a DNA or RNA molecule that are either guanine
             or cytosine. This may refer to a certain fragment of DNA or RNA, or

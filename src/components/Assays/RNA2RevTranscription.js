@@ -77,9 +77,9 @@ class RNA2RevTranscription extends Component {
     return (
       <div>
         <TestNameAndDescCont className="test-name">
-          <h2>Reverse Transcription</h2>
+          <h1>Reverse Transcription</h1>
           <hr style={{ borderColor: "#fafafa" }} />
-          <p style={{ fontSize: "18px" }}>
+          <p style={{ fontSize: "20px" }}>
             Reverse transcriptase enzymes create double-stranded DNA from RNA
             templates. In virus species with reverse transcriptase lacking
             DNA-dependent DNA polymerase activity, creation of double-stranded

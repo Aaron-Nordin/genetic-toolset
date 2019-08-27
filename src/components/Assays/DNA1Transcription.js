@@ -77,9 +77,9 @@ class DNA1Transcription extends Component {
     return (
       <div>
         <TestNameAndDescCont className="test-name">
-          <h2>Transcription</h2>
+          <h1>Transcription</h1>
           <hr style={{ borderColor: "#fafafa" }} />
-          <p style={{ fontSize: "18px" }}>
+          <p style={{ fontSize: "20px" }}>
             Transcription is the first step of DNA based gene expression, in
             which a particular segment of DNA is copied into RNA (especially
             mRNA) by the enzyme RNA polymerase. Both DNA and RNA are nucleic

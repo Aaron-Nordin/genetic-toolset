@@ -61,8 +61,8 @@ const LogoInnerContainer = styled.div`
 const Logo = styled.img`
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  max-height: 280px;
-  max-width: 280px;
+  max-height: 400px;
+  max-width: 400px;
   padding: 2px;
   width: 100%;
   display: block;

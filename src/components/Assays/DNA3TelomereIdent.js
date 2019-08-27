@@ -66,9 +66,9 @@ class DNA3TelomereIdent extends Component {
     return (
       <div>
         <TestNameAndDescCont className="test-name">
-          <h2>Telomere Identification</h2>
+          <h1>Telomere Identification</h1>
           <hr style={{ borderColor: "#fafafa" }} />
-          <p style={{ fontSize: "18px" }}>
+          <p style={{ fontSize: "20px" }}>
             A telomere is a region of repetitive nucleotide sequences at each
             end of a chromosome, which protects the end of the chromosome from
             deterioration or from fusion with neighboring chromosomes. For

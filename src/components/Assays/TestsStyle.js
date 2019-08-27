@@ -22,7 +22,7 @@ export const SectionHeading = styled.label`
   -webkit-box-pack: justify;
   justify-content: space-between;
   font-family: "Montserrat", sans-serif;
-  font-size: 1.3em;
+  font-size: 2.5em;
   font-weight: bold;
   text-transform: none;
 `;
@@ -37,6 +37,7 @@ export const HeadingText = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 24px;
+  padding-top: 12px;
 
   /* @media ${mediaQuerySize[850]} {
     font-size: 14px;
@@ -150,6 +151,7 @@ export const InputStyleDNA = styled.textarea`
   width: 60vw;
   height: 20vh;
   font-family: "Montserrat", sans-serif;
+  font-size: 22px;
   outline: none;
   overflow-y: scroll;
   :focus {
@@ -157,7 +159,7 @@ export const InputStyleDNA = styled.textarea`
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
   }
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 18px;
     height: 12px;
   }
   ::-webkit-scrollbar-track {
@@ -216,6 +218,8 @@ export const TestNameAndDescCont = styled.div`
 //-----------------------------BUTTONS------------------------------
 
 export const InputButtonStyle1 = styled.button`
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
   width: 15vw;
   height: 2em;
   margin-top: 10px;
@@ -243,6 +247,7 @@ export const TestDNA1Output = styled.textarea`
   width: 60vw;
   height: 20vh;
   font-family: "Montserrat", sans-serif;
+  font-size: 22px;
   color: black;
   outline: none;
   background-color: #fafafa;
@@ -252,7 +257,7 @@ export const TestDNA1Output = styled.textarea`
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
   }
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 18px;
     height: 12px;
   }
   ::-webkit-scrollbar-track {
@@ -282,7 +287,7 @@ export const TestOutputAA = styled.textarea`
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
   }
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 18px;
     height: 12px;
   }
   ::-webkit-scrollbar-track {
@@ -304,7 +309,7 @@ export const TestOutputRNA = styled(TestOutputAA)`
     border: 2px solid #343a40;
   }
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 18px;
     height: 12px;
   }
   ::-webkit-scrollbar-track {
@@ -326,7 +331,7 @@ export const TestOutputDNA = styled(TestOutputAA)`
     border: 2px solid #9f1829;
   }
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 18px;
     height: 12px;
   }
   ::-webkit-scrollbar-track {
