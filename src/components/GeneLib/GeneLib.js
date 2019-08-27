@@ -297,6 +297,13 @@ class GeneLib extends Component {
               </HamArrowContainer>
               {this.props.selectedGene.geneId ? (
                 <SelGeneContainer>
+                  <svg height="10" width="125" style={{ paddingTop: "5px" }}>
+                    <line
+                      x1="10"
+                      x2="115"
+                      style={{ stroke: "#fafafa", strokeWidth: 3 }}
+                    />
+                  </svg>
                   <LightButton onClick={this.handleCopyDNA}>DNA</LightButton>
                   <LightButton onClick={this.handleCopyRNA}>RNA</LightButton>
                   <LightButton onClick={this.handleCopyAA}>
@@ -335,7 +342,14 @@ function mapStateToProps(reduxState) {
     navbarHeight,
     selectedGene
   } = reduxState;
-  return { userId, username, userImage, bannerImageHeight, navbarHeight, selectedGene };
+  return {
+    userId,
+    username,
+    userImage,
+    bannerImageHeight,
+    navbarHeight,
+    selectedGene
+  };
 }
 
 export default connect(mapStateToProps)(GeneLib);

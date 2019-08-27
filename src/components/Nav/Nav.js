@@ -11,15 +11,17 @@ import {mediaQuerySize} from "../../mediaQueries";
 const NameButton = styled.div`
   font-size: 2em;
   display: flex;
-  justify-content: flex-end;
-  align-content: center;
+  justify-content: center;
+  /* align-content: center; */
   align-items: flex-end;
   flex-direction: column;
   width: 50%;
   position: relative;
-  left: 48.5%;
+  /* left: 48.5%; */
   padding-right: 0.5em;
   padding-bottom: 0.5em;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 `;
 const LogoutButton = styled.button`
   position: relative;
@@ -49,13 +51,13 @@ const NavbarCustom = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  align-content: center;
-  justify-content: space-between;
-  height: 11vh;
+  justify-content: flex-end;
+  height: 12vh;
   box-shadow: 5px 5px 10px 5px #111111;
   background: #343a40;
   color: #fafafa;
   font-family: "Montserrat", sans-serif;
+  border-bottom: 5px solid #fafafa;
 `;
 const UserH1 = styled.h1`
   font-weight: bold;
@@ -69,10 +71,10 @@ const H3 = styled.h3`
   right: 10px;
 `;
 const Welcome = styled.div`
-  width: 60vw;
   display: flex;
-  justify-content: flex-end;
+  /* justify-content:center; */
   align-items: flex-end;
+  /* align-content: center; */
 `;
 
 // const navStyle = {
@@ -117,13 +119,6 @@ class Nav extends Component {
             <LogoutButton onClick={this.logout}>LOGOUT</LogoutButton>
           </NameButton>
         </NavbarCustom>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center"
-          }}
-        >
-        </div>
       </div>
     );
   }

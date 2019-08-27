@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import { connect } from "react-redux";
 import { setSelectedGene } from "../../ducks/reducer";
 import {
@@ -77,7 +78,7 @@ class GeneLibSlidingPane extends Component {
     this.getGenes();
   }
 
-  handleInputSubitButton = async () => {
+  handleInputSubmitButton = async () => {
     const { userId, name, desc, dna, rna } = this.state;
     this.setState({ addGene: false });
     await axios
@@ -92,6 +93,14 @@ class GeneLibSlidingPane extends Component {
         alert("Invalid Submission");
       });
     this.getGenes();
+    Swal.fire({
+      position: "top-end",
+      type: "success",
+      title: "Gene added to your Library",
+      showConfirmButton: false,
+      timer: 1500,
+      background: "#fafafa"
+    });
   };
 
   handleInputCancelButton = () => {
@@ -100,7 +109,7 @@ class GeneLibSlidingPane extends Component {
 
   handleSelectGeneButton = async geneId => {
     this.setState({
-      selectedGeneId: geneId,
+      selectedGeneId: geneId
     });
     await axios.get(`/api/metadata/genes/${geneId}`).then(res => {
       this.props.setSelectedGene(res.data);
@@ -146,7 +155,7 @@ class GeneLibSlidingPane extends Component {
               />
             </div>
             <div>
-              <InputButton onClick={this.handleInputSubitButton}>
+              <InputButton onClick={this.handleInputSubmitButton}>
                 Submit
               </InputButton>
               <InputButton onClick={this.handleInputCancelButton}>
@@ -174,16 +183,16 @@ class GeneLibSlidingPane extends Component {
               <HContainerStyle1>
                 <DarkH4>{g.geneName}</DarkH4>
               </HContainerStyle1>
-              <br/>
+              <br />
               <ScrollBoxDesc readOnly defaultValue={g.geneDesc} />
-              <br/>
-              <br/>
+              <br />
+              <br />
               <div>
                 <ScrollBoxDNA readOnly defaultValue={g.dnaSeq} />
                 <ScrollBoxRNA readOnly defaultValue={g.rnaSeq} />
                 <ScrollBoxAA readOnly defaultValue={g.aaSeq} />
               </div>
-              <br/>
+              <br />
               <DarkToLightButton
                 onClick={() => this.handleSelectGeneButton(g.geneId)}
               >
