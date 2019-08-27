@@ -64,7 +64,6 @@ export default class Transcription2Array extends Component {
 
     var area = d3
       .area()
-      // .curve(d3.curveMonotoneX)
       .x(function(d, i) {
         return x(i + 1);
       })
@@ -75,7 +74,6 @@ export default class Transcription2Array extends Component {
 
     var area2 = d3
       .area()
-      // .curve(d3.curveMonotoneX)
       .x(function(d, i) {
         return x2(i + 1);
       })
@@ -166,7 +164,6 @@ export default class Transcription2Array extends Component {
       })
       .attr("width", rectX)
       .attr("height", rectY);
-    // console.log(data);
 
     focus
       .append("g")

@@ -45,11 +45,11 @@ const LogoutButton = styled.button`
   position: relative;
   top: 5px;
   background: #fafafa;
-  width: 10vw;
+  width: 11vw;
   height: 2em;
   /* margin-top: 10px; */
   color: #343a40;
-  font-size: 0.6em;
+  font-size: 0.8em;
   font-weight: bold;
   transition: 0.5s;
   border: 2px solid #343a40;
@@ -59,10 +59,10 @@ const LogoutButton = styled.button`
     border: 2px solid #fafafa;
   }
 
-  @media ${mediaQuerySize[1000]} {
+  /* @media ${mediaQuerySize[1000]} {
     width: 18vw;
     font-size: 0.4em;
-  }
+  } */
 `;
 
 const NavbarCustom = styled.div`
@@ -79,6 +79,7 @@ const NavbarCustom = styled.div`
 `;
 const UserH1 = styled.h1`
   font-weight: bold;
+  font-size: 48px;
   position: relative;
   top: 4px;
 `;

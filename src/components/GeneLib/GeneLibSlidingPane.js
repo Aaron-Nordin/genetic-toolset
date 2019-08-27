@@ -174,12 +174,16 @@ class GeneLibSlidingPane extends Component {
               <HContainerStyle1>
                 <DarkH4>{g.geneName}</DarkH4>
               </HContainerStyle1>
+              <br/>
               <ScrollBoxDesc readOnly defaultValue={g.geneDesc} />
+              <br/>
+              <br/>
               <div>
                 <ScrollBoxDNA readOnly defaultValue={g.dnaSeq} />
                 <ScrollBoxRNA readOnly defaultValue={g.rnaSeq} />
                 <ScrollBoxAA readOnly defaultValue={g.aaSeq} />
               </div>
+              <br/>
               <DarkToLightButton
                 onClick={() => this.handleSelectGeneButton(g.geneId)}
               >

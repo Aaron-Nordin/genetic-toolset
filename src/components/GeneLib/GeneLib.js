@@ -70,15 +70,15 @@ const SelGeneContainer = styled.div`
 `;
 const DNAHamburger = styled.img`
   position: relative;
-  width: 70px;
+  width: 80px;
   height: auto;
   margin-top: 4vh;
   box-shadow: 10px 10px 5px black;
   transition: 0.5s ease;
 
-  @media ${mediaQuerySize[1000]} {
+  /* @media ${mediaQuerySize[1000]} {
     width: 50px;
-  }
+  } */
 `;
 const ArrowExpand = styled.img`
   position: relative;
@@ -95,9 +95,8 @@ const LightButton = styled.button`
   background: #fafafa;
   width: 75px;
   height: 6vh;
-  /* margin-top: 10px; */
   color: #343a40;
-  font-size: 16pt;
+  font-size: 24px;
   transition: 0.5s;
   border: 2px solid #343a40;
   padding: 2px;
@@ -108,10 +107,10 @@ const LightButton = styled.button`
     color: #fafafa;
     border: 2px solid #fafafa;
   }
-  @media ${mediaQuerySize[1000]} {
+  /* @media ${mediaQuerySize[1000]} {
     width: 50px;
-    font-size: 12pt;
-  }
+    font-size: 12px;
+  } */
 `;
 
 const testAreaStyle = {

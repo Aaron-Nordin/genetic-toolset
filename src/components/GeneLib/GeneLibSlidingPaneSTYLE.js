@@ -6,15 +6,16 @@ import { mediaQuerySize } from "../../mediaQueries";
 export const DarkH4 = styled.h4`
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
+  font-size: 36px;
   color: #333;
   ::selection {
     background-color: rgba(52, 58, 64, 0.2);
     color: #343a40;
   }
 
-  @media ${mediaQuerySize[850]} {
+  /* @media ${mediaQuerySize[850]} {
     font-size: 18px;
-  }
+  } */
 `;
 
 //----------------------------------------------------------------------
@@ -80,14 +81,15 @@ export const DarkToLightButton = styled.button`
   color: #fafafa;
   transition: 0.5s;
   border: 2px solid #fafafa;
+  font-size: 24px;
   :hover {
     background: #fafafa;
     color: #343a40;
     border: 2px solid #343a40;
   }
-  @media ${mediaQuerySize[850]} {
+  /* @media ${mediaQuerySize[850]} {
     font-size: 14px;
-  }
+  } */
 `;
 
 export const InputButton = styled(DarkToLightButton)`
@@ -101,8 +103,9 @@ export const InputName = styled.input`
   border: none;
   padding: 5px;
   font-family: "Montserrat", sans-serif;
+  font-size: 30px;
   width: 39%;
-  height: 40px;
+  height: 48px;
   outline: none;
   border: 2px dotted #343a40;
   border-radius: 5px;
@@ -128,9 +131,9 @@ export const InputName = styled.input`
   ::-webkit-scrollbar-thumb:hover {
     background: #343a40;
   }
-  @media ${mediaQuerySize[850]} {
+  /* @media ${mediaQuerySize[850]} {
     font-size: 14px;
-  }
+  } */
 `;
 
 //----------------------------------------------------------------------
@@ -141,6 +144,7 @@ export const ScrollBoxDNA = styled.textarea`
   border: none;
   padding: 5px 5px;
   font-family: "Montserrat", sans-serif;
+  font-size: 24px;
   color: #333;
   width: 26.6667%;
   height: 200px;
@@ -170,9 +174,9 @@ export const ScrollBoxDNA = styled.textarea`
     color: #9f1829;
   }
 
-  @media ${mediaQuerySize[850]} {
+  /* @media ${mediaQuerySize[850]} {
     font-size: 12px;
-  }
+  } */
 `;
 export const ScrollBoxRNA = styled(ScrollBoxDNA)`
   :focus {
@@ -231,16 +235,13 @@ export const ScrollBoxDesc = styled(ScrollBoxDNA)`
     background-color: rgba(52, 58, 64, 0.2);
     color: #343a40;
   }
-
-  @media ${mediaQuerySize[850]} {
-    font-size: 14px;
-  }
 `;
 
 export const InputDNA = styled.textarea`
   border: none;
   padding: 5px;
   font-family: "Montserrat", sans-serif;
+  font-size: 24px;
   width: 39%;
   height: 200px;
   outline: none;
@@ -267,9 +268,9 @@ export const InputDNA = styled.textarea`
   ::-webkit-scrollbar-thumb:hover {
     background: #9f1829;
   }
-  @media ${mediaQuerySize[850]} {
+  /* @media ${mediaQuerySize[850]} {
     font-size: 12px;
-  }
+  } */
 `;
 export const InputRNA = styled(InputDNA)`
   border: 2px dotted #1a97ba;
@@ -304,8 +305,5 @@ export const InputDesc = styled(InputDNA)`
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #343a40;
-  }
-  @media ${mediaQuerySize[850]} {
-    font-size: 14px;
   }
 `;
