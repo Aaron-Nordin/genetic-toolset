@@ -49,19 +49,63 @@
     text-shadow: 0px 0px 10px  #fafafa; */
   }
   
-  .A {
-      fill: #2ECC40;
-  }
-  
-  .U {
-    fill: #FF4136;
-  }
-  
-  .G {
-      fill: #0074D9;
-  }
-  
-  .C {
-      fill: #FF851B
-  }
-  
+.Ala {
+  fill: #e6194B;
+}
+.Cys {
+  fill: #911eb4;
+}
+.Asp {
+  fill: #3cb44b;
+}
+.Glu {
+  fill: #000075;
+}
+.Phe {
+  fill: #ffe119;
+}
+.Gly {
+  fill: #800000;
+}
+.His {
+  fill: #4363d8;
+}
+.Ile {
+  fill: #444;
+}
+.Lys {
+  fill: #f58231;
+}
+.Leu {
+  fill: #bfef45;
+}
+.Met {
+  fill: #42d4f4;
+}
+.Asn {
+  fill: #f032e6;
+}
+.Pro {
+  fill: #469990;
+}
+.Gln {
+  fill: #9A6324;
+}
+.Arg {
+  fill: #e6beff;
+}
+.Ser {
+  fill: #808000;
+}
+.Val {
+  fill: #000000;
+}
+.Trp {
+  fill: #41717D;
+}
+.Tyr {
+  fill: #006838;
+}
+.Thr {
+  fill: #662D91;
+}

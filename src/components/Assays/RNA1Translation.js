@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import axios from "axios";
 import { codonDict } from "./AssayResources/CodonDict";
 import { setSelectedGene } from "../../ducks/reducer";
+import TLateD3 from "../d3/TLateD3";
 import {
   InputStyleRNA,
   InputContainer,
@@ -138,6 +139,7 @@ class RNA1Translation extends Component {
                 Cancel
               </InputButtonStyle1>
             </ButtonContainer>
+            <TLateD3/>
           </>
         ) : null}
       </div>

@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
-import "./TScriptD3.css";
+import {
+  aaThreeLetterAbbrev,
+  aaOneToThreeAbbrev
+} from "../Assays/AssayResources/CodonDict";
+import "./TLateD3.css";
 
 export default class Transcription2Array extends Component {
   componentDidMount() {
@@ -17,7 +21,7 @@ export default class Transcription2Array extends Component {
     for (let i = 0; i < arr.length; i++) {
       let obj = {};
       obj.index = i + 1;
-      obj.base = arr[i];
+      obj.aa = arr[i];
       data.push(obj);
     }
     return data;
@@ -25,7 +29,7 @@ export default class Transcription2Array extends Component {
 
   transcribe = () => {
     var node = d3.select(this.node),
-      margin = { top: 20, right: 20, bottom: 110, left: 40 },
+      margin = { top: 30, right: 30, bottom: 110, left: 60 },
       margin2 = { top: 430, right: 20, bottom: 30, left: 40 },
       width = +node.attr("width") - margin.left - margin.right,
       height = +node.attr("height") - margin.top - margin.bottom,
@@ -116,7 +120,7 @@ export default class Transcription2Array extends Component {
         return d.index;
       })
     );
-    y.domain(["A", "U", "G", "C"].reverse());
+    y.domain(aaThreeLetterAbbrev.sort().reverse());
     x2.domain(x.domain());
     y2.domain(y.domain());
 
@@ -140,7 +144,7 @@ export default class Transcription2Array extends Component {
     //       return x(d.index);
     //     })
     //     .attr("cy", function(d) {
-    //       return y(d.base);
+    //       return y(d.aa);
     //     })
     //     .attr("r", 3);
     // }
@@ -149,15 +153,20 @@ export default class Transcription2Array extends Component {
       .data(data)
       .enter()
       .append("rect")
-      .attr("class", d => "bar " + d.base)
+      .attr("class", function(d) {
+        let aa = aaOneToThreeAbbrev[d.aa];
+        return "bar " + aa;
+      })
       .attr("x", function(d) {
         return x(d.index) - rectX / 2;
       })
       .attr("y", function(d) {
-        return y(d.base);
+        let aa = aaOneToThreeAbbrev[d.aa];
+        return y(aa);
       })
       .attr("width", rectX)
       .attr("height", rectY);
+    // console.log(data);
 
     focus
       .append("g")
@@ -181,15 +190,19 @@ export default class Transcription2Array extends Component {
       .data(data)
       .enter()
       .append("rect")
-      .attr("class", d => "bar " + d.base)
+      .attr("class", function(d) {
+        let aa = aaOneToThreeAbbrev[d.aa];
+        return "bar " + aa;
+      })
       .attr("x", function(d) {
         return x2(d.index);
       })
       .attr("y", function(d) {
-        return y2(d.base);
+        let aa = aaOneToThreeAbbrev[d.aa];
+        return y2(aa);
       })
-      .attr("width", 8)
-      .attr("height", 6);
+      .attr("width", 2)
+      .attr("height", 1);
 
     context
       .append("g")
@@ -222,7 +235,8 @@ export default class Transcription2Array extends Component {
           return x(d.index) - changeInPixels / 2;
         })
         .attr("y", function(d) {
-          return y(d.base);
+          let aa = aaOneToThreeAbbrev[d.aa];
+          return y(aa);
         })
         .attr("width", changeInPixels)
         .attr("height", rectY);
