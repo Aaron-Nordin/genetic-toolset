@@ -23,7 +23,14 @@ const NameButton = styled.div`
   margin-top: 1vh;
   margin-bottom: 1vh;
 `;
-const InstructionsIconImg = styled.img``;
+const InstructionsIconImg = styled.img`
+  width: 51px;
+  height: auto;
+  padding-right: 5px;
+  /* padding-top: 10px; */
+  position: relative;
+  top: 3px;
+`;
 const LogoutButton = styled.button`
   position: relative;
   top: 5px;
@@ -113,17 +120,24 @@ class Nav extends Component {
     return (
       <div ref={this.navRef} style={{ display: "flex" }}>
         <NavbarCustom id="NavbarCustom">
-          {/* <Navbar.Brand></Navbar.Brand> */}
           <NameButton>
             <Welcome>
               <H3>LOGGED IN AS:</H3>
               <UserH1>{this.props.username}</UserH1>
             </Welcome>
-            <LogoutButton onClick={this.logout}>LOGOUT</LogoutButton>
-            {/* <InstructionsIconImg
-              src="/static/InstructionIcon.png"
-              alt="instructions"
-            /> */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "flex-end",
+                justifyContent: "center"
+              }}
+            >
+              <InstructionsIconImg
+                src="/static/InstructionIcon.png"
+                alt="instructions"
+              />
+              <LogoutButton onClick={this.logout}>LOGOUT</LogoutButton>
+            </div>
           </NameButton>
         </NavbarCustom>
       </div>
