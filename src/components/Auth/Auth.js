@@ -5,6 +5,7 @@ import { Element, scroller } from "react-scroll";
 import styled from "styled-components";
 import Registration from "../Registration/Registration";
 import GeneLib from "../GeneLib/GeneLib";
+import CircleWave from "../d3/CircleWave";
 import Nav from "../Nav/Nav";
 // import ActiveBackground from "./ActiveBackground";
 import "./Auth.css";
@@ -33,13 +34,18 @@ class Auth extends Component {
     password: "",
     mouseMove: false,
     mouseTriggered: false,
-    showDiv: false
+    showDiv: false,
+    contHeight: null,
+    contWidth: null
   };
 
   containerRef = React.createRef();
 
   componentDidMount() {
     this.props.updateBannerHeight(this.containerRef.current.clientHeight);
+    let height = window.innerHeight;
+    let width = window.innerWidth;
+    this.setState({ contHeight: height, contWidth: width });
   }
 
   handleChange(e) {
@@ -74,7 +80,7 @@ class Auth extends Component {
   };
 
   handleRegButton = () => {
-    this.props.showRegisterCompFn(true)
+    this.props.showRegisterCompFn(true);
     scroller.scrollTo("scroll-to-register", {
       duration: 500,
       delay: 150,
@@ -111,6 +117,7 @@ class Auth extends Component {
       <MainContainer className="auth-component">
         <div
           className="homepage"
+          id="homepage"
           ref={this.containerRef}
           style={{
             maxWidth: "100vw",
@@ -120,21 +127,13 @@ class Auth extends Component {
             overflowY: "hidden"
           }}
         >
-          {/* <ActiveBackground  onMouseMove={e => this.handleMouseMove(e)}/> */}
-          {/* <div style={{
-              position: "relative",
-              width: "100%",
-              height: "100vh",
-              margin: 0,
-              pading: 0,
-              overflowX: "hidden",
-              border: "2px solid green",
-              zIndex: 2
-            }}
->
-
-          </div> */}
-          <video
+          <div style={{}} onMouseOver={} >
+            <CircleWave
+              height={this.state.contHeight}
+              width={this.state.contWidth}
+            />
+          </div>
+          {/* <video
             onMouseMove={e => this.handleMouseMove(e)}
             autoPlay
             muted
@@ -148,7 +147,7 @@ class Auth extends Component {
             }}
           >
             <source src="/static/DNA.mp4" type="video/mp4" />
-          </video>
+          </video> */}
           {(!this.props.userId && this.state.mouseMove) ||
           (!this.props.userId && this.state.showDiv) ? (
             <LoginFormContainer
