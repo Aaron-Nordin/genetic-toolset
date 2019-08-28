@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import Swal from "sweetalert2";
 import { logoutUser, updateNavHeight } from "../../ducks/reducer";
 import { mediaQuerySize } from "../../mediaQueries";
 
@@ -82,9 +83,7 @@ const H3 = styled.h3`
 `;
 const Welcome = styled.div`
   display: flex;
-  /* justify-content:center; */
   align-items: flex-end;
-  /* align-content: center; */
 `;
 
 // const navStyle = {
@@ -116,6 +115,16 @@ class Nav extends Component {
     this.props.updateNavHeight(this.navRef.current.clientHeight);
   }
 
+  handleInstructionsClick = () => {
+    Swal.fire({
+      type: "info",
+      title: "Let's Get Started...",
+      text:
+        "Click the Gene Library button on the right toolbar. Then click the Add Gene button and complete the form. Next select any gene from your library and close the library panel. Three new buttons will now appear on the right toolbar - clicking one will copy the corresponding sequence to your clipboard. Finally, select a test from the left panel, paste your sequence, and click submit to see the results.",
+      footer: "Thank you for using Gene Toolkit!"
+    });
+  };
+
   render() {
     return (
       <div ref={this.navRef} style={{ display: "flex" }}>
@@ -135,6 +144,7 @@ class Nav extends Component {
               <InstructionsIconImg
                 src="/static/InstructionIcon.png"
                 alt="instructions"
+                onClick={this.handleInstructionsClick}
               />
               <LogoutButton onClick={this.logout}>LOGOUT</LogoutButton>
             </div>

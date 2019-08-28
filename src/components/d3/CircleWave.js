@@ -41,6 +41,15 @@ export default class CircleWave extends Component {
       .attr("stroke", function(d) {
         return d;
       })
+      .attr("class", function(d) {
+        return d;
+      })
+
+      // .append("path")
+      // .attr("fill", "none")
+      // .attr("stroke-width", 10)
+      
+
     //   .style("mix-blend-mode", "darken")
       .datum(function(d, i) {
         return d3

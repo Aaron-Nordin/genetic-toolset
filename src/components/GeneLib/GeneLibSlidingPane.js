@@ -6,7 +6,7 @@ import { setSelectedGene } from "../../ducks/reducer";
 import fastaParser from "fasta-js";
 import {
   DarkToLightButton,
-  DarkToLightInput,
+  // DarkToLightInput,
   ScrollBoxDNA,
   ScrollBoxRNA,
   ScrollBoxAA,
