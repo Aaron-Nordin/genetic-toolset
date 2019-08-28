@@ -18,30 +18,31 @@ export default class CircleWave extends Component {
       height = +node.attr("height"),
       angles = d3.range(0, 2 * Math.PI, Math.PI / 200);
 
-    node
-      .select("rect")
-      .append("rect")
-      .attr("width", "100%")
-      .attr("height", "100%")
-      .attr("fill", "black")
-      .attr("zIndex", 0);
+    // node
+    //   .select("rect")
+    //   .append("rect")
+    //   .attr("width", "100%")
+    //   .attr("height", "100%")
+    //   .style("fill", "#444")
+    //   .attr("fill", "black")
+    //   .attr("zIndex", 0);
 
     var path = node
       .append("g")
-      .attr("zIndex", 1)
+    //   .attr("zIndex", 1)
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
       .attr("fill", "none")
       .attr("stroke-width", 10)
       .attr("stroke-linejoin", "round")
 
       .selectAll("path")
-      .data(["cyan", "magenta", "yellow"])
+      .data(["#03fffb", "#FFF700"])
       .enter()
       .append("path")
       .attr("stroke", function(d) {
         return d;
       })
-      .style("mix-blend-mode", "darken")
+    //   .style("mix-blend-mode", "darken")
       .datum(function(d, i) {
         return d3
           .radialLine()
@@ -53,7 +54,7 @@ export default class CircleWave extends Component {
             var t = d3.now() / 1000;
             return (
               400 +
-              Math.cos(a * 8 - (i * 2 * Math.PI) / 3 + t) *
+              Math.cos(a * 8 - (i * 2 * Math.PI) / 2 + t) *
                 Math.pow((1 + Math.cos(a - t)) / 2, 3) *
                 32
             );
@@ -72,7 +73,7 @@ export default class CircleWave extends Component {
         <svg
           id="circle-wave"
           ref={node => (this.node = node)}
-          style={{ background: "#fafafa", border: "2px solid #444" }}
+          style={{ border: "2px solid #444", backgroundColor: "black" }}
           // width={960}
           // height={500}
           width={this.props.width}

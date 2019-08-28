@@ -123,11 +123,10 @@ class Auth extends Component {
             maxWidth: "100vw",
             height: "100vh",
             width: "100%",
-            backgroundColor: "black",
             overflowY: "hidden"
           }}
         >
-          <div style={{}} onMouseOver={} >
+          <div style={{}} >
             <CircleWave
               height={this.state.contHeight}
               width={this.state.contWidth}
