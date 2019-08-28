@@ -139,6 +139,29 @@ export const InputName = styled.input`
   } */
 `;
 
+export const DarkToLightInput = styled.input`
+  width: 15vw;
+  height: 2em;
+  margin-top: 10px;
+  background: #343a40;
+  color: #fafafa;
+  transition: 0.5s;
+  border: 2px solid #fafafa;
+  font-size: 24px;
+  ::-webkit-file-upload-button{ visibility: hidden; }
+  :hover::before {
+    background: #fafafa;
+    color: #343a40;
+    border: 2px solid #343a40;
+  }
+  :focus {
+    outline: none;
+  }
+  /* @media ${mediaQuerySize[850]} {
+    font-size: 14px;
+  } */
+`;
+
 //----------------------------------------------------------------------
 
 //----------------------------TEXTAREAS---------------------------------

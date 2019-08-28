@@ -114,7 +114,7 @@ class Auth extends Component {
   // };
 
   handleShowLoginClick = () => {
-    const LoginDiv = document.getElementById("auth-homepage-pop-in")
+    const LoginDiv = document.getElementById("auth-homepage-pop-in");
     if (LoginDiv.classList.contains("hidden")) {
       LoginDiv.classList.remove("hidden");
     } else {
@@ -133,7 +133,8 @@ class Auth extends Component {
             maxWidth: "100vw",
             height: "100vh",
             width: "100%",
-            overflowY: "hidden"
+            overflowY: "hidden",
+            overflowX: "hidden"
           }}
         >
           <div onClick={this.handleShowLoginClick}>
@@ -159,10 +160,7 @@ class Auth extends Component {
           </video> */}
           {/* {(!this.props.userId && this.state.mouseMove) ||
           (!this.props.userId && this.state.showDiv)  */}
-          <div
-            className="auth-homepage hidden"
-            id="auth-homepage-pop-in"
-          >
+          <div className="auth-homepage hidden" id="auth-homepage-pop-in">
             <LoginForm
               onSubmit={e => e.preventDefault()}
               // onMouseEnter={e => this.handleMouseEnter(e)}

@@ -3,8 +3,10 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { connect } from "react-redux";
 import { setSelectedGene } from "../../ducks/reducer";
+import fastaParser from "fasta-js";
 import {
   DarkToLightButton,
+  DarkToLightInput,
   ScrollBoxDNA,
   ScrollBoxRNA,
   ScrollBoxAA,
@@ -25,6 +27,7 @@ class GeneLibSlidingPane extends Component {
     super();
     this.state = {
       genes: [],
+      fasta: null,
       addGene: false,
       selectedGeneId: null,
       userId: null,
@@ -116,6 +119,15 @@ class GeneLibSlidingPane extends Component {
     });
   };
 
+  handleUpload = e => {
+    e.stopPropagation();
+    e.preventDefault();
+    var file = e.target.files[0];
+    let fasta = new fastaParser()
+
+    console.log(fasta.parse(file));
+  };
+
   render() {
     return (
       <div>
@@ -128,6 +140,15 @@ class GeneLibSlidingPane extends Component {
         <br />
         {!this.state.addGene ? null : (
           <AddGeneContainer>
+            <DarkToLightButton
+              type="file"
+              name="fasta"
+              id="fasta"
+              accept=".fasta"
+              onChange={this.handleUpload.bind(this)}
+            > Upload FASTA File</DarkToLightButton>
+            <br />
+            <br />
             <h4>
               <InputName
                 type="text"

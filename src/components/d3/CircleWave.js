@@ -72,7 +72,7 @@ export default class CircleWave extends Component {
         <svg
           id="circle-wave"
           ref={node => (this.node = node)}
-          style={{ border: "2px solid #444", backgroundColor: "black" }}
+          style={{ backgroundColor: "black" }}
           width={this.props.width}
           height={this.props.height}
         ></svg>

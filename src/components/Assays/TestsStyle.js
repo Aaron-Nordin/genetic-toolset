@@ -151,7 +151,7 @@ export const InputStyleDNA = styled.textarea`
   width: 60vw;
   height: 20vh;
   font-family: "Montserrat", sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   outline: none;
   overflow-y: scroll;
   :focus {
@@ -254,7 +254,7 @@ export const TestDNA1Output = styled.textarea`
   width: 60vw;
   height: 20vh;
   font-family: "Montserrat", sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   color: black;
   outline: none;
   background-color: #fafafa;
@@ -285,10 +285,12 @@ export const TestOutputAA = styled.textarea`
   width: 60vw;
   height: 20vh;
   font-family: "Montserrat", sans-serif;
+  font-size: 20px;
   color: black;
   outline: none;
   background-color: #fafafa;
   overflow-y: scroll;
+  overflow-x: hidden;
   :focus {
     border: 2px solid #64ad37;
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);

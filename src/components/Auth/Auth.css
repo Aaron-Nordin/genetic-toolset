@@ -6,12 +6,6 @@
   transition: 1s;
 }
 
-/* .hide {
-    position: relative;
-    height: 0;
-    overflow: hidden;
-} */
-
 .hidden-a-tag a {
     display: none;
     visibility: hidden;

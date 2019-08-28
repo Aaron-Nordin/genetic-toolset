@@ -76,7 +76,7 @@ export default class RNATests extends Component {
                   offset={0}
                   duration={500}
                 >
-                  RNA Test 3
+                  {"Start & Stop Codon Identification"}
                 </Link>
               </Item>
             </SubListItem>
