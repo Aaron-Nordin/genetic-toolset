@@ -62,7 +62,6 @@ export const LoginFormContainer = styled.div`
   align-content: center;
   position: absolute;
   bottom: 30%;
-  /* border: 2px solid yellow; */
   width: 100%;
   height: 45%;
   z-index: 3;

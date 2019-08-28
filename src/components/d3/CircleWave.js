@@ -29,7 +29,6 @@ export default class CircleWave extends Component {
 
     var path = node
       .append("g")
-    //   .attr("zIndex", 1)
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
       .attr("fill", "none")
       .attr("stroke-width", 10)
@@ -74,8 +73,6 @@ export default class CircleWave extends Component {
           id="circle-wave"
           ref={node => (this.node = node)}
           style={{ border: "2px solid #444", backgroundColor: "black" }}
-          // width={960}
-          // height={500}
           width={this.props.width}
           height={this.props.height}
         ></svg>
@@ -83,24 +80,3 @@ export default class CircleWave extends Component {
     );
   }
 }
-
-// import React from "react";
-// import "./App.css";
-// import CircleWave from "./d3/CircleWave";
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <div>
-//           <CircleWave
-//             // data={[5, 10, 1, 3, 9, 6, 2, 3, 4, 5, 6, 7]}
-//             // size={[300, 300]}
-//           />
-//         </div>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;

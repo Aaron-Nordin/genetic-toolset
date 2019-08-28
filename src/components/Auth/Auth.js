@@ -7,7 +7,6 @@ import Registration from "../Registration/Registration";
 import GeneLib from "../GeneLib/GeneLib";
 import CircleWave from "../d3/CircleWave";
 import Nav from "../Nav/Nav";
-// import ActiveBackground from "./ActiveBackground";
 import "./Auth.css";
 import {
   showRegisterCompFn,
@@ -20,7 +19,7 @@ import {
   DarkToLightButton,
   Input,
   LoginForm,
-  LoginFormContainer,
+  // LoginFormContainer,
   TitleH2
 } from "./AuthSTYLE.js";
 
@@ -35,8 +34,10 @@ class Auth extends Component {
     mouseMove: false,
     mouseTriggered: false,
     showDiv: false,
+    showLogin: false,
     contHeight: null,
-    contWidth: null
+    contWidth: null,
+    loginDisplay: "none"
   };
 
   containerRef = React.createRef();
@@ -89,27 +90,36 @@ class Auth extends Component {
     });
   };
 
-  handleMouseMove = e => {
-    this.setState({ mouseMove: true });
-    // let lastEvent = e;
-    if (!this.state.mouseTriggered) {
-      this.setState({ mouseTriggered: true });
-      setTimeout(() => {
-        this.setState({ mouseTriggered: false, mouseMove: false });
-      }, 1500);
+  // handleMouseMove = e => {
+  //   this.setState({ mouseMove: true });
+  //   // let lastEvent = e;
+  //   if (!this.state.mouseTriggered) {
+  //     this.setState({ mouseTriggered: true });
+  //     setTimeout(() => {
+  //       this.setState({ mouseTriggered: false, mouseMove: false });
+  //     }, 1500);
+  //   }
+  // };
+
+  // handleMouseEnter = e => {
+  //   // let eventClone = Object.assign({}, e);
+  //   // this.setState({ mouseMove: true, mouseTriggered: true });
+  //   this.setState({ showDiv: true });
+  // };
+
+  // handleMouseLeave = e => {
+  //   setTimeout(() => {
+  //     this.setState({ showDiv: false });
+  //   }, 1500);
+  // };
+
+  handleShowLoginClick = () => {
+    const LoginDiv = document.getElementById("auth-homepage-pop-in")
+    if (LoginDiv.classList.contains("hidden")) {
+      LoginDiv.classList.remove("hidden");
+    } else {
+      LoginDiv.classList.add("hidden");
     }
-  };
-
-  handleMouseEnter = e => {
-    // let eventClone = Object.assign({}, e);
-    // this.setState({ mouseMove: true, mouseTriggered: true });
-    this.setState({ showDiv: true });
-  };
-
-  handleMouseLeave = e => {
-    setTimeout(() => {
-      this.setState({ showDiv: false });
-    }, 1500);
   };
 
   render() {
@@ -126,7 +136,7 @@ class Auth extends Component {
             overflowY: "hidden"
           }}
         >
-          <div style={{}} >
+          <div onClick={this.handleShowLoginClick}>
             <CircleWave
               height={this.state.contHeight}
               width={this.state.contWidth}
@@ -147,43 +157,39 @@ class Auth extends Component {
           >
             <source src="/static/DNA.mp4" type="video/mp4" />
           </video> */}
-          {(!this.props.userId && this.state.mouseMove) ||
-          (!this.props.userId && this.state.showDiv) ? (
-            <LoginFormContainer
-              className="auth-homepage"
-              id="auth-homepage-pop-in"
-              transition={props => props.transition}
+          {/* {(!this.props.userId && this.state.mouseMove) ||
+          (!this.props.userId && this.state.showDiv)  */}
+          <div
+            className="auth-homepage hidden"
+            id="auth-homepage-pop-in"
+          >
+            <LoginForm
+              onSubmit={e => e.preventDefault()}
+              // onMouseEnter={e => this.handleMouseEnter(e)}
+              // onMouseLeave={e => this.handleMouseLeave(e)}
             >
-              <LoginForm
-                onSubmit={e => e.preventDefault()}
-                onMouseEnter={e => this.handleMouseEnter(e)}
-                onMouseLeave={e => this.handleMouseLeave(e)}
-              >
-                <TitleH2>GENE TOOLKIT</TitleH2>
-                <Input
-                  type="text"
-                  name="username"
-                  autoComplete="off"
-                  placeholder="Username"
-                  onChange={e => this.handleChange(e)}
-                />
-                <Input
-                  type="password"
-                  name="password"
-                  autoComplete="off"
-                  placeholder="Password"
-                  onChange={e => this.handleChange(e)}
-                />
-                <DarkToLightButton onClick={this.login}>
-                  Login
-                </DarkToLightButton>
-                <DarkToLightButton onClick={this.handleRegButton}>
-                  Register
-                </DarkToLightButton>
-                <AboutH5>about</AboutH5>
-              </LoginForm>
-            </LoginFormContainer>
-          ) : null}
+              <TitleH2>GENE TOOLKIT</TitleH2>
+              <Input
+                type="text"
+                name="username"
+                autoComplete="off"
+                placeholder="Username"
+                onChange={e => this.handleChange(e)}
+              />
+              <Input
+                type="password"
+                name="password"
+                autoComplete="off"
+                placeholder="Password"
+                onChange={e => this.handleChange(e)}
+              />
+              <DarkToLightButton onClick={this.login}>Login</DarkToLightButton>
+              <DarkToLightButton onClick={this.handleRegButton}>
+                Register
+              </DarkToLightButton>
+              <AboutH5>about</AboutH5>
+            </LoginForm>
+          </div>
         </div>
         <div className="registration-component">
           {this.props.showRegisterComp ? (
